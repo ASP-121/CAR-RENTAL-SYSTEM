@@ -1,0 +1,12 @@
+#spring.application.name=carrentalsystem
+
+spring:
+  application:
+    name: carrentalsystem
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: CarRentalDB
+
