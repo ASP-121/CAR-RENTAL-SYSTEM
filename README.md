@@ -12,6 +12,7 @@ Spring Boot for backend REST APIs
 MongoDB for data storage
 Streamlit for frontend UI
 JSON for data exchange between frontend and backend
+
 🎯 Objectives
 Provide an online platform for car rentals.
 Allow users to browse available cars.
@@ -20,6 +21,7 @@ Demonstrate REST API integration using Spring Boot.
 Demonstrate JSON parsing and data exchange.
 Store and manage rental data using MongoDB.
 Track rental history and statistics.
+
 🛠️ Technology Stack
 Component	Technology
 Frontend	Streamlit (Python)
@@ -30,7 +32,9 @@ Data Format	JSON
 Build Tool	Maven
 IDE	IntelliJ IDEA / VS Code
 Database Client	MongoDB Compass / Mongosh
+
 📂 Project Structure
+
 CarRentalSystem
 │
 ├── Backend (Spring Boot)
@@ -52,6 +56,7 @@ CarRentalSystem
 │   └── app.py
 │
 └── MongoDB
+
 🚘 Features
 1. View Cars
 Display all available cars.
@@ -77,6 +82,7 @@ Last Booking Date
 Required field validation.
 Date validation.
 Booking conflict detection (future enhancement).
+
 🗄️ Database Design
 CarDetail Collection
 {
@@ -102,6 +108,7 @@ OrderDetail Collection
   "carUser": "John",
   "isBooked": true
 }
+
 🔄 System Architecture
 +------------+
 |  Streamlit |
@@ -147,6 +154,7 @@ Get Booking By ID
 GET /api/booking/order/{id}
 Get Rental History
 GET /api/booking/history/{carName}
+
 📊 JSON Parsing
 
 The application uses JSON as the communication format between frontend and backend.
@@ -195,18 +203,6 @@ Admin Dashboard
 Booking Cancellation
 Email Notifications
 Cloud Deployment (AWS/Azure)
-🎓 Academic Relevance
-
-This project demonstrates:
-
-Object-Oriented Programming Concepts
-REST API Development
-JSON Parsing
-MongoDB Database Operations
-Spring Boot Framework
-Full Stack Application Development
-CRUD Operations
-Database Design and Data Management
 
 📚 References
 Spring Boot Documentation
