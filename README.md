@@ -43,8 +43,9 @@ Database Client	MongoDB Compass / Mongosh
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
+```text
 Smart-Car-Rental-System
 │
 ├── backend
@@ -70,17 +71,15 @@ Smart-Car-Rental-System
 │   └── app.py
 │
 ├── database
-│   └── MongoDB Collections
-│       ├── CarDetail
-│       └── OrderDetail
+│   ├── CarDetail
+│   └── OrderDetail
 │
 ├── resources
 │   └── application.properties
 │
 ├── pom.xml
-│
 └── README.md
-
+```
 ---
 
 ## 🚘 Features
@@ -113,7 +112,7 @@ Booking conflict detection (future enhancement).
 ---
 
 ## 🗄️ Database Design
-
+```text
 CarDetail Collection
 {
   "_id": "1",
@@ -138,11 +137,11 @@ OrderDetail Collection
   "carUser": "John",
   "isBooked": true
 }
-
+```
 ---
 
 ## 🔄 System Architecture
-
+```text
 +------------+
 |  Streamlit |
 | Frontend   |
@@ -178,6 +177,7 @@ Request Body:
   "type": "SUV",
   "seats": 7
 }
+```
 Booking APIs
 Book Car
 POST /api/booking/car
@@ -195,7 +195,7 @@ GET /api/booking/history/{carName}
 The application uses JSON as the communication format between frontend and backend.
 
 Example:
-
+```text
 {
   "carName": "City",
   "carCompany": "Honda",
@@ -203,7 +203,7 @@ Example:
   "carUser": "Adam",
   "pickupLocation": "Mumbai"
 }
-
+```
 Spring Boot automatically converts JSON into Java objects using:
 
 @RequestBody
