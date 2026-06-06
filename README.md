@@ -1,8 +1,10 @@
-🚗 Smart Car Rental System
+# 🚗 Smart Car Rental System
 
 A full-stack Car Rental Management System developed using Spring Boot, MongoDB, and Streamlit. The application allows users to browse available cars, add new cars, book rentals, view bookings, and analyze rental history through an intuitive web interface.
 
-📌 Project Overview
+---
+
+## 📌 Project Overview
 
 Traditional car rental systems often require customers to visit rental offices physically and complete manual booking procedures. This project digitizes the entire process by providing an online platform for managing car rentals.
 
@@ -13,7 +15,10 @@ MongoDB for data storage
 Streamlit for frontend UI
 JSON for data exchange between frontend and backend
 
-🎯 Objectives
+---
+
+## 🎯 Objectives
+
 Provide an online platform for car rentals.
 Allow users to browse available cars.
 Enable car booking and reservation management.
@@ -22,7 +27,10 @@ Demonstrate JSON parsing and data exchange.
 Store and manage rental data using MongoDB.
 Track rental history and statistics.
 
-🛠️ Technology Stack
+---
+
+## 🛠️ Technology Stack
+
 Component	Technology
 Frontend	Streamlit (Python)
 Backend	Spring Boot (Java)
@@ -33,11 +41,13 @@ Build Tool	Maven
 IDE	IntelliJ IDEA / VS Code
 Database Client	MongoDB Compass / Mongosh
 
-📂 Project Structure
+---
 
-CarRentalSystem
+## 📂 Project Structure
+
+Smart-Car-Rental-System
 │
-├── Backend (Spring Boot)
+├── backend
 │   ├── controller
 │   │   ├── CarRentalController.java
 │   │   └── OrderController.java
@@ -50,14 +60,31 @@ CarRentalSystem
 │   │   ├── CarDetail.java
 │   │   └── OrderDetail.java
 │   │
-│   └── repository
+│   ├── repository
+│   │   ├── CarDetailRepository.java
+│   │   └── OrderDetailRepository.java
+│   │
+│   └── CarRentalSystemApplication.java
 │
-├── Frontend (Streamlit)
+├── frontend
 │   └── app.py
 │
-└── MongoDB
+├── database
+│   └── MongoDB Collections
+│       ├── CarDetail
+│       └── OrderDetail
+│
+├── resources
+│   └── application.properties
+│
+├── pom.xml
+│
+└── README.md
 
-🚘 Features
+---
+
+## 🚘 Features
+
 1. View Cars
 Display all available cars.
 Show company, model, type, rating, seating capacity, and rental price.
@@ -83,7 +110,10 @@ Required field validation.
 Date validation.
 Booking conflict detection (future enhancement).
 
-🗄️ Database Design
+---
+
+## 🗄️ Database Design
+
 CarDetail Collection
 {
   "_id": "1",
@@ -109,7 +139,10 @@ OrderDetail Collection
   "isBooked": true
 }
 
-🔄 System Architecture
+---
+
+## 🔄 System Architecture
+
 +------------+
 |  Streamlit |
 | Frontend   |
@@ -155,7 +188,9 @@ GET /api/booking/order/{id}
 Get Rental History
 GET /api/booking/history/{carName}
 
-📊 JSON Parsing
+---
+
+## 📊 JSON Parsing
 
 The application uses JSON as the communication format between frontend and backend.
 
@@ -175,7 +210,10 @@ Spring Boot automatically converts JSON into Java objects using:
 
 and converts Java objects back into JSON responses.
 
-▶️ How to Run
+---
+
+## ▶️ How to Run
+
 Step 1: Start MongoDB
 mongod
 
@@ -194,7 +232,10 @@ Frontend runs on:
 
 http://localhost:8501
 
-📈 Future Enhancements
+---
+
+## 📈 Future Enhancements
+
 User Authentication & Authorization
 Payment Gateway Integration
 Booking Availability Validation
@@ -204,9 +245,14 @@ Booking Cancellation
 Email Notifications
 Cloud Deployment (AWS/Azure)
 
-📚 References
+---
+
+## 📚 References
+
 Spring Boot Documentation
 MongoDB Documentation
 Streamlit Documentation
 REST API Tutorial
 DBMS and OOPJ Course Materials
+
+---
