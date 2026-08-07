@@ -19,6 +19,7 @@ public class OrderController {
     public List<OrderDetail> getHistory(@PathVariable String carName){
         return orderService.getHistory(carName);
     }
+
     @PostMapping("/car")
     public void bookCar(@RequestBody OrderDetail booking){
         orderService.postOrderDetail(booking);
