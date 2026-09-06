@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"tertiary":"#006947","inverse-on-surface":"#eff0ff","surface-container-low":"#f3f3ff","on-error":"#ffffff","surface-container-high":"#e3e7ff","primary-fixed-dim":"#93ccff","surface":"#faf8ff","inverse-surface":"#282f49","secondary-fixed-dim":"#bdc5e9","on-secondary":"#ffffff","on-error-container":"#93000a","surface-tint":"#006398","on-primary-fixed-variant":"#004b73","primary-fixed":"#cce5ff","on-primary-container":"#fdfcff","primary":"#006194","secondary-container":"#d0d9fd","on-tertiary-container":"#f5fff6","error-container":"#ffdad6","on-background":"#131a33","inverse-primary":"#93ccff","on-surface-variant":"#3f4850","tertiary-fixed-dim":"#4edea3","primary-container":"#007bb9","on-secondary-fixed-variant":"#3d4664","surface-dim":"#d2d9fa","on-primary-fixed":"#001d31","secondary-fixed":"#dbe1ff","surface-container-lowest":"#ffffff","outline-variant":"#bfc7d2","outline":"#707881","on-secondary-container":"#555e7d","tertiary-fixed":"#6ffbbe","on-tertiary-fixed":"#002113","on-secondary-fixed":"#111a36","surface-variant":"#dbe1ff","on-tertiary":"#ffffff","on-tertiary-fixed-variant":"#005236","on-surface":"#131a33","error":"#ba1a1a","background":"#faf8ff","surface-bright":"#faf8ff","on-primary":"#ffffff","surface-container-highest":"#dbe1ff","surface-container":"#ebedff","secondary":"#545d7c","tertiary-container":"#00855b"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-2xl":"3rem","space-xs":"0.5rem","gutter-mobile":"1rem","container-max":"80rem","space-2xs":"0.25rem","space-xl":"2rem","space-3xl":"4rem","space-sm":"0.75rem","space-md":"1rem","space-lg":"1.5rem","gutter-tablet":"1.5rem","gutter-desktop":"2rem"},"fontFamily":{"body-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-mono":["JetBrains Mono"],"headline-xl":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-xl-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-inverse-surface border-b border-outline-variant/20"><div class="h-20 max-w-container-max mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-on-primary text-[22px]">directions_car</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-inverse-on-surface leading-none">DriveEase</span><span class="font-label-mono text-label-mono text-secondary-fixed-dim uppercase tracking-widest">Mobility</span></div></a><nav class="hidden lg:flex items-center gap-space-xs p-space-2xs bg-on-background/20 rounded-xl" data-active-classes="bg-secondary/40 text-inverse-on-surface font-label-lg rounded-lg"><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-secondary/40 text-inverse-on-surface font-label-lg rounded-lg" data-path="cars-fleet" href="#">Cars</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="rental-history" href="#">Rental History</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="admin-dashboard" href="#">Admin</a></nav></div><div class="flex items-center gap-space-md"><a class="hidden sm:flex items-center justify-center px-space-lg py-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors" data-path="cars-fleet" href="#">Book a Car</a><div class="flex items-center gap-space-sm pl-space-xs border-l border-outline-variant/30"><button aria-label="Notifications" class="w-10 h-10 rounded-lg flex items-center justify-center text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/20 transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><a aria-label="User Profile" class="group flex items-center gap-space-xs p-space-2xs rounded-full hover:bg-secondary/20 transition-colors" data-path="user-profile" href="#"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></a></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Background Graphic -->
+<div class="relative w-full max-w-container-max mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop pt-space-xl pb-space-3xl">
+<!-- Breadcrumb & Top Utility Strip -->
+<nav aria-label="Breadcrumb" class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg">
+<ol class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<li>
+<a class="hover:text-primary transition-colors flex items-center gap-space-2xs" data-path="home" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Home</span>
+</a>
+</li>
+<li class="flex items-center text-outline-variant">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</li>
+<li>
+<a class="hover:text-primary transition-colors" data-path="cars-fleet" href="#">Browse Cars</a>
+</li>
+<li class="flex items-center text-outline-variant">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</li>
+<li class="font-label-md text-label-md text-on-surface font-semibold truncate max-w-[200px] sm:max-w-none">
+          Tesla Model S Plaid
+        </li>
+</ol>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider bg-surface-container px-space-sm py-space-2xs rounded-full">
+          VIN: 5YJSA1E28PF••••••
+        </span>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span class="hidden sm:inline">Share</span>
+</button>
+</div>
+</nav>
+<!-- Top Showcase Layout (Asymmetric 12-col desktop) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start mb-space-3xl">
+<!-- Left Column: Gallery & Viewports (7 Columns) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Main Car Stage -->
+<div class="relative w-full aspect-[16/10] bg-surface-container-low rounded-xl overflow-hidden shadow-md group">
+<img alt="Tesla Model S Plaid Exterior Profile" class="w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-[1.02]" data-alt="Studio automotive portrait of an immaculate glossy stealth grey 2024 Tesla Model S Plaid in dramatic three-quarter profile. High key cinematic studio lighting with pristine reflections across aerodynamic curves, 21 inch arachnid wheels, carbon fiber trunk spoiler, slate navy ambient backdrop with ultra-crisp hyper-realistic automotive details." id="mainVehicleImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHvHt1dKkijnkTeiPW12Z7l0YwIW3Hzl_J-PVZWAA9JAlMa7O-UUcgfvzc6I_BO2ECmsVmO2ZTExgUA5ZFD_Wici2Wz-cdtCa2jvYXb8ejBo3jCROxWcz858x3FLcyy5HoI1xMMD1mt5-bwo_oVVIGwJ_1SNVXnUa3eZV-EgZ-R1dnYb4WzDcne3ubmcnkHu_9RwPRWPoDFJsotXVwZE_aybwOAjEE3GoWNWPT9MbxDjmmWOjWGVAJ"/>
+<!-- Performance Watermark Overlay -->
+<div class="absolute bottom-space-md left-space-md bg-inverse-surface/85 backdrop-blur-md px-space-md py-space-xs rounded-lg text-inverse-on-surface flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[18px]">bolt</span>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono leading-none tracking-widest text-primary-fixed">1,020 HP</span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim text-[10px] leading-tight">Tri-Motor AWD</span>
+</div>
+</div>
+<!-- 360 Badge -->
+<div class="absolute top-space-md right-space-md bg-surface/90 backdrop-blur-md px-space-sm py-space-2xs rounded-full text-on-surface font-label-md text-label-md flex items-center gap-space-2xs shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">360</span>
+<span>Interactive Fleet Render</span>
+</div>
+</div>
+<!-- Thumbnails Selector Array -->
+<div class="grid grid-cols-4 gap-space-sm" id="thumbGallery">
+<button class="thumb-btn relative aspect-[16/10] rounded-lg overflow-hidden bg-surface-container transition-all ring-2 ring-primary shadow-sm" onclick="selectImage(0)" type="button">
+<img alt="Exterior 3/4 Perspective" class="w-full h-full object-cover" data-alt="Close up dynamic 3/4 front view of deep dark metallic grey Tesla Model S Plaid parked outside modern architectural glass villa during golden hour, emphasizing clean bumper, matrix LED headlights, and low aerodynamic stance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-nmd-16beLiL_oJ7TRDEdBfbbQSkruqadCkh7gU3_0Eras5AOWTHWlHqoWgkU9_fn8_qKRcnwnhSRiL1_-7DQGbj_uwBBAu0r0YJSHmKFDjS2SF59GrFJAFce0ZnlBkPV6alC05Bixd0JBhhv2oZ5K2f8yQkWAD16L-C7wBJRx_FBHPT2aY46Lv9Mz_S3weWvNAzUK7u4j71xxYUprcYN5e5OORB2Pa9NDsFqAcHb_GjB4X6cQIat"/>
+<span class="absolute bottom-1 left-1 bg-inverse-surface/80 text-inverse-on-surface font-label-mono text-[10px] px-1.5 py-0.5 rounded">Front 3/4</span>
+</button>
+<button class="thumb-btn relative aspect-[16/10] rounded-lg overflow-hidden bg-surface-container opacity-70 hover:opacity-100 transition-all shadow-sm" onclick="selectImage(1)" type="button">
+<img alt="Interior Cockpit View" class="w-full h-full object-cover" data-alt="Futuristic minimalist cockpit view of 2024 Tesla Model S Plaid interior with high-resolution central display, yoke steering wheel, ultra-white premium vegan leather upholstery, carbon fiber dashboard decor, and subtle ambient blue LED mood lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4suHBC8xgeMe9cYflXngcJ-hArcz3Jv6CcvMoOLCT_XCf-TB0H0oLKWtXgMLV73RpYIXx3Yhpg1cvfm2JzilNgXpO_caJPD0KVpQayvtzVcUYEwPy783PVhy2uVhgNlq7ZMHC88efUdDU2-Y5ieV2yjUhzvsp2byHmpLe0UFdl8-zvOXD7nxWDrTcboPxp3tDsFlXC5HBIOpK-TFdlqzZadGYzrpHGb4Y0jJ6zvBCU-hGIzToGPGf"/>
+<span class="absolute bottom-1 left-1 bg-inverse-surface/80 text-inverse-on-surface font-label-mono text-[10px] px-1.5 py-0.5 rounded">Cockpit</span>
+</button>
+<button class="thumb-btn relative aspect-[16/10] rounded-lg overflow-hidden bg-surface-container opacity-70 hover:opacity-100 transition-all shadow-sm" onclick="selectImage(2)" type="button">
+<img alt="Rear Track View" class="w-full h-full object-cover" data-alt="Rear angle of stealth grey Tesla Model S Plaid showing carbon fiber aerodynamic lip spoiler, signature wide LED taillight strip glowing in dusk lighting, clean diffuser, and discreet plaid checkered badge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsXYLf4OeEqVr41Q8yPsZZAPPu7r2GWzvisWT2zfin9TjBTi3jMAHLgosEHS5TeBmpLmv-rQ3H0_av2pqaWFBOGSAyB2noMW_DZKtlhQMhxRfyImDo42MUaTwS-WG2dTMrFCWYfwiEC9iJycMAuymSj97v48N-kf5W_p3ePVjWHczAW0I7dJJo6EYlqlWdz2Nzwrhb_AjPnapUhhZ08qaZFoYT1ol9no6ZZa0Q0smjBvLTnmwysiEe"/>
+<span class="absolute bottom-1 left-1 bg-inverse-surface/80 text-inverse-on-surface font-label-mono text-[10px] px-1.5 py-0.5 rounded">Rear</span>
+</button>
+<button class="thumb-btn relative aspect-[16/10] rounded-lg overflow-hidden bg-surface-container opacity-70 hover:opacity-100 transition-all shadow-sm" onclick="selectImage(3)" type="button">
+<img alt="Frunk Cargo View" class="w-full h-full object-cover" data-alt="Spacious front trunk frunk compartment of clean Tesla Model S Plaid open, neatly packed with matching designer luxury black leather duffel bags and travel cases, showcasing clean illuminated cavernous storage capacity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMbeCuCWiwb1--l32P1IbqZux2eJFAFFpJu_Jg2SjMGT15IuBT8BwPWxMQxrwgme19fXnu_NIy-d-n6mY2I2Wupn3_ddM7fw-opsBpPxyzgwPXXJ9bmfAAGZ-hdmY-ezBupDYlNz0_rlDWZcton70HuGnLvLiGE0qd-bhZ8LrObmGEDC22AUSmpinOAdPemfVatR2wH4-g0TEh5wO7NtfnK3u0oDU7uVXPADylNh15tMuquYK8bceF"/>
+<span class="absolute bottom-1 left-1 bg-inverse-surface/80 text-inverse-on-surface font-label-mono text-[10px] px-1.5 py-0.5 rounded">Frunk</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Vehicle Meta, Pricing & Fast Action (5 Columns) -->
+<div class="lg:col-span-5 flex flex-col justify-between bg-surface-container-lowest p-space-xl rounded-xl shadow-md">
+<div class="flex flex-col gap-space-md">
+<!-- Badging Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs bg-secondary-container text-on-secondary-container font-label-mono text-label-mono uppercase font-semibold rounded-md">
+<span class="material-symbols-outlined text-[14px]">electric_car</span>
+              Electric Tier 1 • Plaid Tri-Motor
+            </span>
+<span class="font-label-mono text-label-mono text-on-surface-variant font-medium">Model Code: MS-PLAID-24</span>
+</div>
+<!-- Main Vehicle Header -->
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold mb-space-2xs">
+              Tesla Model S Plaid <span class="font-headline-md text-headline-md font-normal text-on-surface-variant">(2024)</span>
+</h1>
+<!-- Ratings & Hub Link -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-2xs">
+<div class="flex items-center gap-space-2xs bg-surface-container-high px-space-xs py-space-2xs rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">4.96</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(128 verified reviews)</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary font-semibold hover:underline cursor-pointer">
+                Exotic Fleet Certified
+              </span>
+</div>
+</div>
+<!-- Availability Pill -->
+<div class="flex items-center gap-space-sm p-space-sm bg-tertiary-container/15 text-tertiary rounded-lg">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-tertiary"></span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">Available for Instant Booking</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pick up at San Francisco Intl Airport Hub (SFO Terminal 2 Level 4)</span>
+</div>
+</div>
+<!-- Dynamic Rate Card Lockup -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg font-black text-on-surface tracking-tight">$129</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant font-medium">/ day</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary bg-tertiary/10 px-space-xs py-space-2xs rounded">
+                Best Rate Guarantee
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">info</span>
+              Includes mandatory CA airport concession fee &amp; fleet recovery surcharge. Total calculated at checkout.
+            </p>
+</div>
+<!-- Fast Highlights Pill Strip -->
+<div class="grid grid-cols-2 gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs p-space-xs bg-surface-container rounded-md">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span>Full CDW Option Ready</span>
+</div>
+<div class="flex items-center gap-space-xs p-space-xs bg-surface-container rounded-md">
+<span class="material-symbols-outlined text-primary text-[18px]">ev_station</span>
+<span>Plug &amp; Charge SFO Ready</span>
+</div>
+</div>
+</div>
+<!-- Conversion CTAs -->
+<div class="flex flex-col sm:flex-row items-stretch gap-space-sm pt-space-lg">
+<a class="flex-1 flex items-center justify-center gap-space-xs px-space-xl py-space-md bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-md hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center" href="#booking-calendar">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span>Book This Car</span>
+</a>
+<button class="flex items-center justify-center gap-space-xs px-space-lg py-space-md bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-lg transition-colors" id="wishlistBtn" onclick="toggleWishlist()" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant" id="wishlistIcon">favorite</span>
+<span id="wishlistText">Save</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Specifications Matrix (6-Card Bento Grid) -->
+<section class="mb-space-3xl">
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-space-lg">
+<div>
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold">Engineering Metrics</span>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface">Vehicle Specifications</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-2xs sm:mt-0">Factory tuned &amp; verified prior to each handover</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Spec 1: Seating -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Capacity</span>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">airline_seat_recline_extra</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">5 Adults</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ergonomic sculpted rear bench with folding console</p>
+</div>
+</div>
+<!-- Spec 2: Doors & Chasis -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Architecture</span>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">directions_car</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">5-Door Liftback</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Power liftgate with deep subterranean cargo well</p>
+</div>
+</div>
+<!-- Spec 3: Transmission -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Drivetrain</span>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">settings_input_component</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Single-Speed Direct</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tri-Motor AWD with active torque vectoring</p>
+</div>
+</div>
+<!-- Spec 4: Battery & Range -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Battery &amp; Range</span>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">battery_charging_full</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">396 mi (EPA Est.)</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">100 kWh liquid-cooled lithium-ion architecture</p>
+</div>
+</div>
+<!-- Spec 5: Acceleration -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Acceleration</span>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">speed</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">0-60 mph in 1.99s</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Drag strip mode with carbon-sleeved rotors</p>
+</div>
+</div>
+<!-- Spec 6: Climate -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Atmosphere</span>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">air</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Tri-Zone HEPA</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bioweapon Defense Mode with dual cabin air filtration</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Split Layout - Detailed Description & Feature Checkmarks -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl mb-space-3xl items-start">
+<!-- Detailed Narrative (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold">The Experience</span>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface">Precision Performance Meets Everyday Executive Travel</h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant flex flex-col gap-space-sm leading-relaxed">
+<p>
+            Experience the benchmark of modern electric mobility. The 2024 Tesla Model S Plaid is engineered for instant, relentless acceleration without compromising the serene refinement expected by discerning executives and automotive connoisseurs. With over 1,000 peak horsepower distributed through three independent carbon-wrapped electric drive units, highway merges and scenic coastal routes unfold with unshakeable stability.
+          </p>
+<p>
+            Inside, the sanctuary of the cabin pairs acoustic glass with active noise cancellation. Equipped with the latest Full Self-Driving hardware (HW4), high-speed computing provides adaptive cruise, precision lane-centering, and automated navigational interchanges across mapped California highway corridors. 
+          </p>
+<p>
+            DriveEase equips this flagship with direct contactless smartphone key access, zero-friction Supercharger network handoffs (charges billed directly to your booking folio), and 22-speaker, 960-watt immersive audio tuned specifically for lossless studio acoustics.
+          </p>
+</div>
+<!-- Supercharging Infographic Mini-banner -->
+<div class="bg-surface-container-high p-space-lg rounded-xl flex items-center gap-space-md mt-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">flash_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">200 Miles in 15 Minutes</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Compatible with Tesla Supercharger V3 &amp; V4 stalls worldwide. Simply plug in; charging fees are tallied at cost with no DriveEase middleman markup.</span>
+</div>
+</div>
+</div>
+<!-- Feature Checklist & Hardware Highlights (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-xl rounded-xl shadow-md flex flex-col gap-space-lg">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Included Vehicle Features</h3>
+<ul class="flex flex-col gap-space-md">
+<li class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Keyless Mobile Access</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Unlock, start, and control climate via the secure DriveEase mobile app or NFC keycard.</span>
+</div>
+</li>
+<li class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Bluetooth, Apple Music &amp; Spotify</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Native streaming integrated into the 17-inch cinematic center touch console.</span>
+</div>
+</li>
+<li class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">All-Glass Panoramic Tinted Roof</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Full ultraviolet and infrared rejection preserves cabin comfort year-round.</span>
+</div>
+</li>
+<li class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Heated &amp; Ventilated Front Seats</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Multi-stage perforated micro-cushion cooling for high-performance comfort.</span>
+</div>
+</li>
+<li class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Dashcam &amp; Sentry Mode Recording</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">360-degree security surveillance monitoring while parked in public spaces.</span>
+</div>
+</li>
+</ul>
+<div class="pt-space-sm border-none bg-surface-container-low p-space-md rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Detailed sanitation protocol &amp; battery charged to 90%+ prior to departure.</span>
+</div>
+</div>
+</section>
+<!-- Section 4: Rental Information & Ledger Terms -->
+<section class="mb-space-3xl">
+<div class="bg-surface-container-low rounded-xl p-space-xl">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold">Clear Pricing Philosophy</span>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface">Rental Information &amp; Policy Terms</h2>
+</div>
+<span class="font-label-mono text-label-mono bg-surface text-on-surface px-space-md py-space-xs rounded-full shadow-sm">
+            Zero Hidden Add-ons
+          </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Daily Base -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Daily Rate</span>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-bold text-on-surface leading-none">$129<span class="text-[18px] font-normal text-on-surface-variant">.00</span></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Standard 24-hour cycle</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Unlimited CA Mileage
+            </span>
+</div>
+<!-- Refundable Deposit -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Security Hold</span>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-bold text-on-surface leading-none">$250<span class="text-[18px] font-normal text-on-surface-variant">.00</span></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pre-authorization only</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">lock_reset</span> Released on return
+            </span>
+</div>
+<!-- Free Cancellation -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Cancellation</span>
+<div class="my-space-md">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface leading-tight">100% Free</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Up to 24h before pickup</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">event_available</span> Instant automatic refund
+            </span>
+</div>
+<!-- Included Protection -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Protection</span>
+<div class="my-space-md">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface leading-tight">Included</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">State liability &amp; 24/7 rescue</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">support_agent</span> Dedicated Plaid Concierge
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Interactive Booking Calendar & Reservation Module -->
+<section class="scroll-mt-24 mb-space-3xl" id="booking-calendar">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden">
+<!-- Header Strip -->
+<div class="bg-inverse-surface text-inverse-on-surface p-space-lg sm:p-space-xl flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono text-label-mono text-primary-fixed uppercase tracking-wider">Live Inventory Engine</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span>
+</div>
+<h2 class="font-headline-xl text-headline-xl font-bold tracking-tight">Select Trip Dates</h2>
+<p class="font-body-md text-body-md text-secondary-fixed-dim">SFO Hub pickup slot • 2-day minimum reservation</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-3 rounded-full bg-surface-container-lowest"></span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim">Available</span>
+</div>
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim">Selected</span>
+</div>
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-3 rounded-full bg-on-surface-variant/30"></span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim">Booked</span>
+</div>
+</div>
+</div>
+<div class="p-space-lg sm:p-space-xl grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Month Calendar Matrix (7 cols) -->
+<div class="lg:col-span-7 flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">October - November 2024</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container px-space-xs py-0.5 rounded">UTC-7</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Previous Month" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button aria-label="Next Month" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Calendar Days Header -->
+<div class="grid grid-cols-7 text-center font-label-mono text-label-mono uppercase text-on-surface-variant py-space-xs bg-surface-container-low rounded-lg mb-space-xs">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+<span>Sun</span>
+</div>
+<!-- Calendar Days Grid (Sample month snapshot focusing on Oct 28 - Nov 01) -->
+<div class="grid grid-cols-7 gap-1 text-center font-label-md text-label-md">
+<!-- Past / Dimmed Days -->
+<div class="py-space-md rounded-lg text-on-surface-variant/40 bg-surface-container/20">21</div>
+<div class="py-space-md rounded-lg text-on-surface-variant/40 bg-surface-container/20">22</div>
+<div class="py-space-md rounded-lg text-on-surface-variant/40 bg-surface-container/20">23</div>
+<div class="py-space-md rounded-lg text-on-surface-variant/40 bg-surface-container/20">24</div>
+<!-- Reserved/Booked Days -->
+<div class="py-space-md rounded-lg bg-surface-container text-on-surface-variant/50 relative group cursor-not-allowed">
+<span>25</span>
+<span class="block text-[9px] uppercase font-label-mono text-error/80 mt-0.5">Booked</span>
+</div>
+<div class="py-space-md rounded-lg bg-surface-container text-on-surface-variant/50 relative group cursor-not-allowed">
+<span>26</span>
+<span class="block text-[9px] uppercase font-label-mono text-error/80 mt-0.5">Booked</span>
+</div>
+<div class="py-space-md rounded-lg bg-surface-container text-on-surface-variant/50 relative group cursor-not-allowed">
+<span>27</span>
+<span class="block text-[9px] uppercase font-label-mono text-error/80 mt-0.5">Booked</span>
+</div>
+<!-- Selected Active Span: Oct 28 to Nov 1 -->
+<button class="py-space-md rounded-lg bg-primary text-on-primary font-bold shadow-sm ring-2 ring-primary-fixed" type="button">
+<span>28</span>
+<span class="block text-[9px] uppercase font-label-mono text-primary-fixed mt-0.5">Pick Up</span>
+</button>
+<button class="py-space-md rounded-lg bg-primary/90 text-on-primary font-bold" type="button">
+<span>29</span>
+<span class="block text-[9px] font-label-mono opacity-80 mt-0.5">Day 2</span>
+</button>
+<button class="py-space-md rounded-lg bg-primary/90 text-on-primary font-bold" type="button">
+<span>30</span>
+<span class="block text-[9px] font-label-mono opacity-80 mt-0.5">Day 3</span>
+</button>
+<button class="py-space-md rounded-lg bg-primary/90 text-on-primary font-bold" type="button">
+<span>31</span>
+<span class="block text-[9px] font-label-mono opacity-80 mt-0.5">Day 4</span>
+</button>
+<!-- November 1 - Drop-off -->
+<button class="py-space-md rounded-lg bg-primary text-on-primary font-bold shadow-sm ring-2 ring-primary-fixed" type="button">
+<span>01</span>
+<span class="block text-[9px] uppercase font-label-mono text-primary-fixed mt-0.5">Return</span>
+</button>
+<!-- Open Available Days in November -->
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>02</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$129</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>03</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$129</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>04</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$129</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>05</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$129</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>06</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$129</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>07</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$129</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>08</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$139</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>09</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$139</span>
+</button>
+<button class="py-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+<span>10</span>
+<span class="block text-[9px] font-label-mono text-tertiary mt-0.5">$129</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-md flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Preferred pickup time: 10:00 AM • Flexible return up to 2-hour grace window</span>
+</p>
+</div>
+<!-- Trip Estimate & Ledger Breakdown (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-primary font-semibold">Reservation Summary</span>
+<!-- Live Selected Range Pill -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[22px]">date_range</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Selected: Oct 28 - Nov 01</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4 Days (96 Hours)</span>
+</div>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary bg-tertiary/10 px-space-xs py-1 rounded">Locked</span>
+</div>
+<!-- Itemized Ledger -->
+<div class="flex flex-col gap-space-xs pt-space-xs font-body-md text-body-md text-on-surface">
+<div class="flex justify-between py-space-2xs">
+<span class="text-on-surface-variant">Base Rate ($129.00 × 4 days)</span>
+<span class="font-label-mono font-medium">$516.00</span>
+</div>
+<div class="flex justify-between py-space-2xs">
+<span class="text-on-surface-variant">Airport Concession &amp; Safety Fee</span>
+<span class="font-label-mono font-medium text-tertiary">FREE (Waived)</span>
+</div>
+<div class="flex justify-between py-space-2xs">
+<span class="text-on-surface-variant">Basic Roadside &amp; Liability Protection</span>
+<span class="font-label-mono font-medium text-tertiary">Included</span>
+</div>
+<div class="flex justify-between py-space-2xs">
+<span class="text-on-surface-variant">Refundable Pre-Auth Deposit</span>
+<span class="font-label-mono font-medium">$250.00*</span>
+</div>
+</div>
+<!-- Grand Total Callout -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-baseline justify-between mt-space-xs">
+<div>
+<div class="font-headline-md text-headline-md font-extrabold text-on-surface">Total Estimate</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">*Security deposit authorized separately</span>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg font-black text-primary leading-none">$516.00</span>
+<span class="block font-label-mono text-[11px] text-on-surface-variant uppercase">All taxes inclusive</span>
+</div>
+</div>
+</div>
+<!-- Booking Confirmation Button -->
+<div class="pt-space-lg flex flex-col gap-space-xs">
+<a class="w-full py-space-md px-space-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-md hover:shadow-xl transition-all text-center flex items-center justify-center gap-space-sm group" data-path="reservation-checkout" href="#">
+<span>Proceed to Reservation</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<span class="font-body-sm text-body-sm text-center text-on-surface-variant">No charge until vehicle pickup verification</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Verified Driver Feedback Snippet Strip -->
+<section class="mb-space-2xl">
+<div class="flex items-center justify-between mb-space-md">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Recent Plaid Renter Reviews</h3>
+<span class="font-label-md text-label-md text-primary hover:underline cursor-pointer">View All 128 Reviews</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-space-2xs text-tertiary mb-space-xs">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic mb-space-sm">
+            "Flawless pickup at SFO Terminal 2. The phone key unlock worked immediately and the car was immaculate. The acceleration is genuinely breathtaking."
+          </p>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono text-label-mono">
+<span>Marcus T. — Executive Traveler</span>
+<span>2 days ago</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-space-2xs text-tertiary mb-space-xs">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic mb-space-sm">
+            "Drove down Highway 1 to Carmel. The range easily managed the round-trip with one quick 10-minute Supercharger stop. Cleanest EV rental in the Bay."
+          </p>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono text-label-mono">
+<span>Elena R. — Tech Founder</span>
+<span>1 week ago</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-space-2xs text-tertiary mb-space-xs">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic mb-space-sm">
+            "Zero counter wait, no upselling pressure at the garage. DriveEase handles premium vehicles the way modern aviation handles first class."
+          </p>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono text-label-mono">
+<span>David K. — Verified Driver</span>
+<span>2 weeks ago</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Dynamic Image Gallery Thumbnail Interaction
+  const galleryPrompts = [
+    {
+      alt: "Studio automotive portrait of an immaculate glossy stealth grey 2024 Tesla Model S Plaid in dramatic three-quarter profile. High key cinematic studio lighting with pristine reflections across aerodynamic curves, 21 inch arachnid wheels, carbon fiber trunk spoiler, slate navy ambient backdrop with ultra-crisp hyper-realistic automotive details."
+    },
+    {
+      alt: "Futuristic minimalist cockpit view of 2024 Tesla Model S Plaid interior with high-resolution central display, yoke steering wheel, ultra-white premium vegan leather upholstery, carbon fiber dashboard decor, and subtle ambient blue LED mood lighting."
+    },
+    {
+      alt: "Rear angle of stealth grey Tesla Model S Plaid showing carbon fiber aerodynamic lip spoiler, signature wide LED taillight strip glowing in dusk lighting, clean diffuser, and discreet plaid checkered badge."
+    },
+    {
+      alt: "Spacious front trunk frunk compartment of clean Tesla Model S Plaid open, neatly packed with matching designer luxury black leather duffel bags and travel cases, showcasing clean illuminated cavernous storage capacity."
+    }
+  ];
+
+  function selectImage(index) {
+    const mainImg = document.getElementById('mainVehicleImage');
+    const buttons = document.querySelectorAll('#thumbGallery .thumb-btn');
+    
+    if (mainImg && galleryPrompts[index]) {
+      mainImg.setAttribute('data-alt', galleryPrompts[index].alt);
+      // Trigger a subtle pulse animation for feedback
+      mainImg.classList.add('opacity-80');
+      setTimeout(() => {
+        mainImg.classList.remove('opacity-80');
+      }, 150);
+    }
+
+    buttons.forEach((btn, idx) => {
+      if (idx === index) {
+        btn.classList.remove('opacity-70');
+        btn.classList.add('ring-2', 'ring-primary');
+      } else {
+        btn.classList.add('opacity-70');
+        btn.classList.remove('ring-2', 'ring-primary');
+      }
+    });
+  }
+
+  // Wishlist Toggle Interaction
+  let isWishlisted = false;
+  function toggleWishlist() {
+    isWishlisted = !isWishlisted;
+    const icon = document.getElementById('wishlistIcon');
+    const text = document.getElementById('wishlistText');
+    const btn = document.getElementById('wishlistBtn');
+
+    if (isWishlisted) {
+      icon.style.fontVariationSettings = "'FILL' 1";
+      icon.classList.remove('text-on-surface-variant');
+      icon.classList.add('text-error');
+      text.textContent = 'Saved';
+      btn.classList.add('bg-error-container/20');
+    } else {
+      icon.style.fontVariationSettings = "'FILL' 0";
+      icon.classList.add('text-on-surface-variant');
+      icon.classList.remove('text-error');
+      text.textContent = 'Save';
+      btn.classList.remove('bg-error-container/20');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-low border-t border-outline-variant/30 py-space-2xl"><div class="max-w-container-max mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">directions_car</span></div><span class="font-headline-sm text-headline-sm text-on-surface">DriveEase</span><span class="font-body-sm text-body-sm text-on-surface-variant ml-space-xs">© 2024 DriveEase Fleet Systems. All rights reserved.</span></div><div class="flex items-center gap-space-lg font-label-md text-label-md text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Terms of Rental</a><a class="hover:text-primary transition-colors" href="#">Insurance Protection</a><a class="hover:text-primary transition-colors" href="#">Fleet Safety</a><a class="hover:text-primary transition-colors" href="#">Support Center</a></div></div></footer></body></html>

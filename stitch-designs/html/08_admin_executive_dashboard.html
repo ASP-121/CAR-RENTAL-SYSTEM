@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#3d4664","surface-container-highest":"#dbe1ff","surface-dim":"#d2d9fa","surface-container":"#ebedff","surface-container-lowest":"#ffffff","surface":"#faf8ff","on-tertiary":"#ffffff","outline-variant":"#bfc7d2","secondary-fixed":"#dbe1ff","surface-variant":"#dbe1ff","secondary-container":"#d0d9fd","on-secondary-container":"#555e7d","secondary":"#545d7c","outline":"#707881","on-secondary-fixed":"#111a36","primary-fixed":"#cce5ff","tertiary-fixed":"#6ffbbe","tertiary-fixed-dim":"#4edea3","background":"#faf8ff","surface-container-low":"#f3f3ff","on-background":"#131a33","secondary-fixed-dim":"#bdc5e9","primary-fixed-dim":"#93ccff","on-primary-fixed-variant":"#004b73","on-primary-fixed":"#001d31","on-error":"#ffffff","on-primary":"#ffffff","on-surface-variant":"#3f4850","on-tertiary-container":"#f5fff6","on-primary-container":"#fdfcff","inverse-on-surface":"#eff0ff","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-fixed":"#002113","on-tertiary-fixed-variant":"#005236","surface-bright":"#faf8ff","on-surface":"#131a33","surface-container-high":"#e3e7ff","primary-container":"#007bb9","tertiary-container":"#00855b","on-secondary":"#ffffff","primary":"#006194","inverse-primary":"#93ccff","surface-tint":"#006398","error-container":"#ffdad6","tertiary":"#006947","inverse-surface":"#282f49"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-3xl":"4rem","container-max":"80rem","space-lg":"1.5rem","space-xs":"0.5rem","space-2xl":"3rem","space-md":"1rem","gutter-mobile":"1rem","space-xl":"2rem","gutter-desktop":"2rem","gutter-tablet":"1.5rem","space-2xs":"0.25rem","space-sm":"0.75rem"},fontFamily:{"body-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"label-mono":["JetBrains Mono"],"headline-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-xs"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[22px]">directions_car</span></div><div class="flex flex-col leading-none"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">DriveEase</span><span class="font-label-md text-label-md text-primary font-semibold tracking-wide uppercase">Mobility</span></div></div><span class="px-space-xs py-space-2xs rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider font-semibold">Admin</span></div><div class="px-space-md pt-space-md"><span class="px-space-xs font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Operations</span></div><nav class="mt-space-xs flex flex-col gap-space-2xs px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-lg text-label-lg">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="fleet-management" href="#"><span class="material-symbols-outlined text-[20px]">garage_home</span><span class="font-label-lg text-label-lg">Fleet Management</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="bookings-operations" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span class="font-label-lg text-label-lg">Bookings Operations</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="customers-and-drivers" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">Customers &amp; Drivers</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="rental-reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-label-lg text-label-lg">Rental Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-lg text-label-lg">System Settings</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm"><div class="p-space-sm rounded-xl bg-surface-container flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-on-surface-variant font-medium">Cluster Health</span><span class="inline-flex items-center gap-1 font-label-mono text-label-mono text-tertiary font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>99.98%</span></div><div class="flex items-center justify-between text-on-surface-variant"><span class="font-body-sm text-body-sm">Region</span><span class="font-label-mono text-label-mono text-on-surface font-medium">us-east-1</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden mt-space-2xs"><div class="bg-tertiary h-full w-[94%]"></div></div></div><a class="flex items-center justify-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-highest text-on-surface hover:bg-secondary-container hover:text-on-secondary-container transition-colors" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">storefront</span><span class="font-label-md text-label-md font-semibold">Back to Customer Portal</span></a></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="relative flex items-center w-72"><span class="material-symbols-outlined absolute left-space-xs text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full pl-8 pr-space-xs py-space-2xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container transition-colors" placeholder="Search fleet, booking ID, license..." type="text"/></div><div class="hidden xl:flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-full bg-surface-container font-label-mono text-label-mono"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="text-on-surface-variant">MongoDB Atlas:</span><span class="text-tertiary font-semibold">Connected</span><span class="text-outline font-normal">•</span><span class="text-on-surface font-medium">24ms</span></div></div><div class="flex items-center gap-space-md"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="h-6 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm"><div class="flex flex-col text-right leading-none"><span class="font-label-lg text-label-lg text-on-surface font-semibold">Sarah Jenkins</span><span class="font-body-sm text-body-sm text-on-surface-variant">Operations Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface px-space-lg pb-space-2xl min-h-screen"><div class="flex flex-col w-full gap-space-xl">
+<!-- Top Bar / Sub-Navigation & Quick Action Filter -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Fleet Dispatch Control • Live Telemetry Feed</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mt-space-2xs tracking-tight">Executive Mobility Overview</h1>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center gap-space-2xs bg-surface-container px-space-sm py-space-xs rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Q3 Fiscal Cycle</span>
+<span class="text-outline font-label-mono text-label-mono">• Real-time</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors shadow-sm font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Metrics Preset</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary hover:bg-primary-container text-on-primary transition-all shadow-md hover:shadow-lg font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Provision Asset</span>
+</button>
+</div>
+</div>
+<!-- Row 1: KPI Metric Highlights -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Total Fleet -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-28 h-28 bg-primary/5 rounded-full -mr-8 -mt-8 pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Total Fleet</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight font-extrabold">48</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Vehicles</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">directions_car</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-xs">
+<div class="flex items-center justify-between font-label-mono text-label-mono mb-space-2xs">
+<span class="text-on-surface-variant">Allocations</span>
+<span class="text-tertiary font-semibold">+14% YoY</span>
+</div>
+<div class="grid grid-cols-3 gap-1 text-center font-label-mono text-[11px]">
+<div class="bg-surface-container-lowest py-1 rounded">
+<span class="text-tertiary font-bold">38</span> <span class="text-on-surface-variant">Active</span>
+</div>
+<div class="bg-surface-container-lowest py-1 rounded">
+<span class="text-primary font-bold">7</span> <span class="text-on-surface-variant">Hubs</span>
+</div>
+<div class="bg-surface-container-lowest py-1 rounded">
+<span class="text-error font-bold">3</span> <span class="text-on-surface-variant">Maint.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Active Rentals -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-28 h-28 bg-tertiary/5 rounded-full -mr-8 -mt-8 pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Active Rentals</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight font-extrabold">29</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Live Journeys</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">near_me</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-xs flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-on-surface-variant">On-Time Return</span>
+<span class="font-bold text-on-surface">96.0%</span>
+</div>
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-on-surface-variant">Active Telematics</span>
+<span class="inline-flex items-center gap-1 text-tertiary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span> 0 Alerts
+          </span>
+</div>
+</div>
+</div>
+<!-- Card 3: Monthly Revenue -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-28 h-28 bg-secondary-fixed/20 rounded-full -mr-8 -mt-8 pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Monthly Revenue</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight font-extrabold">$142.8k</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">USD</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-xs flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-on-surface-variant">vs. Last Month</span>
+<span class="text-tertiary font-bold">+18.4%</span>
+</div>
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-on-surface-variant">Pacing Target</span>
+<span class="text-primary font-semibold">$160,000 USD</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Fleet Utilization -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-28 h-28 bg-primary/10 rounded-full -mr-8 -mt-8 pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Fleet Utilization</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight font-extrabold">88.5%</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Avg Net</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-xs flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-on-surface-variant">Peak Hub (SFO)</span>
+<span class="text-primary font-bold">96.2%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 88.5%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2: Visual Analytics & Telemetry Breakdown -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<!-- Main Chart: Revenue & Bookings Trajectory (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<span class="font-label-mono text-label-mono uppercase tracking-wider text-primary font-semibold">Analytics Engine</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Revenue &amp; Bookings Trajectory</h2>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg">
+<button class="px-space-xs py-1 rounded font-label-mono text-label-mono bg-surface-container-lowest text-on-surface shadow-sm font-semibold">2025 YTD</button>
+<button class="px-space-xs py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface">Monthly</button>
+<button class="px-space-xs py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface">Week-over-Week</button>
+</div>
+</div>
+<!-- Chart Visual Container -->
+<div class="bg-surface-container-low p-space-md rounded-xl relative">
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono text-label-mono pb-space-sm border-b border-surface-container-high">
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-primary"></span>Gross Inflow ($k)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-tertiary"></span>Net Fleet Margin ($k)</span>
+<span class="hidden sm:flex items-center gap-1.5"><span class="w-2.5 h-1 rounded bg-secondary"></span>Turnaround Cycles</span>
+</div>
+<span class="font-medium text-on-surface">Updated 4m ago</span>
+</div>
+<!-- Custom SVG Chart Canvas -->
+<div class="w-full h-64 pt-space-md relative flex items-end">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 600 200">
+<!-- Grid Lines -->
+<line stroke="#dbe1ff" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="600" y1="30" y2="30"></line>
+<line stroke="#dbe1ff" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="600" y1="80" y2="80"></line>
+<line stroke="#dbe1ff" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="600" y1="130" y2="130"></line>
+<line stroke="#bfc7d2" stroke-width="1" x1="0" x2="600" y1="180" y2="180"></line>
+<!-- Area Gradient Fill -->
+<defs>
+<lineargradient id="gradPrimary" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#006194" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#006194" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Smoothed Area Curve -->
+<path d="M 30,150 Q 80,135 120,120 T 210,95 T 300,75 T 390,55 T 480,40 T 570,25 L 570,180 L 30,180 Z" fill="url(#gradPrimary)"></path>
+<!-- Trajectory Trendline -->
+<path d="M 30,150 Q 80,135 120,120 T 210,95 T 300,75 T 390,55 T 480,40 T 570,25" fill="none" stroke="#006194" stroke-linecap="round" stroke-width="3"></path>
+<!-- Margin Trendline -->
+<path d="M 30,165 Q 80,152 120,140 T 210,120 T 300,105 T 390,88 T 480,72 T 570,55" fill="none" stroke="#006947" stroke-dasharray="4 2" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Monthly Data Nodes -->
+<circle cx="30" cy="150" fill="#ffffff" r="4" stroke="#006194" stroke-width="2.5"></circle>
+<circle cx="120" cy="120" fill="#ffffff" r="4" stroke="#006194" stroke-width="2.5"></circle>
+<circle cx="210" cy="95" fill="#ffffff" r="4" stroke="#006194" stroke-width="2.5"></circle>
+<circle cx="300" cy="75" fill="#ffffff" r="4" stroke="#006194" stroke-width="2.5"></circle>
+<circle cx="390" cy="55" fill="#ffffff" r="4" stroke="#006194" stroke-width="2.5"></circle>
+<circle cx="480" cy="40" fill="#ffffff" r="4" stroke="#006194" stroke-width="2.5"></circle>
+<circle cx="570" cy="25" fill="#006194" r="5" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-mono text-label-mono mt-space-xs px-2">
+<span>FEB</span>
+<span>MAR</span>
+<span>APR</span>
+<span>MAY</span>
+<span>JUN</span>
+<span>JUL</span>
+<span class="font-bold text-primary">AUG (PEAK)</span>
+</div>
+</div>
+<!-- Highlights Footer -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col">
+<span class="font-label-mono text-label-mono text-on-surface-variant">SFO Airport Peak Surge</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">$385 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/day avg</span></span>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col">
+<span class="font-label-mono text-label-mono text-on-surface-variant">Net Margin Efficiency</span>
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold mt-0.5">34.2% <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">(+3.1%)</span></span>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col">
+<span class="font-label-mono text-label-mono text-on-surface-variant">Est. Churn / Idle Cost</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">&lt; 1.8%</span>
+</div>
+</div>
+</div>
+<!-- Right Split Analytics Cards (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Card A: Fleet Category Demand -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-mono text-label-mono uppercase tracking-wider text-primary font-semibold">Distribution</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Fleet Category Demand</h3>
+</div>
+<span class="p-1 rounded-md bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">pie_chart</span>
+</span>
+</div>
+<div class="flex items-center gap-space-md my-space-xs">
+<!-- Donut Graphic Visual -->
+<div class="relative w-28 h-28 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<!-- Electric Flagships 44% -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#006194" stroke-dasharray="44 100" stroke-dashoffset="0" stroke-width="4.5"></circle>
+<!-- Luxury Sedans 26% -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#00855b" stroke-dasharray="26 100" stroke-dashoffset="-44" stroke-width="4.5"></circle>
+<!-- SUVs 20% -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#545d7c" stroke-dasharray="20 100" stroke-dashoffset="-70" stroke-width="4.5"></circle>
+<!-- Executive Coupes 10% -->
+<circle cx="18" cy="18" fill="transparent" r="14" stroke="#bfc7d2" stroke-dasharray="10 100" stroke-dashoffset="-90" stroke-width="4.5"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center leading-none">
+<span class="font-label-mono text-label-mono font-bold text-on-surface">48</span>
+<span class="text-[10px] text-on-surface-variant font-label-mono uppercase">Cars</span>
+</div>
+</div>
+<!-- Progress / Legend Breakdown -->
+<div class="flex-1 flex flex-col gap-space-2xs font-label-mono text-label-mono">
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-primary"></span>Electric Flagships</span>
+<span class="font-bold text-on-surface">44%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-tertiary-container"></span>Luxury Sedans</span>
+<span class="font-bold text-on-surface">26%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-secondary"></span>All-Terrain SUVs</span>
+<span class="font-bold text-on-surface">20%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-outline-variant"></span>Executive Coupes</span>
+<span class="font-bold text-on-surface">10%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card B: Hub Telematics & Battery Health -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-mono text-label-mono uppercase tracking-wider text-primary font-semibold">Infrastructure</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hub Telematics &amp; Turnaround</h3>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-mono text-[11px] font-bold">4 HUBS ONLINE</span>
+</div>
+<div class="flex flex-col gap-space-xs font-label-mono text-label-mono mt-space-2xs">
+<!-- Hub 1 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">local_airport</span>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">SFO Terminal 2</span>
+<span class="text-[11px] text-on-surface-variant">18 stalls • 92% Supercharger avg</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-tertiary font-bold">22 min</span>
+<span class="block text-[10px] text-on-surface-variant uppercase">Turnaround</span>
+</div>
+</div>
+<!-- Hub 2 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">ev_station</span>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">San Jose Hub</span>
+<span class="text-[11px] text-on-surface-variant">12 stalls • 88% Supercharger avg</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-tertiary font-bold">34 min</span>
+<span class="block text-[10px] text-on-surface-variant uppercase">Turnaround</span>
+</div>
+</div>
+<!-- Hub 3 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">business</span>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Downtown Station</span>
+<span class="text-[11px] text-on-surface-variant">8 stalls • 95% Supercharger avg</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-primary font-bold">28 min</span>
+<span class="block text-[10px] text-on-surface-variant uppercase">Turnaround</span>
+</div>
+</div>
+<!-- Hub 4 -->
+<div class="p-space-xs rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">warehouse</span>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Oakland Depot</span>
+<span class="text-[11px] text-on-surface-variant">10 stalls • 79% Battery Level</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-on-surface-variant font-bold">45 min</span>
+<span class="block text-[10px] text-on-surface-variant uppercase">Turnaround</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: MongoDB Live Booking Operations Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<!-- Controls Header -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pb-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono text-label-mono uppercase tracking-wider text-primary font-semibold">MongoDB Atlas Collection</span>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-mono text-[10px] font-bold">LIVE REPLICA</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-1">Active Booking &amp; Dispatch Ledger</h2>
+</div>
+<!-- Filter Matrix -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<!-- Search Input -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="bg-surface-container pl-8 pr-3 py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary w-52 md:w-64 transition-all" id="bookingSearchInput" placeholder="Filter bookings, drivers, VIN..." type="text"/>
+</div>
+<!-- Status Filter -->
+<div class="relative">
+<select class="bg-surface-container text-on-surface font-label-md text-label-md px-space-sm py-1.5 rounded-lg focus:outline-none cursor-pointer appearance-none pr-7" id="statusFilter">
+<option value="all">Status: All Records</option>
+<option value="in-progress">In-Progress</option>
+<option value="pending">Pending Approval</option>
+<option value="completed">Completed</option>
+<option value="flagged">Flagged</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Date Range Filter -->
+<div class="flex items-center gap-1.5 bg-surface-container px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary">date_range</span>
+<span>Oct 14 - Oct 21</span>
+</div>
+<!-- CSV Export Button -->
+<button class="flex items-center gap-1.5 bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-space-sm py-1.5 rounded-lg font-label-md text-label-md transition-colors shadow-sm" id="exportBtn" onclick="simulateExport()">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-mono text-label-mono uppercase tracking-wider">
+<tr>
+<th class="px-space-md py-space-sm rounded-l-lg">Booking ID</th>
+<th class="px-space-md py-space-sm">Customer</th>
+<th class="px-space-md py-space-sm">Vehicle Asset</th>
+<th class="px-space-md py-space-sm">Trip Schedule &amp; Hub</th>
+<th class="px-space-md py-space-sm">Total &amp; Payment</th>
+<th class="px-space-md py-space-sm">Telematics</th>
+<th class="px-space-md py-space-sm text-right rounded-r-lg">Quick Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/50 transition-colors booking-row" data-status="in-progress">
+<td class="px-space-md py-space-sm font-label-mono text-label-mono font-semibold text-primary">
+              #DE-89214
+              <span class="block text-[10px] text-on-surface-variant font-normal">v4.1 API</span>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-xs">
+                  MR
+                </div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Marcus Rivera</span>
+<span class="text-[12px] text-on-surface-variant">m.rivera@techventure.io</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[13px]">verified</span> License DL-CA Verified
+                  </span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">electric_car</span>
+</div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Tesla Model S Plaid</span>
+<span class="font-label-mono text-[11px] text-on-surface-variant">VIN: 7SAX2904 • Plate 9XYZ40</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight font-label-mono text-[12px]">
+<span class="text-on-surface font-semibold">Oct 17, 09:00 → Oct 20, 18:00</span>
+<span class="text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px] text-primary">location_on</span> SFO Terminal 2 Hub
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-bold font-label-mono">$1,140.00</span>
+<span class="inline-flex items-center gap-1 font-label-mono text-[11px] text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Paid (Stripe)
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-mono text-label-mono font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Keyless Active
+              </span>
+</td>
+<td class="px-space-md py-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Remote Lock Control">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View Full Diagnostics">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Manage Reservation">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container/50 transition-colors booking-row" data-status="in-progress">
+<td class="px-space-md py-space-sm font-label-mono text-label-mono font-semibold text-primary">
+              #DE-89215
+              <span class="block text-[10px] text-on-surface-variant font-normal">v4.1 API</span>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs">
+                  EL
+                </div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Elena Lindqvist</span>
+<span class="text-[12px] text-on-surface-variant">elena.l@nordicfin.se</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[13px]">verified</span> Intl Permit Valid
+                  </span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+</div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Porsche Taycan 4S</span>
+<span class="font-label-mono text-[11px] text-on-surface-variant">VIN: WP0AA2Y1 • Plate 8TYC72</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight font-label-mono text-[12px]">
+<span class="text-on-surface font-semibold">Oct 18, 14:00 → Oct 22, 10:00</span>
+<span class="text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px] text-primary">location_on</span> San Jose Station Hub
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-bold font-label-mono">$1,480.00</span>
+<span class="inline-flex items-center gap-1 font-label-mono text-[11px] text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Paid (Amex Corp)
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-mono text-label-mono font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Keyless Active
+              </span>
+</td>
+<td class="px-space-md py-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Remote Lock Control">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View Full Diagnostics">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Manage Reservation">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container/50 transition-colors booking-row" data-status="pending">
+<td class="px-space-md py-space-sm font-label-mono text-label-mono font-semibold text-primary">
+              #DE-89216
+              <span class="block text-[10px] text-on-surface-variant font-normal">v4.1 API</span>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-bold text-xs">
+                  DK
+                </div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">David Kalu</span>
+<span class="text-[12px] text-on-surface-variant">dkalu@summitcapital.com</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-secondary">
+<span class="material-symbols-outlined text-[13px]">pending</span> Doc Scan Pending
+                  </span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">electric_car</span>
+</div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Lucid Air Grand Touring</span>
+<span class="font-label-mono text-[11px] text-on-surface-variant">VIN: 55NFK4A3 • Plate 7LUC19</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight font-label-mono text-[12px]">
+<span class="text-on-surface font-semibold">Oct 19, 08:30 → Oct 24, 17:00</span>
+<span class="text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px] text-primary">location_on</span> Downtown Station
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-bold font-label-mono">$1,920.00</span>
+<span class="inline-flex items-center gap-1 font-label-mono text-[11px] text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Hold Authorized
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Bay Staged (Stall 4)
+              </span>
+</td>
+<td class="px-space-md py-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary text-xs font-semibold hover:bg-primary-container transition-colors">
+                  Approve
+                </button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View Reservation">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/50 transition-colors booking-row" data-status="flagged">
+<td class="px-space-md py-space-sm font-label-mono text-label-mono font-semibold text-primary">
+              #DE-89217
+              <span class="block text-[10px] text-on-surface-variant font-normal">v4.1 API</span>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-bold text-xs">
+                  JT
+                </div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Jonathan Thorne</span>
+<span class="text-[12px] text-on-surface-variant">jthorne.media@gmail.com</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-error font-semibold">
+<span class="material-symbols-outlined text-[13px]">warning</span> Speed Geofence Flag
+                  </span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">directions_car</span>
+</div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">BMW i7 xDrive60</span>
+<span class="font-label-mono text-[11px] text-on-surface-variant">VIN: WBA23EH0 • Plate 6BMX99</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight font-label-mono text-[12px]">
+<span class="text-on-surface font-semibold">Oct 16, 11:00 → Oct 19, 11:00</span>
+<span class="text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px] text-primary">location_on</span> Oakland Depot
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-bold font-label-mono">$840.00</span>
+<span class="inline-flex items-center gap-1 font-label-mono text-[11px] text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Paid + Deposit Held
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-error-container text-on-error-container font-label-mono text-label-mono font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Telemetry Alert
+              </span>
+</td>
+<td class="px-space-md py-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1 rounded bg-error text-on-error text-xs font-semibold hover:opacity-90 transition-opacity" title="Telematics Remote Limiter">
+                  Limit Speed
+                </button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View Incident">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container/50 transition-colors booking-row" data-status="completed">
+<td class="px-space-md py-space-sm font-label-mono text-label-mono font-semibold text-primary">
+              #DE-89212
+              <span class="block text-[10px] text-on-surface-variant font-normal">v4.1 API</span>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-xs">
+                  SH
+                </div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Sophia Hastings</span>
+<span class="text-[12px] text-on-surface-variant">s.hastings@atlasglobal.com</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[13px]">verified</span> License DL-NY Verified
+                  </span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">electric_car</span>
+</div>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Rivian R1S Adventure</span>
+<span class="font-label-mono text-[11px] text-on-surface-variant">VIN: 7PDSG243 • Plate 8RIV51</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight font-label-mono text-[12px]">
+<span class="text-on-surface font-semibold">Oct 14, 07:00 → Oct 17, 16:30</span>
+<span class="text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px] text-primary">location_on</span> SFO Terminal 2 Hub
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg text-on-surface font-bold font-label-mono">$1,620.00</span>
+<span class="inline-flex items-center gap-1 font-label-mono text-[11px] text-on-surface-variant font-medium">
+                  Invoiced • Settled
+                </span>
+</div>
+</td>
+<td class="px-space-md py-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant font-label-mono text-label-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Trip Finalized
+              </span>
+</td>
+<td class="px-space-md py-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View Receipt">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View Fleet Inspection Record">
+<span class="material-symbols-outlined text-[18px]">checklist</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Operational Health Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-xs font-label-mono text-label-mono text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span>Displaying 5 of 48 total active transactions</span>
+<span>•</span>
+<span class="text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Sync latency: 12ms</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-semibold text-on-surface">Prev</button>
+<button class="w-7 h-7 rounded bg-primary text-on-primary font-bold text-xs flex items-center justify-center">1</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container transition-colors text-xs flex items-center justify-center">2</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container transition-colors text-xs flex items-center justify-center">3</button>
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high transition-colors font-semibold text-on-surface">Next</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple table interactive filter
+  const searchInput = document.getElementById('bookingSearchInput');
+  const statusFilter = document.getElementById('statusFilter');
+  const tableRows = document.querySelectorAll('.booking-row');
+
+  function applyFilters() {
+    const query = (searchInput?.value || '').toLowerCase();
+    const selectedStatus = statusFilter?.value || 'all';
+
+    tableRows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      const status = row.getAttribute('data-status');
+      
+      const matchesSearch = text.includes(query);
+      const matchesStatus = (selectedStatus === 'all') || (status === selectedStatus);
+
+      if (matchesSearch && matchesStatus) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput?.addEventListener('input', applyFilters);
+  statusFilter?.addEventListener('change', applyFilters);
+
+  function simulateExport() {
+    const btn = document.getElementById('exportBtn');
+    if (!btn) return;
+    const origHTML = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span><span>Exporting...</span>';
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-tertiary">check</span><span>Downloaded!</span>';
+      setTimeout(() => {
+        btn.innerHTML = origHTML;
+      }, 2000);
+    }, 900);
+  }
+</script></main></div></body></html>

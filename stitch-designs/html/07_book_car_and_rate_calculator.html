@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"tertiary":"#006947","inverse-on-surface":"#eff0ff","surface-container-low":"#f3f3ff","on-error":"#ffffff","surface-container-high":"#e3e7ff","primary-fixed-dim":"#93ccff","surface":"#faf8ff","inverse-surface":"#282f49","secondary-fixed-dim":"#bdc5e9","on-secondary":"#ffffff","on-error-container":"#93000a","surface-tint":"#006398","on-primary-fixed-variant":"#004b73","primary-fixed":"#cce5ff","on-primary-container":"#fdfcff","primary":"#006194","secondary-container":"#d0d9fd","on-tertiary-container":"#f5fff6","error-container":"#ffdad6","on-background":"#131a33","inverse-primary":"#93ccff","on-surface-variant":"#3f4850","tertiary-fixed-dim":"#4edea3","primary-container":"#007bb9","on-secondary-fixed-variant":"#3d4664","surface-dim":"#d2d9fa","on-primary-fixed":"#001d31","secondary-fixed":"#dbe1ff","surface-container-lowest":"#ffffff","outline-variant":"#bfc7d2","outline":"#707881","on-secondary-container":"#555e7d","tertiary-fixed":"#6ffbbe","on-tertiary-fixed":"#002113","on-secondary-fixed":"#111a36","surface-variant":"#dbe1ff","on-tertiary":"#ffffff","on-tertiary-fixed-variant":"#005236","on-surface":"#131a33","error":"#ba1a1a","background":"#faf8ff","surface-bright":"#faf8ff","on-primary":"#ffffff","surface-container-highest":"#dbe1ff","surface-container":"#ebedff","secondary":"#545d7c","tertiary-container":"#00855b"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-2xl":"3rem","space-xs":"0.5rem","gutter-mobile":"1rem","container-max":"80rem","space-2xs":"0.25rem","space-xl":"2rem","space-3xl":"4rem","space-sm":"0.75rem","space-md":"1rem","space-lg":"1.5rem","gutter-tablet":"1.5rem","gutter-desktop":"2rem"},"fontFamily":{"body-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-mono":["JetBrains Mono"],"headline-xl":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-xl-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-inverse-surface border-b border-outline-variant/20"><div class="h-20 max-w-container-max mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-on-primary text-[22px]">directions_car</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-inverse-on-surface leading-none">DriveEase</span><span class="font-label-mono text-label-mono text-secondary-fixed-dim uppercase tracking-widest">Mobility</span></div></a><nav class="hidden lg:flex items-center gap-space-xs p-space-2xs bg-on-background/20 rounded-xl" data-active-classes="bg-secondary/40 text-inverse-on-surface font-label-lg rounded-lg"><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="home" href="#">Home</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="cars-fleet" href="#">Cars</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-secondary/40 text-inverse-on-surface font-label-lg rounded-lg" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="rental-history" href="#">Rental History</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/30 transition-colors" data-path="admin-dashboard" href="#">Admin</a></nav></div><div class="flex items-center gap-space-md"><a class="hidden sm:flex items-center justify-center px-space-lg py-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors" data-path="cars-fleet" href="#">Book a Car</a><div class="flex items-center gap-space-sm pl-space-xs border-l border-outline-variant/30"><button aria-label="Notifications" class="w-10 h-10 rounded-lg flex items-center justify-center text-secondary-fixed-dim hover:text-inverse-on-surface hover:bg-secondary/20 transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><a aria-label="User Profile" class="group flex items-center gap-space-xs p-space-2xs rounded-full hover:bg-secondary/20 transition-colors" data-path="user-profile" href="#"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></a></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Stepper & Breadcrumb Navigation Bar -->
+<div class="w-full bg-surface-container-lowest shadow-sm">
+<div class="max-w-container-max mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop py-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest block mb-space-2xs">Reservation Desk • Booking ID #DE-8829</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Complete Your Reservation</h1>
+</div>
+<!-- Step Indicator Tracker -->
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl self-start md:self-auto">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-lg bg-primary text-on-primary flex items-center justify-center font-label-mono text-label-mono font-bold shadow-sm">
+            1
+          </div>
+<span class="font-label-lg text-label-lg text-primary font-bold">Driver &amp; Options</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px]">chevron_right</span>
+<div class="flex items-center gap-space-xs opacity-50">
+<div class="w-7 h-7 rounded-lg bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-mono text-label-mono font-bold">
+            2
+          </div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Payment &amp; Review</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Section Body -->
+<div class="max-w-container-max mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop py-space-xl w-full">
+<!-- Selected Car Top Banner Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md md:p-space-lg mb-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex flex-col sm:flex-row items-center gap-space-lg w-full md:w-auto">
+<div class="relative w-full sm:w-56 h-32 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" data-alt="Side profile studio photography of a glossy dark slate metallic Tesla Model S Plaid tri-motor vehicle resting in a minimalist clean showroom with dramatic diffused white overhead softbox lighting and deep blue atmospheric rim lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1d4NMfa0ooLGbgdg8dX_JtPiakeSh08qrU7tWy2E7xrBXulSpPT55AqZGX94eRRUbsm7Zj34Zfs_4OjxYrtL_A15YyqONo0r1CEddVxjrF5lbwLJkbnqqWv58IMUdXjJm9XpisYR2U-5rRUsupZsEazyH_yhBtmbH3yBJMI9uxl_RXz-rIoEZ03XGVO0wsZMHiXhRYN0m1yvH4OtjxwlzVOH5-k9g8HOjHNFKIgw5alUnJro7QWdc"/>
+<span class="absolute top-2 left-2 bg-inverse-surface/85 backdrop-blur text-inverse-on-surface font-label-mono text-[10px] px-2 py-0.5 rounded uppercase tracking-wider font-semibold">Tri-Motor AWD</span>
+</div>
+<div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-space-2xs">
+<div class="inline-flex items-center gap-1.5 text-tertiary font-label-mono text-label-mono">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            Verified Instant Allocation
+          </div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Tesla Model S Plaid (Tri-Motor AWD)</h2>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-space-md gap-y-space-2xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+              SFO Supercharger Hub, Bay Area
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+              1,020 HP • 396 mi Range
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">speed</span>
+              0-60 in 1.99s
+            </span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-center sm:items-end justify-between w-full md:w-auto pt-space-sm md:pt-0 border-t md:border-t-0 border-surface-container gap-space-md">
+<div class="text-left sm:text-right">
+<span class="font-headline-xl text-headline-xl text-on-surface font-extrabold tracking-tight text-primary">$129.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium"> / day</span>
+<p class="font-label-mono text-[11px] text-tertiary font-medium">Guaranteed Best Corporate Rate</p>
+</div>
+<a class="inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-lg text-label-lg group transition-colors" data-path="cars-fleet" href="#">
+<span>Change Vehicle</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">swap_horiz</span>
+</a>
+</div>
+</div>
+<!-- Live Real-Time Date Conflict / Availability Pill Status -->
+<div class="w-full bg-tertiary-container/15 text-tertiary rounded-xl p-space-md mb-space-xl flex items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Selected dates are fully available. Instant confirmation enabled.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lock guaranteed immediately at San Francisco International Supercharger Terminal Bay #4.</p>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur px-space-md py-1 rounded-full font-label-mono text-label-mono text-tertiary font-semibold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+        FLEET SLOT #402 READY
+      </div>
+</div>
+<!-- Two-Column Booking Engine Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Customer & Reservation Configuration Forms -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- SECTION A: Customer / Primary Driver Details -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl">
+<div class="flex items-center justify-between mb-space-lg pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Primary Driver Information</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Matches license verified for digital self-service vehicle pick-up.</p>
+</div>
+</div>
+<span class="hidden sm:inline-flex px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-mono text-label-mono">DEVON THORNE (PROFILE SYNCED)</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Full Name -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="driver-name">
+                Full Legal Name <span class="text-error font-body-sm">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all pl-10" id="driver-name" type="text" value="Devon Thorne"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">person</span>
+</div>
+</div>
+<!-- Email Address -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="driver-email">
+                Corporate / Personal Email <span class="text-error font-body-sm">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all pl-10" id="driver-email" type="email" value="devon.thorne@example.com"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">alternate_email</span>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="driver-phone">
+                Mobile Contact (SMS Key Access) <span class="text-error font-body-sm">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all pl-10" id="driver-phone" type="tel" value="+1 (415) 892-4910"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">phone</span>
+</div>
+</div>
+<!-- Country & State Select -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="driver-jurisdiction">
+                Issuing Jurisdiction <span class="text-error font-body-sm">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all pl-10 appearance-none cursor-pointer" id="driver-jurisdiction">
+<option selected="" value="California, USA">California, USA (DMV)</option>
+<option value="New York, USA">New York, USA</option>
+<option value="Washington, USA">Washington, USA</option>
+<option value="Texas, USA">Texas, USA</option>
+<option value="Ontario, CAN">Ontario, Canada</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">flag</span>
+<span class="material-symbols-outlined absolute right-3 top-3 text-[18px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Driver License Number -->
+<div class="md:col-span-2 flex flex-col gap-space-2xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="driver-license">
+                Driver's License Identification Number <span class="text-error font-body-sm">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface font-label-mono text-label-mono focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all pl-10 uppercase tracking-wider font-semibold" id="driver-license" type="text" value="CA-D8921940"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">credit_card</span>
+<span class="absolute right-3 top-2.5 inline-flex items-center gap-1 text-[11px] font-label-mono text-tertiary bg-tertiary/10 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">verified</span> Pre-Validated
+                </span>
+</div>
+</div>
+</div>
+<!-- Age Compliance Checkbox -->
+<div class="mt-space-lg pt-space-md flex items-center gap-space-sm bg-surface-container-low/60 p-space-sm rounded-lg">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer accent-primary" id="age-check" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface font-medium cursor-pointer select-none" for="age-check">
+              Driver is over 21 years of age and carries a valid unrestricted motor vehicle operator permit.
+            </label>
+</div>
+</section>
+<!-- SECTION B: Rental Schedule & Hub Details -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl">
+<div class="flex items-center gap-space-sm mb-space-lg">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">calendar_month</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Rental Duration &amp; Logistics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Adjust pick-up dates and delivery hubs in real time.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Pickup Section Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-sm">
+<span class="font-label-mono text-[11px] text-primary uppercase font-bold tracking-wider flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Pickup Itinerary
+              </span>
+<div class="grid grid-cols-2 gap-space-xs">
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Date</label>
+<input class="w-full h-10 px-space-xs rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" type="date" value="2025-10-28"/>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Time</label>
+<input class="w-full h-10 px-space-xs rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" type="time" value="10:00"/>
+</div>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Pickup Location Hub</label>
+<select class="w-full h-10 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer appearance-none">
+<option selected="">SFO Supercharger Hub, Bay Area (Terminal 2 VIP Valet)</option>
+<option>Downtown San Francisco - Union Square Fleet Pod</option>
+<option>San Jose International Airport (SJC) Hub</option>
+</select>
+</div>
+</div>
+<!-- Return Section Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-sm">
+<span class="font-label-mono text-[11px] text-secondary uppercase font-bold tracking-wider flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Return Itinerary
+              </span>
+<div class="grid grid-cols-2 gap-space-xs">
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Date</label>
+<input class="w-full h-10 px-space-xs rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" type="date" value="2025-11-01"/>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Time</label>
+<input class="w-full h-10 px-space-xs rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" type="time" value="18:00"/>
+</div>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1">Return Facility</label>
+<div class="flex items-center gap-space-xs h-10 px-space-sm rounded-lg bg-surface-container-lowest">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary cursor-pointer accent-primary" id="same-loc" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface cursor-pointer select-none truncate" for="same-loc">
+                    Same as pickup (SFO Supercharger Hub)
+                  </label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION C: Protection Packages & Automotive Add-ons -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl">
+<div class="flex items-center justify-between mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">shield</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Protection &amp; Add-ons</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select high-performance upgrades and peace-of-mind coverage.</p>
+</div>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary font-semibold hidden sm:inline-block">2 OF 3 ACTIVE</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Addon 1: Collision Damage Waiver -->
+<label class="relative flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group shadow-sm">
+<input checked="" class="mt-1 w-5 h-5 rounded text-primary focus:ring-primary cursor-pointer accent-primary" id="addon-cdw" onchange="recalculateTotals()" type="checkbox"/>
+<div class="flex-grow flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Zero-Deductible Collision Damage Waiver</span>
+<span class="bg-primary/10 text-primary font-label-mono text-[10px] uppercase font-bold px-1.5 py-0.5 rounded">Recommended</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    $0 driver liability for exterior scrapes, wheels, glass, and roadside mechanical events.
+                  </p>
+</div>
+<div class="sm:text-right flex-shrink-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">+$18.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> / day</span>
+</div>
+</div>
+</label>
+<!-- Addon 2: Full Self-Driving -->
+<label class="relative flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group shadow-sm">
+<input class="mt-1 w-5 h-5 rounded text-primary focus:ring-primary cursor-pointer accent-primary" id="addon-fsd" onchange="recalculateTotals()" type="checkbox"/>
+<div class="flex-grow flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Full Self-Driving (Supervised) Package</span>
+<span class="bg-secondary-container text-on-secondary-container font-label-mono text-[10px] uppercase font-bold px-1.5 py-0.5 rounded">Autopilot v12</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Auto-lane change, highway navigate on autopilot, intelligent auto-park, and summon enabled.
+                  </p>
+</div>
+<div class="sm:text-right flex-shrink-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">+$12.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> / day</span>
+</div>
+</div>
+</label>
+<!-- Addon 3: Supercharging Pass -->
+<label class="relative flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group shadow-sm">
+<input checked="" class="mt-1 w-5 h-5 rounded text-primary focus:ring-primary cursor-pointer accent-primary" id="addon-supercharge" onchange="recalculateTotals()" type="checkbox"/>
+<div class="flex-grow flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Prepaid Supercharging Flat Pass</span>
+<span class="bg-tertiary/10 text-tertiary font-label-mono text-[10px] uppercase font-bold px-1.5 py-0.5 rounded">Unlimited kWh</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Drop off the vehicle with any state of charge without re-fueling penalties or idle tariffs.
+                  </p>
+</div>
+<div class="sm:text-right flex-shrink-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">+$15.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> / day</span>
+</div>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Sticky Live Rate Calculator & Summary -->
+<div class="lg:col-span-4 lg:sticky lg:top-24 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg flex flex-col">
+<!-- Header title -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Price Breakdown</h3>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-mono text-label-mono font-bold">4 DAYS TOTAL</span>
+</div>
+<!-- Line items -->
+<div class="flex flex-col gap-space-xs py-space-xs text-body-md font-body-md">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant flex items-center gap-1">
+                Vehicle Base Rate <span class="font-label-mono text-[11px] text-outline">(4d × $129.00)</span>
+</span>
+<span class="font-label-mono font-semibold text-on-surface">$516.00</span>
+</div>
+<!-- Addon Row 1 -->
+<div class="flex items-center justify-between" id="row-cdw">
+<span class="text-on-surface-variant flex items-center gap-1">
+                Zero-Deductible Waiver <span class="font-label-mono text-[11px] text-outline">(4d × $18)</span>
+</span>
+<span class="font-label-mono font-semibold text-on-surface">$72.00</span>
+</div>
+<!-- Addon Row 2 (Initially Hidden or Dynamic) -->
+<div class="flex items-center justify-between hidden" id="row-fsd">
+<span class="text-on-surface-variant flex items-center gap-1">
+                Full Self-Driving (Supervised) <span class="font-label-mono text-[11px] text-outline">(4d × $12)</span>
+</span>
+<span class="font-label-mono font-semibold text-on-surface">$48.00</span>
+</div>
+<!-- Addon Row 3 -->
+<div class="flex items-center justify-between" id="row-supercharge">
+<span class="text-on-surface-variant flex items-center gap-1">
+                Prepaid Supercharging <span class="font-label-mono text-[11px] text-outline">(4d × $15)</span>
+</span>
+<span class="font-label-mono font-semibold text-on-surface">$60.00</span>
+</div>
+<!-- Mandatory Fees -->
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant flex items-center gap-1">
+                Mandatory Fleet Tax &amp; SFO Fee <span class="font-label-mono text-[11px] text-outline">(8.5%)</span>
+</span>
+<span class="font-label-mono font-semibold text-on-surface" id="tax-amount">$43.86</span>
+</div>
+<!-- Discount -->
+<div class="flex items-center justify-between text-tertiary">
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">local_offer</span>
+                Keyless Early-Bird Discount
+              </span>
+<span class="font-label-mono font-bold">-$25.00</span>
+</div>
+</div>
+<!-- Total Calculation Ledger Panel -->
+<div class="my-space-md p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Total Amount</span>
+<div class="text-right">
+<span class="font-headline-xl text-headline-xl font-extrabold text-primary tracking-tight" id="total-price">$666.86</span>
+<span class="block font-label-mono text-[10px] text-outline uppercase tracking-wider">USD • All taxes incorporated</span>
+</div>
+</div>
+<!-- Deposit Callout Note -->
+<div class="mt-space-2xs pt-space-xs flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">info</span>
+                Refundable Hold Deposit
+              </span>
+<span class="font-label-mono font-semibold text-on-surface">$250.00</span>
+</div>
+</div>
+<!-- Primary CTA Button -->
+<button class="w-full h-12 bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold rounded-lg shadow-md transition-all flex items-center justify-center gap-space-xs group active:scale-[0.99]" id="btn-confirm-reserve" onclick="handleReservationClick()" type="button">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">lock</span>
+<span>Confirm &amp; Reserve Vehicle</span>
+</button>
+<!-- Micro-Trust Badges & Security Seals -->
+<div class="mt-space-lg flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lock</span>
+<span>256-Bit Enterprise SSL Encryption Protocol</span>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">event_available</span>
+<span>Free Cancellation up to 24h prior to pickup</span>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">credit_card_off</span>
+<span>No Credit Card Surcharge or Hidden Terminal Tariffs</span>
+</div>
+</div>
+<!-- Live Route Energy Projection Inline SVG Widget -->
+<div class="mt-space-lg p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm">
+<svg class="w-10 h-10 flex-shrink-0 text-primary" viewbox="0 0 36 36">
+<path class="text-outline-variant/40" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="98, 100" stroke-linecap="round" stroke-width="3.5"></path>
+<text class="font-label-mono text-[8px] font-bold" fill="currentColor" text-anchor="middle" x="18" y="20.5">98%</text>
+</svg>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Vehicle Ready at 98% SoC</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Battery conditioned for maximum Plaid performance upon arrival.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-Side Real-Time Recalculation Engine -->
+<script>
+    function recalculateTotals() {
+      const days = 4;
+      const baseDailyRate = 129.00;
+      const discount = 25.00;
+      
+      const cdwChecked = document.getElementById('addon-cdw').checked;
+      const fsdChecked = document.getElementById('addon-fsd').checked;
+      const superchargeChecked = document.getElementById('addon-supercharge').checked;
+      
+      // Toggle table visibility
+      const rowCdw = document.getElementById('row-cdw');
+      const rowFsd = document.getElementById('row-fsd');
+      const rowSupercharge = document.getElementById('row-supercharge');
+      
+      if (rowCdw) rowCdw.classList.toggle('hidden', !cdwChecked);
+      if (rowFsd) rowFsd.classList.toggle('hidden', !fsdChecked);
+      if (rowSupercharge) rowSupercharge.classList.toggle('hidden', !superchargeChecked);
+
+      // Add-on math
+      let addonsTotal = 0;
+      if (cdwChecked) addonsTotal += (18.00 * days);
+      if (fsdChecked) addonsTotal += (12.00 * days);
+      if (superchargeChecked) addonsTotal += (15.00 * days);
+
+      const baseTotal = baseDailyRate * days;
+      const taxableSubtotal = baseTotal;
+      const taxRate = 0.085;
+      const tax = taxableSubtotal * taxRate;
+
+      const finalTotal = (baseTotal + addonsTotal + tax) - discount;
+
+      // Update UI elements
+      const taxEl = document.getElementById('tax-amount');
+      const totalEl = document.getElementById('total-price');
+      if (taxEl) taxEl.textContent = '$' + tax.toFixed(2);
+      if (totalEl) totalEl.textContent = '$' + finalTotal.toFixed(2);
+    }
+
+    function handleReservationClick() {
+      const btn = document.getElementById('btn-confirm-reserve');
+      if (!btn) return;
+      
+      btn.disabled = true;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span><span>Securing Fleet Node...</span>';
+      
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Reserved &amp; Key Issued!</span>';
+        btn.classList.remove('bg-primary', 'hover:bg-primary-container');
+        btn.classList.add('bg-tertiary');
+      }, 900);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low border-t border-outline-variant/30 py-space-2xl"><div class="max-w-container-max mx-auto px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">directions_car</span></div><span class="font-headline-sm text-headline-sm text-on-surface">DriveEase</span><span class="font-body-sm text-body-sm text-on-surface-variant ml-space-xs">© 2024 DriveEase Fleet Systems. All rights reserved.</span></div><div class="flex items-center gap-space-lg font-label-md text-label-md text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Terms of Rental</a><a class="hover:text-primary transition-colors" href="#">Insurance Protection</a><a class="hover:text-primary transition-colors" href="#">Fleet Safety</a><a class="hover:text-primary transition-colors" href="#">Support Center</a></div></div></footer></body></html>

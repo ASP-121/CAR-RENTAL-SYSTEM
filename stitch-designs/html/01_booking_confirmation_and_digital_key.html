@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ba1a1a", "on-tertiary-fixed": "#002113", "on-surface": "#131a33", "surface-container": "#ebedff", "surface-container-high": "#e3e7ff", "surface-dim": "#d2d9fa", "surface-container-highest": "#dbe1ff", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-secondary-container": "#555e7d", "surface-tint": "#006398", "on-primary-container": "#fdfcff", "tertiary-container": "#00855b", "on-primary-fixed-variant": "#004b73", "outline": "#707881", "on-error-container": "#93000a", "inverse-on-surface": "#eff0ff", "primary-fixed-dim": "#93ccff", "surface-container-low": "#f3f3ff", "surface-variant": "#dbe1ff", "on-secondary-fixed-variant": "#3d4664", "primary-container": "#007bb9", "on-secondary": "#ffffff", "primary-fixed": "#cce5ff", "on-primary": "#ffffff", "tertiary-fixed-dim": "#4edea3", "primary": "#006194", "background": "#faf8ff", "inverse-surface": "#282f49", "on-error": "#ffffff", "secondary": "#545d7c", "surface-container-lowest": "#ffffff", "outline-variant": "#bfc7d2", "tertiary-fixed": "#6ffbbe", "on-surface-variant": "#3f4850", "secondary-fixed": "#dbe1ff", "on-background": "#131a33", "on-tertiary-container": "#f5fff6", "on-primary-fixed": "#001d31", "secondary-fixed-dim": "#bdc5e9", "surface-bright": "#faf8ff", "secondary-container": "#d0d9fd", "tertiary": "#006947", "on-tertiary-fixed-variant": "#005236", "on-secondary-fixed": "#111a36", "inverse-primary": "#93ccff", "surface": "#faf8ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter-desktop": "2rem", "space-3xl": "4rem", "gutter-tablet": "1.5rem", "gutter-mobile": "1rem", "space-xs": "0.5rem", "container-max": "80rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-2xs": "0.25rem", "space-sm": "0.75rem", "space-md": "1rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-mono": ["JetBrains Mono"], "display-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[80rem] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-[0_2px_8px_rgba(0,97,148,0.25)]"><span class="material-symbols-outlined text-[24px]">directions_car</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">DriveEase</span><span class="font-label-mono text-label-mono text-on-surface-variant tracking-wider uppercase leading-none mt-1">Mobility</span></div></a><nav class="hidden xl:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-lg shadow-none"><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="home" href="#">Home</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="fleet-catalog" href="#">Cars</a><a aria-current="page" class="px-space-md py-space-xs transition-all bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-lg shadow-none" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="rental-history" href="#">Rental History</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="fleet-admin" href="#">Admin Dashboard</a></nav></div><div class="flex items-center gap-space-md"><a class="h-11 px-space-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg flex items-center justify-center transition-all duration-150 shadow-[0_2px_4px_rgba(0,97,148,0.2)] hover:-translate-y-0.5" data-path="book-a-car" href="#">Book a Car</a><div class="h-6 w-px bg-outline-variant/40 hidden sm:block"></div><button aria-label="Notifications" class="relative w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="flex items-center gap-space-sm pl-space-xs py-1 pr-2 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Alex Mercer</span><span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Tier Elite</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px] hidden md:inline">expand_more</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full pb-space-3xl">
+<!-- Top Breadcrumb & Status Scrim -->
+<div class="w-full max-w-[80rem] mx-auto px-gutter-desktop pt-space-lg">
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="home" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Home</span>
+</a>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<a class="hover:text-primary transition-colors" data-path="my-bookings" href="#">Reservations</a>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="text-on-surface font-semibold">Confirmation</span>
+</nav>
+</div>
+<!-- Hero Confirmation Badge Header -->
+<section class="w-full max-w-[80rem] mx-auto px-gutter-desktop pt-space-xl pb-space-lg">
+<div class="relative overflow-hidden rounded-2xl bg-surface-container-lowest p-space-xl md:p-space-2xl shadow-sm">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-tertiary-fixed/20 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/3 -bottom-20 w-64 h-64 rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xl">
+<div class="flex items-start sm:items-center gap-space-lg">
+<!-- Animated Check Badge -->
+<div class="relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-tertiary/10 text-tertiary flex items-center justify-center shadow-inner">
+<span class="absolute inset-0 rounded-2xl border-2 border-tertiary/30 animate-ping opacity-25"></span>
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-tertiary text-on-tertiary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[32px] sm:text-[38px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="inline-flex items-center gap-2 mb-1">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-tertiary uppercase tracking-wider font-bold">Verified &amp; Dispatched</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-extrabold tracking-tight">Booking Confirmed!</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+              Your reservation is locked. A confirmation receipt, telematic pass, and mobile digital vehicle key have been dispatched to your verified device.
+            </p>
+</div>
+</div>
+<!-- Quick Pass Reference Box -->
+<div class="w-full md:w-auto flex flex-col sm:flex-row md:flex-col gap-2 p-space-md bg-surface-container-low rounded-xl">
+<div class="flex items-center justify-between gap-space-md">
+<span class="font-label-md text-label-md text-on-surface-variant">Reservation Ref:</span>
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded-lg">
+<span class="font-label-mono text-label-mono font-bold text-on-surface tracking-wider" id="bookingRef">#DE-89214</span>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors" id="copyBtn" onclick="navigator.clipboard.writeText('DE-89214'); alert('Reservation ID DE-89214 copied to clipboard');" title="Copy Reference ID">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span>Terminal Dispatch:</span>
+<span class="font-label-mono text-label-mono text-primary font-semibold">SFO VIP BAY #4</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Bento Grid Layout (8 cols Content / 4 cols Ledger & Sidebar) -->
+<main class="w-full max-w-[80rem] mx-auto px-gutter-desktop mt-space-md">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left Column: Vehicle Profile, Route Matrix, Checklist -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- Vehicle Hero Spec Card -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-xl shadow-sm overflow-hidden flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-mono text-label-mono uppercase tracking-wide">Prestige Fleet</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-mono text-label-mono font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Keyless Telematics Ready
+                </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold mt-2">Tesla Model S Plaid</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tri-Motor All-Wheel Drive • Ultra High Output Performance</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl">
+<div class="flex flex-col text-right">
+<span class="font-label-mono text-label-mono text-on-surface font-bold tracking-widest">7XYZ890</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">California Fleet Tag</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[28px]">badge</span>
+</div>
+</div>
+<!-- Vehicle Media & Realtime Telematics Ribbon -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg items-center">
+<div class="md:col-span-7 relative h-56 rounded-xl overflow-hidden bg-surface-container-low shadow-inner group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sleek midnight silver metallic Tesla Model S Plaid electric sedan parked inside a state-of-the-art airport executive valet bay with ambient blue architectural ground lighting, high gloss reflections, ultra sharp luxury automotive photography with pristine clean finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKjPeeTwVPCZJL95EJ34yZDp3PimXMh7yV6Oy-ytvHOFdLEbOiw9fm1WmtyjkHULQ7bhY8T1Ydr4jNB7kquyMZBLeEMcGp5ApzbKmdxtdMHe2iSRI4CyfQbY25FPEZ2fx1g4kymoB1XAWkpZEuDTtSDGlDnZuFq-8JEuzilBxKOJ42EufkvfV2YMB4bXUfj8FEM3SxhhHagCSNluRmx_XvF2irT14AuA8-9kVv8ec6NFfxuOxRcIq"/>
+<div class="absolute bottom-3 left-3 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">bolt</span>
+<span class="font-label-mono text-label-mono text-on-surface font-semibold">98% SoC (390 mi)</span>
+</div>
+<div class="absolute top-3 right-3 bg-inverse-surface/85 backdrop-blur-md text-inverse-on-surface px-2.5 py-1 rounded-md font-label-mono text-label-mono">
+                BAY 04
+              </div>
+</div>
+<!-- Telemetry Metrics -->
+<div class="md:col-span-5 grid grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col justify-between h-24">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Powertrain</span>
+<span class="material-symbols-outlined text-[18px] text-primary">speed</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1,020</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-0.5">HP</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col justify-between h-24">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Acceleration</span>
+<span class="material-symbols-outlined text-[18px] text-primary">rocket_launch</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1.99s</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-0.5">0-60</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col justify-between h-24">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Preconditioning</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">ac_unit</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">70°F</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-0.5">Target</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col justify-between h-24">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Key Pass</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">contactless</span>
+</div>
+<div>
+<span class="font-label-mono text-label-mono text-tertiary font-bold uppercase">Paired</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Driver iOS/Android</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Trip Timeline & Station Geofence -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Reservation Schedule &amp; Terminal Access</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-secondary-container font-label-mono text-label-mono font-semibold">4 Days Duration</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg relative">
+<!-- Pick-up Column -->
+<div class="flex gap-space-sm items-start">
+<div class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">flight_land</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-wider font-semibold">Pick-Up Station</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">Thursday, Oct 28, 2025</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">10:00 AM (PST)</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-1.5 font-semibold">
+                    San Francisco Intl Airport (SFO)
+                  </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Terminal 2 VIP Valet Bay #4 • Dedicated Express Lane
+                  </p>
+</div>
+</div>
+<!-- Return Column -->
+<div class="flex gap-space-sm items-start">
+<div class="w-9 h-9 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">flight_takeoff</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-secondary uppercase tracking-wider font-semibold">Scheduled Return</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">Monday, Nov 01, 2025</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">06:00 PM (PST)</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-1.5 font-semibold">
+                    SFO Supercharger Hub &amp; Return Deck
+                  </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Level 3 Automated Ingest Gate • Slot 12-B
+                  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contactless Pickup Checklist / Instructions -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">pin_drop</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Contactless Pickup Protocol</h3>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary font-bold uppercase">Zero Counter Wait</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Step 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm relative overflow-hidden group hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-primary font-bold">STEP 01</span>
+<span class="material-symbols-outlined text-primary text-[22px]">phone_iphone</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Sync Digital Pass</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Add the DriveEase Keyless Credential to Apple Wallet or Google Wallet via your confirmation SMS link.
+                </p>
+</div>
+<div class="pt-2">
+<button class="w-full py-1.5 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_to_home_screen</span>
+<span>Add to Apple Wallet</span>
+</button>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm relative overflow-hidden group hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-primary font-bold">STEP 02</span>
+<span class="material-symbols-outlined text-primary text-[22px]">directions_walk</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Direct Bay Entry</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Follow airport arrivals signs to Terminal 2 VIP Valet Bay #4. Completely skip standard rental ticket counters.
+                </p>
+</div>
+<div class="pt-2">
+<a class="w-full py-1.5 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-sm hover:bg-surface-container-high transition-colors" href="#locationMap">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+<span>View Terminal Route</span>
+</a>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-sm relative overflow-hidden group hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-primary font-bold">STEP 03</span>
+<span class="material-symbols-outlined text-primary text-[22px]">contactless</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Tap B-Pillar &amp; Drive</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Hold phone near driver-side door column. Vehicle unlocks, mirrors unfold, and navigation initializes to your hotel.
+                </p>
+</div>
+<div class="pt-2">
+<div class="w-full py-1.5 px-3 rounded-lg bg-tertiary-fixed/40 text-on-tertiary-fixed font-label-mono text-label-mono text-center font-bold">
+                  NFC ACTIVE
+                </div>
+</div>
+</div>
+</div>
+<!-- Location Map Visual Snippet -->
+<div class="mt-space-xs rounded-xl overflow-hidden bg-surface-container-low p-space-sm" id="locationMap">
+<div class="flex items-center justify-between mb-2 px-1">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+                SFO Terminal 2 Valet Curbside (Geofenced Bay #4)
+              </span>
+<span class="font-label-mono text-label-mono text-on-surface-variant font-medium">37.6188° N, 122.3754° W</span>
+</div>
+<div class="w-full h-44 bg-cover bg-center rounded-lg shadow-inner flex items-center justify-center relative" data-location="San Francisco International Airport Terminal 2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLsvbQZPgUtT5RHmLh7SGjiiOxuxROsNpyBXVM26C1T3QLOc2yLk4KbR4gpiADTSC30I5vT8gpek5NUcylSb-4ZEAp2r0UMNNm79qkQF-cNePPVnZtXvlQ6rHTOTpANnMueBkQFvF8CbJDA0c2XezcPdaBjRxaINpAdoeRDzAlraqsl-m3vvNknQidAklF0xccSC5AlaWjPCExzkI3NPTanQUZ6oqse9Mx1aZXTSwGrbswdKEClBm-')">
+<div class="bg-surface/95 backdrop-blur-md px-4 py-2 rounded-xl shadow-md flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary animate-ping"></div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Vehicle Position: Bay #4 Staged &amp; Cleaned</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Digital Key Pass Card & Payment Breakdown Ledger -->
+<div class="lg:col-span-4 flex flex-col gap-space-xl">
+<!-- Contactless Boarding QR Pass -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-primary via-primary-container to-tertiary"></div>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest mt-1">Vehicle Dispatch Pass</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">Direct Gate Pass</h3>
+<!-- QR Code Container -->
+<div class="mt-space-md p-space-md bg-surface-container-lowest rounded-2xl shadow-md flex flex-col items-center">
+<svg class="w-44 h-44 text-on-surface" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<!-- Crisp Geometric Synthetic QR Code Visual Representation -->
+<rect fill="transparent" height="100" width="100"></rect>
+<!-- Top-Left Corner Eye -->
+<rect fill="currentColor" height="24" rx="3" width="24" x="10" y="10"></rect>
+<rect fill="white" height="16" width="16" x="14" y="14"></rect>
+<rect fill="currentColor" height="8" rx="1" width="8" x="18" y="18"></rect>
+<!-- Top-Right Corner Eye -->
+<rect fill="currentColor" height="24" rx="3" width="24" x="66" y="10"></rect>
+<rect fill="white" height="16" width="16" x="70" y="14"></rect>
+<rect fill="currentColor" height="8" rx="1" width="8" x="74" y="18"></rect>
+<!-- Bottom-Left Corner Eye -->
+<rect fill="currentColor" height="24" rx="3" width="24" x="10" y="66"></rect>
+<rect fill="white" height="16" width="16" x="14" y="70"></rect>
+<rect fill="currentColor" height="8" rx="1" width="8" x="18" y="74"></rect>
+<!-- Interior Data Blocks -->
+<rect fill="currentColor" height="6" width="6" x="38" y="12"></rect>
+<rect fill="currentColor" height="6" width="6" x="48" y="12"></rect>
+<rect fill="currentColor" height="6" width="12" x="42" y="22"></rect>
+<rect fill="currentColor" height="6" width="8" x="12" y="42"></rect>
+<rect fill="currentColor" height="8" width="8" x="24" y="48"></rect>
+<rect fill="currentColor" height="8" width="8" x="38" y="38"></rect>
+<rect fill="currentColor" height="6" width="10" x="52" y="38"></rect>
+<rect fill="currentColor" height="8" width="8" x="68" y="42"></rect>
+<rect fill="currentColor" height="8" width="8" x="80" y="48"></rect>
+<rect fill="currentColor" height="12" width="6" x="40" y="52"></rect>
+<rect fill="currentColor" height="14" width="8" x="52" y="50"></rect>
+<rect fill="currentColor" height="6" width="10" x="66" y="64"></rect>
+<rect fill="currentColor" height="10" width="8" x="80" y="70"></rect>
+<rect fill="currentColor" height="6" width="14" x="44" y="72"></rect>
+<rect fill="currentColor" height="8" width="12" x="64" y="80"></rect>
+<rect fill="currentColor" height="6" width="8" x="42" y="84"></rect>
+<!-- Center Logo Indicator Dot -->
+<circle class="text-primary" cx="50" cy="50" fill="currentColor" r="4"></circle>
+</svg>
+<span class="font-label-mono text-label-mono text-on-surface-variant mt-2">PIN: 892-140</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm">
+            Scan at SFO Terminal 2 Valet Scanner or tap mobile device on B-Pillar reader.
+          </p>
+<div class="w-full mt-space-md pt-space-sm flex items-center justify-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Active Valid Through Nov 01</span>
+</div>
+</div>
+<!-- Payment Ledger & Invoice Breakdown -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Billing Breakdown</h3>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-mono text-label-mono font-bold">PAID</span>
+</div>
+<!-- Structured Ledger Rows -->
+<div class="flex flex-col gap-space-xs text-body-md font-body-md">
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Vehicle Base Rate</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tesla Model S • 4 Days × $129.00</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface font-semibold">$516.00</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Collision Waiver (CDW)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Zero-Deductible Full Protection</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface font-semibold">$72.00</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Prepaid Supercharger Pass</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Unlimited High-Speed Charging</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface font-semibold">$60.00</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">SFO Concession &amp; Fleet Tax</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Municipal Airport Transportation Fees</span>
+</div>
+<span class="font-label-mono text-label-mono text-on-surface font-semibold">$43.86</span>
+</div>
+<div class="flex items-center justify-between py-1 text-tertiary">
+<div class="flex flex-col">
+<span class="font-medium">Early-Bird Keyless Discount</span>
+<span class="font-body-sm text-body-sm opacity-80">Digital Bypass Incentive</span>
+</div>
+<span class="font-label-mono text-label-mono font-semibold">-$25.00</span>
+</div>
+</div>
+<!-- Total Callout Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2 mt-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Total Paid:</span>
+<span class="font-headline-md text-headline-md text-primary font-extrabold tracking-tight">$666.86</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">credit_card</span>
+<span>Billed to Visa ending in <strong class="text-on-surface font-semibold">4242</strong></span>
+</div>
+</div>
+<!-- Security Deposit Notice Note -->
+<div class="p-space-md rounded-xl bg-surface-container-high/60 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Security Deposit Pre-Auth</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
+                A <strong>$250.00</strong> hold is placed on card and will release automatically upon post-rental vehicle ingest at SFO Hub.
+              </p>
+</div>
+</div>
+<!-- Primary & Secondary Buttons Group -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<a class="w-full h-12 bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5 transition-all duration-150" data-path="my-bookings" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span>View in My Bookings</span>
+</a>
+<button class="w-full h-11 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 transition-colors" onclick="window.print();">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download PDF Invoice &amp; Contract</span>
+</button>
+<a class="w-full py-2.5 text-center text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors flex items-center justify-center gap-1" data-path="home" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Back to Home</span>
+</a>
+</div>
+</div>
+<!-- 24/7 Roadside Concierge Support Micro Card -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Concierge On Standby</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SFO Dispatch Lead: Marcus V.</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-mono text-label-mono font-bold transition-colors" onclick="alert('Connecting to SFO Executive Dispatch Terminal (800-555-EASE)...');">
+            CALL
+          </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+  // Subtle UX micro-interaction for confirmation page
+  document.addEventListener('DOMContentLoaded', () => {
+    // Scroll smoothly to top on load
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-space-3xl"><div class="max-w-[80rem] mx-auto px-gutter-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-2xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[18px]">directions_car</span></div><span class="font-headline-sm text-headline-sm text-on-surface">DriveEase Mobility</span></div><p class="font-body-sm text-body-sm text-on-surface-variant pr-space-md">Enterprise-grade precision vehicle rentals, verified fleet logistics, and seamless digital travel dispatch.</p><div class="flex items-center gap-space-xs mt-space-xs"><span class="inline-flex w-2 h-2 rounded-full bg-tertiary"></span><span class="font-label-mono text-label-mono text-tertiary uppercase tracking-wider">All Systems Operational</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface">Fleet &amp; Safety</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="fleet-safety" href="#">Vehicle Safety Standards</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="insurance-cdw" href="#">Comprehensive CDW Insurance</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-guarantee" href="#">Sanitized Inspection Protocol</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ev-charging" href="#">EV Charging Network</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface">Legal &amp; Terms</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy &amp; Telematics Notice</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="rental-agreement" href="#">Rental Master Agreement</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="deposit-policy" href="#">Security Deposit Protocol</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface">24/7 Emergency Dispatch</span><p class="font-body-sm text-body-sm text-on-surface-variant">Rapid roadside assistance and collision dispatch anywhere nationwide.</p><div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1"><span class="font-label-mono text-label-mono text-primary font-bold text-sm tracking-wide">1-800-555-EASE</span><span class="font-body-sm text-body-sm text-on-surface-variant">Toll-Free Immediate Response</span></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low/50 px-space-md py-space-sm rounded-xl"><span>© 2025 DriveEase Mobility Systems Inc. All rights reserved.</span><div class="flex items-center gap-space-lg"><span class="font-label-mono text-label-mono text-on-surface-variant">VER: 4.18.2-PROD</span><span class="font-label-mono text-label-mono text-on-surface-variant">LATENCY: 24MS</span></div></div></div></footer></body></html>

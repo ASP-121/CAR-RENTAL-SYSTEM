@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#3d4664","surface-container-highest":"#dbe1ff","surface-dim":"#d2d9fa","surface-container":"#ebedff","surface-container-lowest":"#ffffff","surface":"#faf8ff","on-tertiary":"#ffffff","outline-variant":"#bfc7d2","secondary-fixed":"#dbe1ff","surface-variant":"#dbe1ff","secondary-container":"#d0d9fd","on-secondary-container":"#555e7d","secondary":"#545d7c","outline":"#707881","on-secondary-fixed":"#111a36","primary-fixed":"#cce5ff","tertiary-fixed":"#6ffbbe","tertiary-fixed-dim":"#4edea3","background":"#faf8ff","surface-container-low":"#f3f3ff","on-background":"#131a33","secondary-fixed-dim":"#bdc5e9","primary-fixed-dim":"#93ccff","on-primary-fixed-variant":"#004b73","on-primary-fixed":"#001d31","on-error":"#ffffff","on-primary":"#ffffff","on-surface-variant":"#3f4850","on-tertiary-container":"#f5fff6","on-primary-container":"#fdfcff","inverse-on-surface":"#eff0ff","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-fixed":"#002113","on-tertiary-fixed-variant":"#005236","surface-bright":"#faf8ff","on-surface":"#131a33","surface-container-high":"#e3e7ff","primary-container":"#007bb9","tertiary-container":"#00855b","on-secondary":"#ffffff","primary":"#006194","inverse-primary":"#93ccff","surface-tint":"#006398","error-container":"#ffdad6","tertiary":"#006947","inverse-surface":"#282f49"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-3xl":"4rem","container-max":"80rem","space-lg":"1.5rem","space-xs":"0.5rem","space-2xl":"3rem","space-md":"1rem","gutter-mobile":"1rem","space-xl":"2rem","gutter-desktop":"2rem","gutter-tablet":"1.5rem","space-2xs":"0.25rem","space-sm":"0.75rem"},fontFamily:{"body-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"label-mono":["JetBrains Mono"],"headline-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"]},fontSize:{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-xs"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[22px]">directions_car</span></div><div class="flex flex-col leading-none"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">DriveEase</span><span class="font-label-md text-label-md text-primary font-semibold tracking-wide uppercase">Mobility</span></div></div><span class="px-space-xs py-space-2xs rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md uppercase tracking-wider font-semibold">Admin</span></div><div class="px-space-md pt-space-md"><span class="px-space-xs font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Operations</span></div><nav class="mt-space-xs flex flex-col gap-space-2xs px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-lg text-label-lg">Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-path="fleet-management" href="#"><span class="material-symbols-outlined text-[20px]">garage_home</span><span class="font-label-lg text-label-lg">Fleet Management</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="bookings-operations" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span class="font-label-lg text-label-lg">Bookings Operations</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="customers-and-drivers" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">Customers &amp; Drivers</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="rental-reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-label-lg text-label-lg">Rental Reports &amp; Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-lg text-label-lg">System Settings</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm"><div class="p-space-sm rounded-xl bg-surface-container flex flex-col gap-space-2xs"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-on-surface-variant font-medium">Cluster Health</span><span class="inline-flex items-center gap-1 font-label-mono text-label-mono text-tertiary font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>99.98%</span></div><div class="flex items-center justify-between text-on-surface-variant"><span class="font-body-sm text-body-sm">Region</span><span class="font-label-mono text-label-mono text-on-surface font-medium">us-east-1</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden mt-space-2xs"><div class="bg-tertiary h-full w-[94%]"></div></div></div><a class="flex items-center justify-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-highest text-on-surface hover:bg-secondary-container hover:text-on-secondary-container transition-colors" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">storefront</span><span class="font-label-md text-label-md font-semibold">Back to Customer Portal</span></a></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="relative flex items-center w-72"><span class="material-symbols-outlined absolute left-space-xs text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full pl-8 pr-space-xs py-space-2xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container transition-colors" placeholder="Search fleet, booking ID, license..." type="text"/></div><div class="hidden xl:flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-full bg-surface-container font-label-mono text-label-mono"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="text-on-surface-variant">MongoDB Atlas:</span><span class="text-tertiary font-semibold">Connected</span><span class="text-outline font-normal">•</span><span class="text-on-surface font-medium">24ms</span></div></div><div class="flex items-center gap-space-md"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="h-6 w-px bg-outline-variant"></div><div class="flex items-center gap-space-sm"><div class="flex flex-col text-right leading-none"><span class="font-label-lg text-label-lg text-on-surface font-semibold">Sarah Jenkins</span><span class="font-body-sm text-body-sm text-on-surface-variant">Operations Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface px-space-lg pb-space-2xl min-h-screen"><div class="flex flex-col w-full">
+<!-- Dynamic Top Visual Ribbon & Global Metrics Bar -->
+<div class="flex flex-col xl:flex-row items-start xl:items-end justify-between gap-space-lg mb-space-xl">
+<div class="flex flex-col max-w-2xl">
+<div class="flex items-center gap-space-xs mb-space-2xs">
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-mono text-label-mono uppercase tracking-wider font-semibold">MongoDB Atlas Sync</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-label-mono text-label-mono text-tertiary font-semibold">Cluster node #3-active</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-extrabold">Fleet &amp; Inventory Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-2xs">Audit, onboard, update specs, and manage availability across 48 vehicles in real-time MongoDB cluster.</p>
+</div>
+<!-- Actions Group -->
+<div class="flex flex-wrap items-center gap-space-sm w-full xl:w-auto">
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 shadow-sm" onclick="triggerToast('Catalog exported as DriveEase_Fleet_Q2_2025.csv')">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span class="font-label-lg text-label-lg">Export CSV Catalog</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all active:scale-95 shadow-sm" id="syncTelematicsBtn" onclick="runTelematicsSync()">
+<span class="material-symbols-outlined text-[18px] text-primary" id="syncIcon">sync</span>
+<span class="font-label-lg text-label-lg" id="syncText">Batch Telematics Sync</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-lg py-space-xs rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all active:scale-95" onclick="toggleAddVehicleDrawer(true)">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Add New Vehicle</span>
+</button>
+</div>
+</div>
+<!-- Fleet Operational KPIs - Asymmetrical Grid with Sparkline Trends -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
+<!-- Card 1: Total Fleet -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Total Fleet</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-on-surface">directions_car</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs my-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight">48</span>
+<span class="font-label-md text-label-md text-tertiary flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>+4 MoM
+        </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-mono text-label-mono">
+<span>Asset Valuation</span>
+<span class="font-semibold text-on-surface">$3,840,500</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-high">
+<div class="h-full bg-primary" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Card 2: Instant Available -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Instant Available</span>
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs my-space-xs">
+<span class="font-display-lg text-display-lg text-tertiary font-extrabold tracking-tight">14</span>
+<span class="font-label-md text-label-md text-on-surface-variant">29.1% readiness</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-mono text-label-mono">
+<span>Avg. Turnaround</span>
+<span class="font-semibold text-on-surface">42 mins</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-high">
+<div class="h-full bg-tertiary" style="width: 29.1%;"></div>
+</div>
+</div>
+<!-- Card 3: Active Rental -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">On Active Rental</span>
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-primary">key</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs my-space-xs">
+<span class="font-display-lg text-display-lg text-primary font-extrabold tracking-tight">28</span>
+<span class="font-label-md text-label-md text-tertiary flex items-center">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>58.3% util.
+        </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-mono text-label-mono">
+<span>Daily Run-rate</span>
+<span class="font-semibold text-on-surface">$3,920 / day</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-high">
+<div class="h-full bg-primary" style="width: 58.3%;"></div>
+</div>
+</div>
+<!-- Card 4: Maintenance / Service -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Maintenance / Service</span>
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-error">build</span>
+</div>
+</div>
+<div class="flex items-baseline gap-space-xs my-space-xs">
+<span class="font-display-lg text-display-lg text-error font-extrabold tracking-tight">6</span>
+<span class="font-label-md text-label-md text-on-surface-variant">12.5% offline</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-label-mono text-label-mono">
+<span>Critical Telemetry</span>
+<span class="font-semibold text-error">2 low tires, 1 inverter</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-high">
+<div class="h-full bg-error" style="width: 12.5%;"></div>
+</div>
+</div>
+</div>
+<!-- Search & Dynamic Filter Control Center -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm mb-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-space-md">
+<!-- Search VIN / Make Input -->
+<div class="relative w-full lg:w-96 flex items-center">
+<span class="material-symbols-outlined absolute left-space-sm text-on-surface-variant text-[20px] pointer-events-none">search</span>
+<input class="w-full pl-10 pr-space-md py-space-xs bg-surface-container-low rounded-xl font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container transition-all" id="fleetSearchInput" oninput="filterFleetTable()" placeholder="Search by VIN, make, model, license plate..." type="text"/>
+<span class="hidden sm:inline absolute right-space-xs font-label-mono text-[10px] text-on-surface-variant px-1.5 py-0.5 rounded bg-surface-container-high">⌘K</span>
+</div>
+<!-- Quick Select Dropdowns -->
+<div class="flex flex-wrap items-center gap-space-sm w-full lg:w-auto">
+<!-- Status Filter Select -->
+<div class="flex items-center gap-space-2xs bg-surface-container-low px-space-sm py-space-2xs rounded-xl">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">tune</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Status:</span>
+<select class="bg-transparent font-label-lg text-label-lg text-on-surface focus:outline-none cursor-pointer" id="statusFilterSelect" onchange="filterFleetTable()">
+<option value="ALL">All Statuses</option>
+<option value="AVAILABLE">Available</option>
+<option value="ACTIVE_RENTAL">In Rental</option>
+<option value="MAINTENANCE">Maintenance</option>
+<option value="STAGED">Staged</option>
+</select>
+</div>
+<!-- Hub Location Select -->
+<div class="flex items-center gap-space-2xs bg-surface-container-low px-space-sm py-space-2xs rounded-xl">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">location_on</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Hub:</span>
+<select class="bg-transparent font-label-lg text-label-lg text-on-surface focus:outline-none cursor-pointer" id="hubFilterSelect" onchange="filterFleetTable()">
+<option value="ALL">All Hubs</option>
+<option value="SFO">SFO Airport Terminal 2</option>
+<option value="SJC">SJC Airport Express</option>
+<option value="SF_DOWNTOWN">San Francisco Downtown Hub</option>
+</select>
+</div>
+<button class="p-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" onclick="resetFilters()" title="Reset Filters">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Category Filter Pills Bar -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 scrollbar-none pt-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant shrink-0 mr-space-2xs">Category:</span>
+<button class="category-pill active-pill px-space-sm py-space-2xs rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all" onclick="setCategoryFilter('ALL', this)">All (48)</button>
+<button class="category-pill px-space-sm py-space-2xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-all" onclick="setCategoryFilter('Electric Flagship', this)">Electric Flagship (18)</button>
+<button class="category-pill px-space-sm py-space-2xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-all" onclick="setCategoryFilter('Performance EV', this)">Performance EV (12)</button>
+<button class="category-pill px-space-sm py-space-2xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-all" onclick="setCategoryFilter('Adventure SUV', this)">Adventure SUV (10)</button>
+<button class="category-pill px-space-sm py-space-2xs rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-all" onclick="setCategoryFilter('Executive Saloon', this)">Executive Saloon (8)</button>
+</div>
+</div>
+<!-- Main Vehicle Data Table Container -->
+<div class="w-full bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden flex flex-col">
+<!-- Batch selection bar (Hidden by default, shown on select) -->
+<div class="hidden bg-secondary-container px-space-lg py-space-xs flex items-center justify-between transition-all" id="batchActionToolbar">
+<div class="flex items-center gap-space-sm text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">check_box</span>
+<span class="font-label-lg text-label-lg font-semibold" id="selectedCountText">2 vehicles selected</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-space-2xs bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md font-medium hover:bg-surface-container transition-colors" onclick="triggerToast('Updated bay assignment for selected units')">Reassign Bay</button>
+<button class="px-space-sm py-space-2xs bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md font-medium hover:bg-surface-container transition-colors" onclick="triggerToast('Sent OTA firmware update to selected fleet')">Trigger OTA Ping</button>
+<button class="px-space-sm py-space-2xs bg-error text-on-error rounded-lg font-label-md text-label-md font-medium hover:bg-error/90 transition-colors" onclick="triggerToast('Marked selected units for inspection')">Set Service Hold</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="fleetDataTable">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-space-sm px-space-md w-12 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" id="selectAllCheckbox" onchange="toggleSelectAll(this)" type="checkbox"/>
+</th>
+<th class="py-space-sm px-space-md">Vehicle &amp; VIN</th>
+<th class="py-space-sm px-space-md">Category &amp; Powertrain</th>
+<th class="py-space-sm px-space-md">Hub &amp; Staging Bay</th>
+<th class="py-space-sm px-space-md">Telematics &amp; Health</th>
+<th class="py-space-sm px-space-md">Rate &amp; Deposit</th>
+<th class="py-space-sm px-space-md">Live Status</th>
+<th class="py-space-sm px-space-md text-right">Operations</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface font-body-sm text-body-sm" id="fleetTableBody">
+<!-- Row 1: Tesla Model S Plaid -->
+<tr class="fleet-row hover:bg-surface-container-low/60 transition-colors" data-category="Electric Flagship" data-hub="SFO" data-status="AVAILABLE" data-vin="5YJSA1E28PF904812">
+<td class="py-space-md px-space-md text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updateBatchBar()" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm min-w-[260px]">
+<div class="w-16 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="High quality studio shot of a 2025 dark metallic grey Tesla Model S Plaid against a sterile modern tech showroom backdrop with subtle rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArwy_hdHYBNM14DdeARtYTVvvO_mBmxUNChNc5Q0JUG7ffClvt7rxdv1iRHnJYWwi2NvKqJUrFvWqP-eZ9eh1Ipt6G_ZjvL1bFRmNg9UTZiZqajX2pssS5sJKCQWxPrGOFLaoO0XM7CFDHOSNW47Rbjj8PnP02vQk5xFxePMbInYoZWrRBElOH6j9p1t1W_op40NuF9gen1DBcKoZ4pC1cpkRI4PAm-hh3-WytvfwL6XLUDXLTCL34"/>
+<span class="absolute bottom-0 right-0 bg-on-surface text-surface-bright px-1 py-0.2 rounded-tl text-[9px] font-label-mono font-bold">2025</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-bold truncate text-on-surface">Tesla Model S Plaid</span>
+<div class="flex items-center gap-space-2xs font-label-mono text-label-mono text-on-surface-variant">
+<span class="font-semibold text-primary">VIN:</span>
+<span class="truncate">#5YJSA1E28PF...</span>
+<span class="px-1 rounded bg-surface-container-high font-semibold text-on-surface text-[10px]">CA: 7XYZ890</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[180px]">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Electric Flagship</span>
+<span class="text-on-surface-variant text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">bolt</span> Tri-Motor AWD • 1,020 HP
+                </span>
+<span class="text-on-surface-variant text-[11px] font-label-mono mt-0.5">396 mi EPA Range</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[170px]">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">flight_takeoff</span> SFO Terminal 2
+                </span>
+<span class="text-on-surface-variant text-[12px] font-label-mono">Staging Bay #4A</span>
+<span class="text-tertiary text-[11px] font-medium mt-0.5">Valet Dropzone Clear</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col gap-1 min-w-[170px]">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-label-mono font-bold text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">battery_charging_90</span> 98% SoC
+                  </span>
+<span class="font-label-mono text-on-surface-variant">42 PSI all</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 98%;"></div>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-[10px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Health: Optimal • 14,210 mi</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[110px]">
+<div class="flex items-baseline gap-0.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$129</span>
+<span class="text-on-surface-variant text-[11px]">/day</span>
+</div>
+<span class="font-label-mono text-[11px] text-on-surface-variant">$250 security hold</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-tertiary-fixed text-tertiary font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" onclick="editVehicleSpecs('Tesla Model S Plaid', '5YJSA1E28PF904812')" title="Edit Specs">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" onclick="viewTelematicsModal('5YJSA1E28PF904812')" title="View Telematics Ledger">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" onclick="openDeleteDialog('Tesla Model S Plaid', '5YJSA1E28PF904812')" title="Archive / Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Porsche Taycan Turbo S -->
+<tr class="fleet-row hover:bg-surface-container-low/60 transition-colors bg-surface-container-lowest" data-category="Performance EV" data-hub="SF_DOWNTOWN" data-status="ACTIVE_RENTAL" data-vin="WP0AC2Y11MSA04918">
+<td class="py-space-md px-space-md text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updateBatchBar()" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm min-w-[260px]">
+<div class="w-16 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Chalk white 2024 Porsche Taycan Turbo S parked gracefully in an underground premium automotive valet structure with sharp architectural lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIJV4DeCqhFmYrigrktCuf4sJq7VNfB1mdVW4wk3--egkaAd_EviUA6p11xlgwM5IY1Zr6W3d3ULNAGE10Sq823VfkMib_7Upe8LWvtqOs4kQFsZ18jqjX6EX5xjBh7nukwr2bR5umGb6Ck2I7e6_w5DAZOPhRMF5i1bgY-1dHqRVjRlnhGY5rR9mBTVIaRKlDie73RJznOAEROHudJAjR9jhwyLMoaFEAJ1cS7Lxb3845RdyoKs0B"/>
+<span class="absolute bottom-0 right-0 bg-on-surface text-surface-bright px-1 py-0.2 rounded-tl text-[9px] font-label-mono font-bold">2024</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-bold truncate text-on-surface">Porsche Taycan Turbo S</span>
+<div class="flex items-center gap-space-2xs font-label-mono text-label-mono text-on-surface-variant">
+<span class="font-semibold text-primary">VIN:</span>
+<span class="truncate">#WP0AC2Y11MS...</span>
+<span class="px-1 rounded bg-surface-container-high font-semibold text-on-surface text-[10px]">CA: 9KTR412</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[180px]">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Performance EV</span>
+<span class="text-on-surface-variant text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">speed</span> Dual-Motor • 750 HP
+                </span>
+<span class="text-on-surface-variant text-[11px] font-label-mono mt-0.5">278 mi EPA Range</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[170px]">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">domain</span> SF Downtown Hub
+                </span>
+<span class="text-on-surface-variant text-[12px] font-label-mono">Customer In-Use (RNT-8802)</span>
+<span class="text-primary text-[11px] font-medium mt-0.5">Return Est: Tomorrow 4 PM</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col gap-1 min-w-[170px]">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-label-mono font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">battery_5_bar</span> 64% SoC
+                  </span>
+<span class="font-label-mono text-on-surface-variant">39 PSI all</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 64%;"></div>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-[10px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Health: 99.1% • 8,940 mi</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[110px]">
+<div class="flex items-baseline gap-0.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$189</span>
+<span class="text-on-surface-variant text-[11px]">/day</span>
+</div>
+<span class="font-label-mono text-[11px] text-on-surface-variant">$500 security hold</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-primary-fixed text-primary font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Active Rental
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" onclick="editVehicleSpecs('Porsche Taycan Turbo S', 'WP0AC2Y11MSA04918')" title="Edit Specs">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" onclick="viewTelematicsModal('WP0AC2Y11MSA04918')" title="View Telematics Ledger">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" onclick="openDeleteDialog('Porsche Taycan Turbo S', 'WP0AC2Y11MSA04918')" title="Archive / Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Rivian R1S Adventure -->
+<tr class="fleet-row hover:bg-surface-container-low/60 transition-colors" data-category="Adventure SUV" data-hub="SJC" data-status="AVAILABLE" data-vin="7FCTGAAA3NN019482">
+<td class="py-space-md px-space-md text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updateBatchBar()" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm min-w-[260px]">
+<div class="w-16 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Forest green 2025 Rivian R1S electric adventure SUV parked on a clean concrete pad next to outdoor electric fast charger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCihQWXlZtQSouIvME3mOEgZWYvcqkvPtYxLDFYA00_rRMTHx2EM5dS7ICvS_-9zXYbDft-xuA5Esb2fr3N_MomP0YxCOIQTppnRwtJFsAFc-r3cHa6z3DzfhamTVB6CH2oSbHNDcxj4cEYk6YuZ7UzvgvZJCwi1p7FJkLfRvEkG67eJrcgb3zGvv3jimLutUHhdgxhS7nKFKLk0EdQPbVKatkZG29R0_Nl6Ihi3owEzP583tHu3ntC"/>
+<span class="absolute bottom-0 right-0 bg-on-surface text-surface-bright px-1 py-0.2 rounded-tl text-[9px] font-label-mono font-bold">2025</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-bold truncate text-on-surface">Rivian R1S Quad-Motor</span>
+<div class="flex items-center gap-space-2xs font-label-mono text-label-mono text-on-surface-variant">
+<span class="font-semibold text-primary">VIN:</span>
+<span class="truncate">#7FCTGAAA3NN...</span>
+<span class="px-1 rounded bg-surface-container-high font-semibold text-on-surface text-[10px]">CA: 8MQU721</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[180px]">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Adventure SUV</span>
+<span class="text-on-surface-variant text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">terrain</span> 7-Seater • 835 HP AWD
+                </span>
+<span class="text-on-surface-variant text-[11px] font-label-mono mt-0.5">321 mi Max Pack</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[170px]">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">flight_takeoff</span> SJC Airport Express
+                </span>
+<span class="text-on-surface-variant text-[12px] font-label-mono">Staging Bay #12</span>
+<span class="text-tertiary text-[11px] font-medium mt-0.5">Pre-trip Inspected</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col gap-1 min-w-[170px]">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-label-mono font-bold text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">battery_charging_80</span> 92% SoC
+                  </span>
+<span class="font-label-mono text-on-surface-variant">48 PSI all</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 92%;"></div>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-[10px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Health: 100% • 4,120 mi</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[110px]">
+<div class="flex items-baseline gap-0.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$145</span>
+<span class="text-on-surface-variant text-[11px]">/day</span>
+</div>
+<span class="font-label-mono text-[11px] text-on-surface-variant">$300 security hold</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-tertiary-fixed text-tertiary font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" onclick="editVehicleSpecs('Rivian R1S Quad-Motor', '7FCTGAAA3NN019482')" title="Edit Specs">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" onclick="viewTelematicsModal('7FCTGAAA3NN019482')" title="View Telematics Ledger">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" onclick="openDeleteDialog('Rivian R1S Quad-Motor', '7FCTGAAA3NN019482')" title="Archive / Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Lucid Air Grand Touring (Maintenance) -->
+<tr class="fleet-row hover:bg-surface-container-low/60 transition-colors" data-category="Executive Saloon" data-hub="SFO" data-status="MAINTENANCE" data-vin="55NFGAA45PA001293">
+<td class="py-space-md px-space-md text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updateBatchBar()" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm min-w-[260px]">
+<div class="w-16 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Stellar white Lucid Air Grand Touring luxury electric sedan parked in an illuminated high-tech service workshop bay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfDrCr12J6f4oBxNu2d61s3vVnDP5C0hibuuTDh4XWE9sqhh44gobxAdXQig4svg07ZtJD9g-pS6e0lh3IkctTgrPrv3_ZgGAkBrHwnW5dElcIkmiPnNOuKzEA0jMYTOPJtgcWoGIW5nWzPg-HZPABiLhAbM4H6Sb30ckkz57QNHEo_mp5wHSkoTxqhUYOo-ayzu0sccSqJTSCh5FfCTg3_04o3VC57B_TgjtHY98YR-5OBMsvpzFV"/>
+<span class="absolute bottom-0 right-0 bg-on-surface text-surface-bright px-1 py-0.2 rounded-tl text-[9px] font-label-mono font-bold">2024</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-bold truncate text-on-surface">Lucid Air Grand Touring</span>
+<div class="flex items-center gap-space-2xs font-label-mono text-label-mono text-on-surface-variant">
+<span class="font-semibold text-primary">VIN:</span>
+<span class="truncate">#55NFGAA45PA...</span>
+<span class="px-1 rounded bg-surface-container-high font-semibold text-on-surface text-[10px]">CA: 4LUX990</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[180px]">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Executive Saloon</span>
+<span class="text-on-surface-variant text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">stars</span> Dual-Motor • 819 HP
+                </span>
+<span class="text-on-surface-variant text-[11px] font-label-mono mt-0.5">516 mi Longest Range</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[170px]">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-error">build_circle</span> SFO Service Hangar
+                </span>
+<span class="text-error text-[12px] font-label-mono font-semibold">Service Bay #02</span>
+<span class="text-on-surface-variant text-[11px] mt-0.5">Ticket #SRV-9014</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col gap-1 min-w-[170px]">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-label-mono font-bold text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> 24% SoC
+                  </span>
+<span class="font-label-mono text-error font-bold">29 PSI Low (FL)</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 24%;"></div>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-[10px] text-error">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+<span>Sensor Alert • Scheduled 11:30 AM</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[110px]">
+<div class="flex items-baseline gap-0.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$165</span>
+<span class="text-on-surface-variant text-[11px]">/day</span>
+</div>
+<span class="font-label-mono text-[11px] text-on-surface-variant">$400 security hold</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-error-container text-error font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                Maintenance
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" onclick="editVehicleSpecs('Lucid Air Grand Touring', '55NFGAA45PA001293')" title="Edit Specs">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" onclick="viewTelematicsModal('55NFGAA45PA001293')" title="View Telematics Ledger">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" onclick="openDeleteDialog('Lucid Air Grand Touring', '55NFGAA45PA001293')" title="Archive / Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Audi e-tron GT RS (Staged) -->
+<tr class="fleet-row hover:bg-surface-container-low/60 transition-colors bg-surface-container-lowest" data-category="Performance EV" data-hub="SFO" data-status="STAGED" data-vin="WAU83AF27NA018843">
+<td class="py-space-md px-space-md text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" onchange="updateBatchBar()" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm min-w-[260px]">
+<div class="w-16 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Tactical matte black Audi RS e-tron GT sport sedan with dynamic matrix LED headlights active on clean asphalt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKFrKP6hnTFuK0pA7jbT5lRZI5JvvFmM8Fz6eE4BYGmlpje3125HmKrR-LMhjbQttW0NXxsq6CRPVLjtaVQCwxEv4MjRfR8AXwdNfNWww7eFebhehxF8eD-UdUZsjm2XL49CDQ6M69TJU2j6MlJWEemYp9o3ScuGjqTIXHAaH3gIgMNluCGNvwuMMAOXnPDRyVxd1mOA4qzbiPSiHAzxPTn-miXgyG_nX9xr-zEJFpLM6osjC5gZTM"/>
+<span class="absolute bottom-0 right-0 bg-on-surface text-surface-bright px-1 py-0.2 rounded-tl text-[9px] font-label-mono font-bold">2025</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-bold truncate text-on-surface">Audi RS e-tron GT</span>
+<div class="flex items-center gap-space-2xs font-label-mono text-label-mono text-on-surface-variant">
+<span class="font-semibold text-primary">VIN:</span>
+<span class="truncate">#WAU83AF27NA...</span>
+<span class="px-1 rounded bg-surface-container-high font-semibold text-on-surface text-[10px]">CA: 3AUD109</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[180px]">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Performance EV</span>
+<span class="text-on-surface-variant text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">electric_bolt</span> quattro AWD • 637 HP
+                </span>
+<span class="text-on-surface-variant text-[11px] font-label-mono mt-0.5">249 mi EPA Range</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[170px]">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">flight_takeoff</span> SFO Terminal 2
+                </span>
+<span class="text-on-surface-variant text-[12px] font-label-mono">VIP Pickup Bay #1</span>
+<span class="text-secondary font-medium text-[11px] mt-0.5">Assigned to VIP #USR-301</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col gap-1 min-w-[170px]">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-label-mono font-bold text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">battery_full</span> 100% SoC
+                  </span>
+<span class="font-label-mono text-on-surface-variant">41 PSI all</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 100%;"></div>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-[10px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Health: Optimal • 3,200 mi</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col min-w-[110px]">
+<div class="flex items-baseline gap-0.5">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$175</span>
+<span class="text-on-surface-variant text-[11px]">/day</span>
+</div>
+<span class="font-label-mono text-[11px] text-on-surface-variant">$450 security hold</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                Staged
+              </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" onclick="editVehicleSpecs('Audi RS e-tron GT', 'WAU83AF27NA018843')" title="Edit Specs">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" onclick="viewTelematicsModal('WAU83AF27NA018843')" title="View Telematics Ledger">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-error-container hover:text-error transition-colors" onclick="openDeleteDialog('Audi RS e-tron GT', 'WAU83AF27NA018843')" title="Archive / Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Document Count Footer -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span>Showing</span>
+<span class="font-label-mono font-semibold text-on-surface">1 - 5</span>
+<span>of</span>
+<span class="font-label-mono font-semibold text-on-surface">48 vehicles</span>
+<span class="text-outline-variant mx-1">•</span>
+<span class="font-label-mono text-[11px]">Collection: `driveease.fleet_inventory` (v2.4)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors disabled:opacity-50" disabled="">Previous</button>
+<button class="w-7 h-7 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1</button>
+<button class="w-7 h-7 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors">2</button>
+<button class="w-7 h-7 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-7 h-7 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors">10</button>
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors">Next</button>
+</div>
+</div>
+</div>
+<!-- Real-time Fleet Telematics Drawer Modal -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md" id="telematicsModal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-2xl w-full p-space-lg shadow-2xl flex flex-col gap-space-md relative max-h-[921px] overflow-y-auto">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-primary font-semibold">MongoDB Stream Telematics</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Vehicle Live Sensor Telemetry</h2>
+<p class="font-label-mono text-label-mono text-on-surface-variant" id="telematicsVinLabel">VIN: Loading...</p>
+</div>
+<button class="p-1 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" onclick="closeTelematicsModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Telemetry Visual Gauges -->
+<div class="grid grid-cols-3 gap-space-sm">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-tertiary text-[28px]">battery_charging_full</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">98.4%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">High-Voltage Pack</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-[28px]">tire_repair</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">42 / 42 PSI</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Tire Pressures</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-[28px]">speed</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">0 MPH</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Stationary / Parked</span>
+</div>
+</div>
+<!-- Raw BSON / JSON Ledger Log -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">BSON Document State</span>
+<span class="font-label-mono text-[11px] text-tertiary font-bold">200 OK • ACKNOWLEDGED</span>
+</div>
+<pre class="bg-surface-container-high p-space-sm rounded-xl font-label-mono text-[11px] text-on-surface overflow-x-auto"><code>{
+  "_id": "664fa18c0e29b110a",
+  "vin": "5YJSA1E28PF904812",
+  "telemetry": {
+    "gps": { "lat": 37.6213, "lng": -122.3790 },
+    "odometer_miles": 14210,
+    "battery_temp_celsius": 28.4,
+    "inverter_status": "NORMAL",
+    "lock_state": "ENGAGED",
+    "updated_at": "2025-05-18T14:22:01.482Z"
+  }
+}</code></pre>
+</div>
+<div class="flex justify-end gap-space-xs mt-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" onclick="closeTelematicsModal()">Close</button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors" onclick="triggerToast('OTA Lock toggle pulse transmitted'); closeTelematicsModal()">Toggle Remote Door Locks</button>
+</div>
+</div>
+</div>
+<!-- Deletion Confirmation Dialog -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md" id="deleteConfirmDialog">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-space-lg shadow-2xl flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[26px]">warning</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Archive Vehicle from Fleet?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1" id="deleteDialogText">Are you sure you want to remove this vehicle? This will set the active MongoDB document to archived status.</p>
+</div>
+<div class="flex justify-end gap-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" onclick="closeDeleteDialog()">Cancel</button>
+<button class="px-space-md py-space-xs rounded-lg bg-error text-on-error font-label-lg text-label-lg hover:bg-error/90 transition-colors" onclick="confirmVehicleDelete()">Confirm Deletion</button>
+</div>
+</div>
+</div>
+<!-- Slide-out Drawer: '+ Add New Vehicle' (Embedded Panel) -->
+<div class="fixed inset-y-0 right-0 w-full max-w-xl bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col overflow-hidden" id="addVehicleDrawer">
+<!-- Drawer Header -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-primary uppercase font-bold">New Inventory Item</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">Onboard New Fleet Vehicle</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validated against `VehicleSchema` (JSON Schema Draft-07)</span>
+</div>
+<button class="p-space-2xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="toggleAddVehicleDrawer(false)">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</div>
+<!-- Drawer Form Content Area -->
+<form class="p-space-lg overflow-y-auto flex-1 flex flex-col gap-space-md" id="addNewVehicleForm" onsubmit="handleCreateVehicle(event)">
+<!-- Image Upload Dropzone Area -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Vehicle Showcase Photo</label>
+<div class="border-2 border-dashed rounded-xl p-space-md flex flex-col items-center justify-center text-center bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group" onclick="triggerToast('Image uploaded: 2025_vehicle_render.webp')">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform mb-space-2xs">
+<span class="material-symbols-outlined text-[24px]">add_photo_alternate</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Click or drag vehicle rendering</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">PNG, WEBP, or JPG up to 10MB (Transparent or Vignette)</span>
+</div>
+</div>
+<!-- General Info: Manufacturer & Model -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Manufacturer <span class="text-error">*</span></label>
+<input class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all" placeholder="e.g. Lucid, Porsche, Tesla" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Model Name <span class="text-error">*</span></label>
+<input class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all" placeholder="e.g. Gravity SUV Grand Tour" required="" type="text"/>
+</div>
+</div>
+<!-- VIN & Model Year -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">17-Char VIN <span class="text-error">*</span></label>
+<input class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-label-mono text-[13px] text-on-surface uppercase focus:outline-none focus:bg-surface-container transition-all" maxlength="17" pattern="^[A-HJ-NPR-Z0-9]{17}$" placeholder="e.g. 5YJSA1E28PF904812" required=""/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Model Year <span class="text-error">*</span></label>
+<select class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all">
+<option value="2026">2026</option>
+<option selected="" value="2025">2025</option>
+<option value="2024">2024</option>
+</select>
+</div>
+</div>
+<!-- Category & Powertrain -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Fleet Category</label>
+<select class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all">
+<option>Electric Flagship</option>
+<option>Performance EV</option>
+<option>Adventure SUV</option>
+<option>Executive Saloon</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Transmission / Drivetrain</label>
+<select class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all">
+<option>Dual-Motor AWD (Direct Drive)</option>
+<option>Tri-Motor AWD (Direct Drive)</option>
+<option>Quad-Motor AWD (Torque Vectoring)</option>
+<option>Single-Motor RWD</option>
+</select>
+</div>
+</div>
+<!-- Seats & Battery Range -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Passenger Seats</label>
+<input class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all" max="8" min="2" type="number" value="5"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">EPA Range (Miles)</label>
+<input class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all" placeholder="e.g. 385" type="number"/>
+</div>
+</div>
+<!-- Pricing: Daily Rate & Security Deposit -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Daily Rate (USD) <span class="text-error">*</span></label>
+<div class="relative flex items-center">
+<span class="absolute left-space-xs font-label-mono text-on-surface-variant">$</span>
+<input class="w-full pl-7 pr-space-xs py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all" min="50" required="" step="1" type="number" value="135"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Security Hold (USD)</label>
+<div class="relative flex items-center">
+<span class="absolute left-space-xs font-label-mono text-on-surface-variant">$</span>
+<input class="w-full pl-7 pr-space-xs py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all" min="100" step="1" type="number" value="300"/>
+</div>
+</div>
+</div>
+<!-- Hub Assignment & Bay -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Default Station Hub <span class="text-error">*</span></label>
+<select class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all">
+<option>SFO Airport Terminal 2</option>
+<option>SJC Airport Express</option>
+<option>San Francisco Downtown Hub</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Designated Bay #</label>
+<input class="px-space-sm py-space-xs bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-all" placeholder="e.g. Bay #16B" type="text"/>
+</div>
+</div>
+<!-- Real-time JSON Schema Validation Preview Notice -->
+<div class="p-space-sm rounded-xl bg-surface-container flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[20px]">verified</span>
+<div class="flex flex-col text-on-surface leading-tight">
+<span class="font-label-md text-label-md font-semibold">Schema Status: Valid</span>
+<span class="font-label-mono text-[10px] text-on-surface-variant">Validated against DriveEase Collection Rules</span>
+</div>
+</div>
+<!-- Submit & Reset Actions -->
+<div class="flex items-center justify-end gap-space-sm mt-space-sm pt-space-sm">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors" onclick="toggleAddVehicleDrawer(false)" type="button">Cancel</button>
+<button class="px-space-lg py-space-xs rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md transition-all active:scale-95 flex items-center gap-1" type="submit">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Commit Vehicle to Database</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Ambient Notification Toast Container -->
+<div class="fixed bottom-6 right-6 bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl shadow-2xl flex items-center gap-space-xs z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="fleetToast">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">check_circle</span>
+<span class="font-label-md text-label-md" id="fleetToastMsg">Action successful</span>
+</div>
+</div>
+<script>
+  let activeCategory = 'ALL';
+  let targetVehicleToDelete = null;
+
+  function setCategoryFilter(cat, btn) {
+    activeCategory = cat;
+    document.querySelectorAll('.category-pill').forEach(el => {
+      el.classList.remove('bg-primary', 'text-on-primary');
+      el.classList.add('bg-surface-container-low', 'text-on-surface');
+    });
+    btn.classList.remove('bg-surface-container-low', 'text-on-surface');
+    btn.classList.add('bg-primary', 'text-on-primary');
+    filterFleetTable();
+  }
+
+  function filterFleetTable() {
+    const query = (document.getElementById('fleetSearchInput').value || '').toLowerCase();
+    const statusVal = document.getElementById('statusFilterSelect').value;
+    const hubVal = document.getElementById('hubFilterSelect').value;
+    const rows = document.querySelectorAll('#fleetTableBody .fleet-row');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      const vin = row.getAttribute('data-vin').toLowerCase();
+      const rowCat = row.getAttribute('data-category');
+      const rowStatus = row.getAttribute('data-status');
+      const rowHub = row.getAttribute('data-hub');
+
+      const matchesSearch = !query || text.includes(query) || vin.includes(query);
+      const matchesCat = (activeCategory === 'ALL') || (rowCat === activeCategory);
+      const matchesStatus = (statusVal === 'ALL') || (rowStatus === statusVal);
+      const matchesHub = (hubVal === 'ALL') || (rowHub === hubVal);
+
+      if (matchesSearch && matchesCat && matchesStatus && matchesHub) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  function resetFilters() {
+    document.getElementById('fleetSearchInput').value = '';
+    document.getElementById('statusFilterSelect').value = 'ALL';
+    document.getElementById('hubFilterSelect').value = 'ALL';
+    const firstPill = document.querySelector('.category-pill');
+    if (firstPill) setCategoryFilter('ALL', firstPill);
+    filterFleetTable();
+  }
+
+  function toggleAddVehicleDrawer(show) {
+    const drawer = document.getElementById('addVehicleDrawer');
+    if (show) {
+      drawer.classList.remove('translate-x-full');
+    } else {
+      drawer.classList.add('translate-x-full');
+    }
+  }
+
+  function handleCreateVehicle(e) {
+    e.preventDefault();
+    toggleAddVehicleDrawer(false);
+    triggerToast('Vehicle document validated & committed to MongoDB');
+    document.getElementById('addNewVehicleForm').reset();
+  }
+
+  function runTelematicsSync() {
+    const icon = document.getElementById('syncIcon');
+    const txt = document.getElementById('syncText');
+    icon.classList.add('animate-spin');
+    txt.innerText = 'Syncing 48 nodes...';
+    setTimeout(() => {
+      icon.classList.remove('animate-spin');
+      txt.innerText = 'Batch Telematics Sync';
+      triggerToast('All 48 vehicles synced (100% CAN-bus integrity)');
+    }, 1200);
+  }
+
+  function toggleSelectAll(master) {
+    const cbs = document.querySelectorAll('.row-checkbox');
+    cbs.forEach(cb => {
+      const parentRow = cb.closest('tr');
+      if (parentRow && parentRow.style.display !== 'none') {
+        cb.checked = master.checked;
+      }
+    });
+    updateBatchBar();
+  }
+
+  function updateBatchBar() {
+    const cbs = Array.from(document.querySelectorAll('.row-checkbox')).filter(cb => cb.checked);
+    const bar = document.getElementById('batchActionToolbar');
+    const label = document.getElementById('selectedCountText');
+    if (cbs.length > 0) {
+      bar.classList.remove('hidden');
+      label.innerText = cbs.length + ' vehicle' + (cbs.length > 1 ? 's' : '') + ' selected';
+    } else {
+      bar.classList.add('hidden');
+      const selectAll = document.getElementById('selectAllCheckbox');
+      if (selectAll) selectAll.checked = false;
+    }
+  }
+
+  function viewTelematicsModal(vin) {
+    document.getElementById('telematicsVinLabel').innerText = 'VIN Target: ' + vin;
+    document.getElementById('telematicsModal').classList.remove('hidden');
+  }
+
+  function closeTelematicsModal() {
+    document.getElementById('telematicsModal').classList.add('hidden');
+  }
+
+  function editVehicleSpecs(model, vin) {
+    toggleAddVehicleDrawer(true);
+    triggerToast('Loaded specs for ' + model);
+  }
+
+  function openDeleteDialog(model, vin) {
+    targetVehicleToDelete = vin;
+    document.getElementById('deleteDialogText').innerText = 'Are you sure you want to remove ' + model + ' (' + vin + ')? This marks the MongoDB document as archived.';
+    document.getElementById('deleteConfirmDialog').classList.remove('hidden');
+  }
+
+  function closeDeleteDialog() {
+    document.getElementById('deleteConfirmDialog').classList.add('hidden');
+    targetVehicleToDelete = null;
+  }
+
+  function confirmVehicleDelete() {
+    closeDeleteDialog();
+    triggerToast('Vehicle document successfully archived in MongoDB');
+  }
+
+  function triggerToast(msg) {
+    const toast = document.getElementById('fleetToast');
+    const label = document.getElementById('fleetToastMsg');
+    label.innerText = msg;
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    setTimeout(() => {
+      toast.classList.add('translate-y-24', 'opacity-0');
+    }, 3200);
+  }
+</script></main></div></body></html>

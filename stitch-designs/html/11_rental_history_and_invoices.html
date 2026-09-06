@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ba1a1a", "on-tertiary-fixed": "#002113", "on-surface": "#131a33", "surface-container": "#ebedff", "surface-container-high": "#e3e7ff", "surface-dim": "#d2d9fa", "surface-container-highest": "#dbe1ff", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "on-secondary-container": "#555e7d", "surface-tint": "#006398", "on-primary-container": "#fdfcff", "tertiary-container": "#00855b", "on-primary-fixed-variant": "#004b73", "outline": "#707881", "on-error-container": "#93000a", "inverse-on-surface": "#eff0ff", "primary-fixed-dim": "#93ccff", "surface-container-low": "#f3f3ff", "surface-variant": "#dbe1ff", "on-secondary-fixed-variant": "#3d4664", "primary-container": "#007bb9", "on-secondary": "#ffffff", "primary-fixed": "#cce5ff", "on-primary": "#ffffff", "tertiary-fixed-dim": "#4edea3", "primary": "#006194", "background": "#faf8ff", "inverse-surface": "#282f49", "on-error": "#ffffff", "secondary": "#545d7c", "surface-container-lowest": "#ffffff", "outline-variant": "#bfc7d2", "tertiary-fixed": "#6ffbbe", "on-surface-variant": "#3f4850", "secondary-fixed": "#dbe1ff", "on-background": "#131a33", "on-tertiary-container": "#f5fff6", "on-primary-fixed": "#001d31", "secondary-fixed-dim": "#bdc5e9", "surface-bright": "#faf8ff", "secondary-container": "#d0d9fd", "tertiary": "#006947", "on-tertiary-fixed-variant": "#005236", "on-secondary-fixed": "#111a36", "inverse-primary": "#93ccff", "surface": "#faf8ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter-desktop": "2rem", "space-3xl": "4rem", "gutter-tablet": "1.5rem", "gutter-mobile": "1rem", "space-xs": "0.5rem", "container-max": "80rem", "space-2xl": "3rem", "space-lg": "1.5rem", "space-2xs": "0.25rem", "space-sm": "0.75rem", "space-md": "1rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-mono": ["JetBrains Mono"], "display-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[80rem] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-[0_2px_8px_rgba(0,97,148,0.25)]"><span class="material-symbols-outlined text-[24px]">directions_car</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">DriveEase</span><span class="font-label-mono text-label-mono text-on-surface-variant tracking-wider uppercase leading-none mt-1">Mobility</span></div></a><nav class="hidden xl:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-lg shadow-none"><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="home" href="#">Home</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="fleet-catalog" href="#">Cars</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="my-bookings" href="#">My Bookings</a><a aria-current="page" class="px-space-md py-space-xs transition-all bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-lg shadow-none" data-path="rental-history" href="#">Rental History</a><a class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="fleet-admin" href="#">Admin Dashboard</a></nav></div><div class="flex items-center gap-space-md"><a class="h-11 px-space-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg flex items-center justify-center transition-all duration-150 shadow-[0_2px_4px_rgba(0,97,148,0.2)] hover:-translate-y-0.5" data-path="book-a-car" href="#">Book a Car</a><div class="h-6 w-px bg-outline-variant/40 hidden sm:block"></div><button aria-label="Notifications" class="relative w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="flex items-center gap-space-sm pl-space-xs py-1 pr-2 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Alex Mercer</span><span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Tier Elite</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px] hidden md:inline">expand_more</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-[80rem] mx-auto w-full px-gutter-mobile md:px-gutter-tablet lg:px-gutter-desktop py-space-xl flex flex-col gap-space-2xl">
+<!-- Header Block with Asymmetric Tag & Action Group -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-mono text-label-mono text-primary font-semibold tracking-wider uppercase bg-primary-fixed/60 px-2.5 py-1 rounded-full">Telemetry Ledger</span>
+<span class="text-outline-variant font-label-mono text-label-mono">•</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Archival Vault 2025</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-none mt-1">Rental History &amp; Invoices</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">Comprehensive archive of completed car rentals, tax receipts, and telemetry logs.</p>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-space-sm self-start lg:self-auto">
+<button class="h-11 px-space-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg rounded-lg flex items-center gap-space-xs shadow-sm transition-all duration-150 active:scale-95" id="btn-export" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">download</span>
+<span>Export CSV / Tax Report</span>
+</button>
+<button class="h-11 w-11 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant rounded-lg flex items-center justify-center shadow-sm transition-colors" id="btn-compliance" title="Audit Trail &amp; Verification" type="button">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</button>
+</div>
+</div>
+<!-- Summary Metrics Row (Bento Style with Subtle Gradient Elevation) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Metric 1: Total Completed Trips -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between min-h-[144px]">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Completed Trips</span>
+<div class="w-9 h-9 rounded-lg bg-primary-fixed/50 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+</div>
+<div class="flex flex-col mt-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-on-surface font-extrabold tracking-tight">8</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Rentals</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+            100% On-time return rate
+          </span>
+</div>
+</div>
+<!-- Metric 2: Total Distance Traveled -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between min-h-[144px]">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Distance Logged</span>
+<div class="w-9 h-9 rounded-lg bg-secondary-container/60 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">route</span>
+</div>
+</div>
+<div class="flex flex-col mt-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-on-surface font-extrabold tracking-tight">3,420</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Miles</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5 mt-2 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<!-- Metric 3: Lifetime Spend -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between min-h-[144px]">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Lifetime Spend</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex flex-col mt-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-on-surface font-extrabold tracking-tight">$4,850</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant font-semibold">.00</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Tax deductions auto-tagged</span>
+</div>
+</div>
+<!-- Metric 4: Clean Energy Offset -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between min-h-[144px]">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Clean Offset</span>
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed/60 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">eco</span>
+</div>
+</div>
+<div class="flex flex-col mt-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-tertiary font-extrabold tracking-tight">1.4</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Tons CO₂ Saved</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-1 mt-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            75% Fleet miles fully electric
+          </span>
+</div>
+</div>
+</div>
+<!-- Interactive Filter Strip -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search Input Container -->
+<div class="relative flex-1 min-w-[280px]">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full h-11 pl-10 pr-space-md bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg placeholder:text-on-surface-variant/70 focus:outline-none focus:bg-surface-container transition-all" id="search-input" placeholder="Search by booking ID, vehicle model, or location..." type="text"/>
+</div>
+<!-- Filters & Selectors -->
+<div class="flex flex-wrap items-center gap-space-xs sm:gap-space-sm">
+<!-- Date Range Filter -->
+<div class="relative">
+<select class="appearance-none h-11 pl-space-md pr-9 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg rounded-lg cursor-pointer focus:outline-none transition-colors" id="filter-date">
+<option value="all">All Time</option>
+<option selected="" value="2025">This Year - 2025</option>
+<option value="6m">Last 6 Months</option>
+<option value="custom">Custom Range...</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<!-- Vehicle Category Filter -->
+<div class="relative">
+<select class="appearance-none h-11 pl-space-md pr-9 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg rounded-lg cursor-pointer focus:outline-none transition-colors" id="filter-category">
+<option value="all">All Categories</option>
+<option value="ev">Electric (EV)</option>
+<option value="luxury">Luxury Sedans</option>
+<option value="suv">SUVs</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<!-- Status Filter -->
+<div class="relative">
+<select class="appearance-none h-11 pl-space-md pr-9 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg rounded-lg cursor-pointer focus:outline-none transition-colors" id="filter-status">
+<option value="all">All Statuses</option>
+<option selected="" value="completed">Completed</option>
+<option value="refunded">Refunded</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<button class="h-11 px-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors flex items-center gap-1 font-label-md text-label-md" id="reset-filters" title="Reset all filters" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+<span class="hidden xl:inline">Reset</span>
+</button>
+</div>
+</div>
+<!-- Rental History Records List -->
+<div class="flex flex-col gap-space-md" id="records-container">
+<!-- Record 1: Lucid Air Touring -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-sm hover:shadow-md transition-all duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg group">
+<!-- Left Column: Image, Vehicle Details & Status -->
+<div class="flex items-start sm:items-center gap-space-md min-w-0">
+<div class="w-24 h-20 sm:w-32 sm:h-24 rounded-lg overflow-hidden bg-surface-container shrink-0 relative shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Sleek metallic silver Lucid Air Touring luxury electric sedan parked in a pristine architectural showroom with floor-to-ceiling glass and dramatic studio edge lighting highlighting the aerodynamic profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvKT0Q1QCNnwxccdEJrRcQ62P5ZDg5JAV4eDbLXkH1GRY_znDi-fHhdEvNkCIXjIq0RNfDv05gG3on_I6T5V5LM-ToyzxWs75BwEnuI_3jXvUKKeFupqfD68bTIuxfsPJ8Dy2ewTvRrD55dlH3oEvFON9pJeV8CX02a4EkgNSx_alrHiZ25ab6_F_o0Ow8YblfQibAvclxMBpxwDxg_J6gaeBE8WWu9lekjfg8DOas3r0l2tyfgZFT"/>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface/90 font-label-mono text-body-sm text-on-surface font-semibold tracking-wider uppercase">EV</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Lucid Air Touring</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">(Dual-Motor AWD)</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Completed
+              </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-mono text-label-mono font-medium text-primary">
+<span class="material-symbols-outlined text-[16px]">tag</span>
+                #DE-87940
+              </span>
+<span>•</span>
+<span>Booked Sep 12, 2025</span>
+<span>•</span>
+<span class="font-medium text-on-surface">Sep 20 – Sep 24, 2025 (4 Days)</span>
+</div>
+<!-- Telemetry & Location Badges -->
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span>SFO Terminal 2 VIP Bay</span>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-secondary">speed</span>
+<span class="text-on-surface font-semibold">412 mi</span> driven
+              </div>
+</div>
+</div>
+</div>
+<!-- Right Column: Price Lockup & Action Palette -->
+<div class="flex flex-row lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 pt-space-sm lg:pt-0 gap-space-md shrink-0">
+<div class="flex flex-col lg:items-end">
+<span class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Total Paid</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">$620.00</span>
+<span class="font-label-mono text-body-sm text-on-surface-variant">USD</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="btn-receipt h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-amount="$620.00" data-id="DE-87940" data-vehicle="Lucid Air Touring" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Receipt</span>
+</button>
+<button class="btn-download h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-id="DE-87940" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span>PDF</span>
+</button>
+<button class="btn-rate h-9 w-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary flex items-center justify-center transition-colors" data-vehicle="Lucid Air Touring" title="Rate this vehicle" type="button">
+<span class="material-symbols-outlined text-[18px]">grade</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Record 2: Rivian R1S -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-sm hover:shadow-md transition-all duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg group">
+<div class="flex items-start sm:items-center gap-space-md min-w-0">
+<div class="w-24 h-20 sm:w-32 sm:h-24 rounded-lg overflow-hidden bg-surface-container shrink-0 relative shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Forest green Rivian R1S electric SUV positioned on a clean paved mountain outlook overlooking pines, modern lighting highlighting the distinctive stadium headlights and rugged stance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwXVlPSOA4wG5YFTltnaDMx0zqdEfGIcXCGydKW_hTPM2az2Lf7fNriVnniMJIZ359ADBmnJYhPDSTnt07z3WhM4q3Ny-0rnuwCG8abtjVvx6i7MtqHjqbnuuPKHWD5Gbh1qgwmEn2HM2ZNAfQ0V9khMloF3u75v5biPofIhcqlV-pBjMIw2CnK9-eQNJIXUN0lTTCNfYOHAyBvuII3EATfBx20eHc9gyTP03aj1FWvPXUn7qpgqYB"/>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface/90 font-label-mono text-body-sm text-on-surface font-semibold tracking-wider uppercase">SUV EV</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Rivian R1S</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">(Quad-Motor AWD)</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Completed
+              </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-mono text-label-mono font-medium text-primary">
+<span class="material-symbols-outlined text-[16px]">tag</span>
+                #DE-86412
+              </span>
+<span>•</span>
+<span>Booked Aug 05, 2025</span>
+<span>•</span>
+<span class="font-medium text-on-surface">Aug 12 – Aug 16, 2025 (4 Days)</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span>Lake Tahoe Express Station</span>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-secondary">speed</span>
+<span class="text-on-surface font-semibold">680 mi</span> driven
+              </div>
+</div>
+</div>
+</div>
+<div class="flex flex-row lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 pt-space-sm lg:pt-0 gap-space-md shrink-0">
+<div class="flex flex-col lg:items-end">
+<span class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Total Paid</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">$580.00</span>
+<span class="font-label-mono text-body-sm text-on-surface-variant">USD</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="btn-receipt h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-amount="$580.00" data-id="DE-86412" data-vehicle="Rivian R1S" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Receipt</span>
+</button>
+<button class="btn-download h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-id="DE-86412" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span>PDF</span>
+</button>
+<button class="btn-rate h-9 w-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary flex items-center justify-center transition-colors" data-vehicle="Rivian R1S" title="Rate this vehicle" type="button">
+<span class="material-symbols-outlined text-[18px]">grade</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Record 3: Polestar 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-sm hover:shadow-md transition-all duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg group">
+<div class="flex items-start sm:items-center gap-space-md min-w-0">
+<div class="w-24 h-20 sm:w-32 sm:h-24 rounded-lg overflow-hidden bg-surface-container shrink-0 relative shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Snow white Polestar 2 electric fastback sedan with clean Scandinavian geometry, parked in front of a crisp modern glass office architecture at dusk with crisp sharp reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK7XFCdePzFh__V3DpqBUs7z5snUTbcmNp9ZH-miwsSDO9Kz-DoAxbwPwJ1hFr4XpbSq2EGiYF-mNNdu6ULyM_bzD99gns07gh4OckvNwZO0WWZPKe14x7KVnXhzfwT-ZfpV2f7lPGZufBKqnc0UZuFL08k-TDiaoKrjazRLMIacfqUbLssTW2in6eDeTMRK3yR-XOD2mM1p7jqNGVVCmZSeETKCk7av_G0IXJLgk16dUhocJbbWzH"/>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface/90 font-label-mono text-body-sm text-on-surface font-semibold tracking-wider uppercase">EV</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Polestar 2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">(Dual-Motor)</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Completed
+              </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-mono text-label-mono font-medium text-primary">
+<span class="material-symbols-outlined text-[16px]">tag</span>
+                #DE-85190
+              </span>
+<span>•</span>
+<span>Booked Jul 01, 2025</span>
+<span>•</span>
+<span class="font-medium text-on-surface">Jul 04 – Jul 07, 2025 (3 Days)</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span>Downtown San Francisco Bay</span>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-secondary">speed</span>
+<span class="text-on-surface font-semibold">295 mi</span> driven
+              </div>
+</div>
+</div>
+</div>
+<div class="flex flex-row lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 pt-space-sm lg:pt-0 gap-space-md shrink-0">
+<div class="flex flex-col lg:items-end">
+<span class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Total Paid</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">$310.00</span>
+<span class="font-label-mono text-body-sm text-on-surface-variant">USD</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="btn-receipt h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-amount="$310.00" data-id="DE-85190" data-vehicle="Polestar 2" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Receipt</span>
+</button>
+<button class="btn-download h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-id="DE-85190" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span>PDF</span>
+</button>
+<button class="btn-rate h-9 w-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary flex items-center justify-center transition-colors" data-vehicle="Polestar 2" title="Rate this vehicle" type="button">
+<span class="material-symbols-outlined text-[18px]">grade</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Record 4: BMW 5 Series M-Sport -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md sm:p-space-lg shadow-sm hover:shadow-md transition-all duration-200 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg group">
+<div class="flex items-start sm:items-center gap-space-md min-w-0">
+<div class="w-24 h-20 sm:w-32 sm:h-24 rounded-lg overflow-hidden bg-surface-container shrink-0 relative shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Deep carbon black BMW 5 Series sedan with M-Sport package, athletic alloy wheels, parked under the warm architectural spotlights of a luxury hotel valet drive at night." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn92TyY5stN0X82iuGudctQE8cupNvy2boMC8HVgeaKrz0L17UMILjZdqFc1npE7_JgybYFAv_FWp4I0noNn1lpndBAoDZvSGKV_CSBC9QgWmxj8BpC4b5qOnqmUXPdEZcMxGuJihF8ErIBTQAnq4EgBPEj9l940_ffBjwnzdNf_PlvdWFVgHIXS10bnN-JN6y8neon-FkQgsgBHWajnrryM4uU4_VAsnT29TDLf0dEN28cuNsKb1p"/>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface/90 font-label-mono text-body-sm text-on-surface font-semibold tracking-wider uppercase">Executive</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">BMW 5 Series</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">(M-Sport)</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Completed
+              </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-mono text-label-mono font-medium text-primary">
+<span class="material-symbols-outlined text-[16px]">tag</span>
+                #DE-83901
+              </span>
+<span>•</span>
+<span>Booked May 18, 2025</span>
+<span>•</span>
+<span class="font-medium text-on-surface">May 22 – May 24, 2025 (2 Days)</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span>SFO Airport</span>
+</div>
+<div class="flex items-center gap-1 font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-secondary">speed</span>
+<span class="text-on-surface font-semibold">190 mi</span> driven
+              </div>
+</div>
+</div>
+</div>
+<div class="flex flex-row lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 pt-space-sm lg:pt-0 gap-space-md shrink-0">
+<div class="flex flex-col lg:items-end">
+<span class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider">Total Paid</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">$240.00</span>
+<span class="font-label-mono text-body-sm text-on-surface-variant">USD</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="btn-receipt h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-amount="$240.00" data-id="DE-83901" data-vehicle="BMW 5 Series" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Receipt</span>
+</button>
+<button class="btn-download h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center gap-1 transition-colors" data-id="DE-83901" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span>PDF</span>
+</button>
+<button class="btn-rate h-9 w-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary flex items-center justify-center transition-colors" data-vehicle="BMW 5 Series" title="Rate this vehicle" type="button">
+<span class="material-symbols-outlined text-[18px]">grade</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination & Volume Ledger Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-md pb-space-lg text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm">
+<span>Showing <strong class="text-on-surface font-semibold">1-4</strong> of <strong class="text-on-surface font-semibold">8</strong> completed rentals</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-mono text-label-mono">PAGE 1 OF 2</span>
+</div>
+<!-- Pagination Buttons -->
+<div class="flex items-center gap-1.5" id="pagination-nav">
+<button class="h-10 w-10 rounded-lg flex items-center justify-center bg-surface-container-low text-on-surface-variant opacity-40 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center bg-primary text-on-primary font-label-lg text-label-lg shadow-sm" type="button">
+          1
+        </button>
+<button class="h-10 w-10 rounded-lg flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-colors" type="button">
+          2
+        </button>
+<button class="h-10 px-space-md rounded-lg flex items-center gap-1 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-colors" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro-Modal: Receipt Viewer Drawer / Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-on-surface/40 backdrop-blur-sm p-4 hidden opacity-0 transition-opacity duration-200" id="receipt-modal">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-xl shadow-xl overflow-hidden flex flex-col transform scale-95 transition-transform duration-200" id="receipt-card">
+<div class="p-space-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Tax Invoice Record</h3>
+<span class="font-label-mono text-label-mono text-on-surface-variant" id="modal-invoice-id">#DE-87940</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center" id="modal-close">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md">
+<div class="flex justify-between items-center pb-space-sm bg-surface-container-low p-space-md rounded-lg">
+<div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vehicle Rented</span>
+<p class="font-label-lg text-label-lg text-on-surface font-bold" id="modal-vehicle">Lucid Air Touring</p>
+</div>
+<div class="text-right">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Status</span>
+<p class="font-label-md text-label-md text-tertiary font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Paid in Full
+            </p>
+</div>
+</div>
+<div class="space-y-2 font-body-sm text-body-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>Base Rental Rate</span>
+<span class="font-label-mono text-on-surface" id="modal-base-rate">$492.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Airport Concession &amp; Recovery Fee</span>
+<span class="font-label-mono text-on-surface">$54.20</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Clean Fleet EV Telematics Surcharge</span>
+<span class="font-label-mono text-on-surface">$18.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>State Sales Tax (8.75%)</span>
+<span class="font-label-mono text-on-surface">$55.80</span>
+</div>
+</div>
+<div class="p-space-md bg-surface-container rounded-lg flex justify-between items-center mt-2">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Total Charged</span>
+<span class="font-headline-md text-headline-md text-primary font-bold" id="modal-total">$620.00</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant text-center">
+          Payment processed via Apple Pay (Mastercard ending in ••8192). Verified by Stripe Fleet Gateway.
+        </div>
+</div>
+<div class="p-space-md bg-surface-container-low flex justify-end gap-space-sm">
+<button class="h-10 px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg flex items-center gap-1.5 transition-colors" id="modal-download-btn">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download PDF Invoice</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-lg shadow-lg flex items-center gap-space-sm transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none" id="toast">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-body-md text-body-md" id="toast-text">Report exported successfully</span>
+</div>
+<script>
+    (function() {
+      // Elements
+      const receiptModal = document.getElementById('receipt-modal');
+      const receiptCard = document.getElementById('receipt-card');
+      const modalClose = document.getElementById('modal-close');
+      const modalInvoiceId = document.getElementById('modal-invoice-id');
+      const modalVehicle = document.getElementById('modal-vehicle');
+      const modalTotal = document.getElementById('modal-total');
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      const searchInput = document.getElementById('search-input');
+      const records = document.querySelectorAll('#records-container > div');
+      const exportBtn = document.getElementById('btn-export');
+      const resetBtn = document.getElementById('reset-filters');
+      const dateFilter = document.getElementById('filter-date');
+      const categoryFilter = document.getElementById('filter-category');
+      const statusFilter = document.getElementById('filter-status');
+
+      function showToast(message) {
+        toastText.textContent = message;
+        toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        }, 3000);
+      }
+
+      // Receipt modal handlers
+      document.querySelectorAll('.btn-receipt').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const current = e.currentTarget;
+          const id = current.getAttribute('data-id');
+          const vehicle = current.getAttribute('data-vehicle');
+          const amount = current.getAttribute('data-amount');
+
+          modalInvoiceId.textContent = '#' + id;
+          modalVehicle.textContent = vehicle;
+          modalTotal.textContent = amount;
+
+          receiptModal.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            receiptModal.classList.remove('opacity-0');
+            receiptCard.classList.remove('scale-95');
+          });
+        });
+      });
+
+      function closeModal() {
+        receiptModal.classList.add('opacity-0');
+        receiptCard.classList.add('scale-95');
+        setTimeout(() => {
+          receiptModal.classList.add('hidden');
+        }, 200);
+      }
+
+      modalClose.addEventListener('click', closeModal);
+      receiptModal.addEventListener('click', (e) => {
+        if (e.target === receiptModal) closeModal();
+      });
+
+      // Quick actions
+      document.querySelectorAll('.btn-download').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = e.currentTarget.getAttribute('data-id');
+          showToast(`Invoice #${id} downloaded (PDF)`);
+        });
+      });
+
+      document.getElementById('modal-download-btn').addEventListener('click', () => {
+        closeModal();
+        showToast('PDF invoice downloaded successfully.');
+      });
+
+      document.querySelectorAll('.btn-rate').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const vehicle = e.currentTarget.getAttribute('data-vehicle');
+          showToast(`Feedback survey opened for ${vehicle}`);
+        });
+      });
+
+      exportBtn.addEventListener('click', () => {
+        showToast('Generated complete CSV & tax archive (DE_2025_Ledger.csv)');
+      });
+
+      // Live Search simulation
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        records.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          if (text.includes(query)) {
+            row.style.display = 'flex';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+
+      // Reset filters
+      resetBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        dateFilter.value = 'all';
+        categoryFilter.value = 'all';
+        statusFilter.value = 'all';
+        records.forEach(row => {
+          row.style.display = 'flex';
+        });
+        showToast('Filters reset to default');
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-space-3xl"><div class="max-w-[80rem] mx-auto px-gutter-desktop py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-2xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[18px]">directions_car</span></div><span class="font-headline-sm text-headline-sm text-on-surface">DriveEase Mobility</span></div><p class="font-body-sm text-body-sm text-on-surface-variant pr-space-md">Enterprise-grade precision vehicle rentals, verified fleet logistics, and seamless digital travel dispatch.</p><div class="flex items-center gap-space-xs mt-space-xs"><span class="inline-flex w-2 h-2 rounded-full bg-tertiary"></span><span class="font-label-mono text-label-mono text-tertiary uppercase tracking-wider">All Systems Operational</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface">Fleet &amp; Safety</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="fleet-safety" href="#">Vehicle Safety Standards</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="insurance-cdw" href="#">Comprehensive CDW Insurance</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="clean-guarantee" href="#">Sanitized Inspection Protocol</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ev-charging" href="#">EV Charging Network</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface">Legal &amp; Terms</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy &amp; Telematics Notice</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="rental-agreement" href="#">Rental Master Agreement</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="deposit-policy" href="#">Security Deposit Protocol</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface">24/7 Emergency Dispatch</span><p class="font-body-sm text-body-sm text-on-surface-variant">Rapid roadside assistance and collision dispatch anywhere nationwide.</p><div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1"><span class="font-label-mono text-label-mono text-primary font-bold text-sm tracking-wide">1-800-555-EASE</span><span class="font-body-sm text-body-sm text-on-surface-variant">Toll-Free Immediate Response</span></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low/50 px-space-md py-space-sm rounded-xl"><span>© 2025 DriveEase Mobility Systems Inc. All rights reserved.</span><div class="flex items-center gap-space-lg"><span class="font-label-mono text-label-mono text-on-surface-variant">VER: 4.18.2-PROD</span><span class="font-label-mono text-label-mono text-on-surface-variant">LATENCY: 24MS</span></div></div></div></footer></body></html>
