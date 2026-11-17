@@ -18,10 +18,11 @@ public class UserService {
     private UserRepository userRepository;
 
     @PostConstruct
-    public void initDefaultUser() {
+    public void initDefaultUsers() {
         try {
+            // Seed Customer Demo
             if (!userRepository.existsByEmailIgnoreCase("alex.morgan@example.com")) {
-                User demo = new User(
+                User customer = new User(
                         "usr_demo_1",
                         "Alex Morgan",
                         "alex.morgan@example.com",
@@ -34,7 +35,25 @@ public class UserService {
                         true,
                         "CUSTOMER"
                 );
-                userRepository.save(demo);
+                userRepository.save(customer);
+            }
+
+            // Seed Admin Demo
+            if (!userRepository.existsByEmailIgnoreCase("admin@driveease.com")) {
+                User admin = new User(
+                        "usr_admin_1",
+                        "Fleet Administrator",
+                        "admin@driveease.com",
+                        "admin123",
+                        "+1 (800) 555-0199",
+                        "ADMIN-EXEC-01",
+                        "Master Operations Access",
+                        52,
+                        5.0,
+                        true,
+                        "ADMIN"
+                );
+                userRepository.save(admin);
             }
         } catch (Exception e) {
             System.err.println("Note: MongoDB is currently offline or connecting. Startup user seeding will run once MongoDB is available: " + e.getMessage());
@@ -49,18 +68,21 @@ public class UserService {
             return new AuthResponse(false, "User with this email already exists", null, null);
         }
 
+        String email = request.getEmail().trim().toLowerCase();
+        String role = email.contains("admin") ? "ADMIN" : "CUSTOMER";
+
         User user = new User(
                 "usr_" + UUID.randomUUID().toString().substring(0, 8),
-                request.getName() != null && !request.getName().isEmpty() ? request.getName() : "Driver",
-                request.getEmail().trim().toLowerCase(),
+                request.getName() != null && !request.getName().isEmpty() ? request.getName() : (role.equals("ADMIN") ? "Admin" : "Driver"),
+                email,
                 request.getPassword() != null ? request.getPassword() : "password",
                 request.getPhone() != null ? request.getPhone() : "+1 (555) 000-0000",
                 request.getLicenseNumber() != null ? request.getLicenseNumber() : "DL-PENDING",
-                "Standard Member",
+                role.equals("ADMIN") ? "Master Operations Access" : "Standard Member",
                 0,
                 5.0,
                 true,
-                "CUSTOMER"
+                role
         );
         userRepository.save(user);
         return new AuthResponse(true, "Registration successful", user, "jwt_token_" + user.getId());

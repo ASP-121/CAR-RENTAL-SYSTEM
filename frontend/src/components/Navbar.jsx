@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getCurrentUser, logoutUser } from '../services/api';
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState(getCurrentUser());
+
+  useEffect(() => {
+    const handleAuthChange = () => setCurrentUser(getCurrentUser());
+    window.addEventListener('authChange', handleAuthChange);
+    return () => window.removeEventListener('authChange', handleAuthChange);
+  }, []);
+
+  const handleSignOut = () => {
+    logoutUser();
+    navigate('/auth');
+  };
 
   const isActive = (path) => {
     if (path === '/' && location.pathname === '/') return true;
@@ -11,12 +25,16 @@ export default function Navbar() {
     return false;
   };
 
+  const isAdmin = currentUser?.role === 'ADMIN';
+
+  // Navigation Links tailored to role
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Cars Fleet', path: '/fleet' },
-    { name: 'My Bookings', path: '/my-bookings' },
+    ...(currentUser ? [{ name: 'My Bookings', path: '/my-bookings' }] : []),
     { name: 'Rental History', path: '/history' },
-    { name: 'Admin Dashboard', path: '/admin' },
+    // ADMIN DASHBOARD ONLY VISIBLE TO ADMIN LOGIN
+    ...(isAdmin ? [{ name: 'Admin Dashboard', path: '/admin', badge: 'ADMIN' }] : []),
   ];
 
   return (
@@ -40,13 +58,18 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${
+                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-1.5 ${
                   isActive(link.path)
                     ? 'bg-[#545d7c]/60 text-white shadow-sm'
                     : 'text-[#bdc5e9] hover:text-white hover:bg-white/10'
                 }`}
               >
-                {link.name}
+                <span>{link.name}</span>
+                {link.badge && (
+                  <span className="px-1.5 py-0.2 bg-[#ba1a1a] text-white text-[9px] font-black rounded-md tracking-wider">
+                    {link.badge}
+                  </span>
+                )}
               </Link>
             ))}
           </nav>
@@ -56,30 +79,49 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             to="/fleet"
-            className="hidden sm:flex items-center justify-center px-5 py-2.5 bg-[#006194] hover:bg-[#007bb9] text-white text-sm font-semibold rounded-xl shadow-md transition-all transform hover:-translate-y-0.5"
+            className="hidden sm:flex items-center justify-center px-4 py-2 bg-[#006194] hover:bg-[#007bb9] text-white text-xs font-bold rounded-xl shadow-md transition-all transform hover:-translate-y-0.5"
           >
             Book a Car
           </Link>
 
-          <div className="flex items-center gap-2 pl-3 border-l border-white/15">
-            <Link
-              to="/history"
-              aria-label="Notifications"
-              className="w-10 h-10 rounded-xl flex items-center justify-center text-[#bdc5e9] hover:text-white hover:bg-white/10 transition-colors relative"
-            >
-              <span className="material-symbols-outlined text-[20px]">notifications</span>
-              <span className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-[#ba1a1a]"></span>
-            </Link>
+          <div className="flex items-center gap-3 pl-3 border-l border-white/15">
+            {currentUser ? (
+              <div className="flex items-center gap-3">
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-2 p-1.5 rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs shadow ${
+                    isAdmin ? 'bg-[#ba1a1a]' : 'bg-[#006194]'
+                  }`}>
+                    {isAdmin ? 'AD' : (currentUser.name ? currentUser.name[0] : 'U')}
+                  </div>
+                  <div className="hidden md:flex flex-col text-left">
+                    <span className="text-xs font-bold text-white leading-none">{currentUser.name}</span>
+                    <span className="text-[10px] text-[#bdc5e9] mt-0.5 uppercase font-mono">
+                      {isAdmin ? 'Administrator' : 'Customer'}
+                    </span>
+                  </div>
+                </Link>
 
-            <Link
-              to="/profile"
-              aria-label="User Profile"
-              className="group flex items-center gap-2 p-1 rounded-full hover:bg-white/10 transition-colors"
-            >
-              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#006194] to-[#007bb9] flex items-center justify-center text-white font-bold text-sm shadow">
-                <span className="material-symbols-outlined text-[18px]">person</span>
+                <button
+                  onClick={handleSignOut}
+                  title="Sign Out"
+                  className="px-3 py-1.5 bg-white/10 hover:bg-red-500/20 text-[#bdc5e9] hover:text-red-400 text-xs font-bold rounded-lg transition-colors flex items-center gap-1"
+                >
+                  <span className="material-symbols-outlined text-[16px]">logout</span>
+                  <span className="hidden sm:inline">Sign Out</span>
+                </button>
               </div>
-            </Link>
+            ) : (
+              <Link
+                to="/auth"
+                className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 border border-white/15"
+              >
+                <span className="material-symbols-outlined text-[16px]">login</span>
+                <span>Sign In</span>
+              </Link>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -100,31 +142,29 @@ export default function Navbar() {
               key={link.path}
               to={link.path}
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+              className={`block px-3 py-2 rounded-lg text-sm font-semibold flex items-center justify-between ${
                 isActive(link.path)
-                  ? 'bg-[#006194] text-white'
+                  ? 'bg-[#545d7c] text-white'
                   : 'text-[#bdc5e9] hover:bg-white/10 hover:text-white'
               }`}
             >
-              {link.name}
+              <span>{link.name}</span>
+              {link.badge && (
+                <span className="px-1.5 py-0.5 bg-[#ba1a1a] text-white text-[9px] font-black rounded-md">
+                  {link.badge}
+                </span>
+              )}
             </Link>
           ))}
-          <div className="pt-2 border-t border-white/10 flex gap-2">
-            <Link
-              to="/auth"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex-1 text-center py-2 bg-white/10 text-white rounded-lg text-sm font-semibold"
+          {currentUser && (
+            <button
+              onClick={() => { setMobileMenuOpen(false); handleSignOut(); }}
+              className="w-full text-left px-3 py-2 text-sm text-red-400 hover:bg-white/10 rounded-lg font-semibold flex items-center gap-2"
             >
-              Sign In
-            </Link>
-            <Link
-              to="/profile"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex-1 text-center py-2 bg-[#006194] text-white rounded-lg text-sm font-semibold"
-            >
-              Profile
-            </Link>
-          </div>
+              <span className="material-symbols-outlined text-[18px]">logout</span>
+              <span>Sign Out ({currentUser.name})</span>
+            </button>
+          )}
         </div>
       )}
     </header>

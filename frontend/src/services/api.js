@@ -85,24 +85,21 @@ export const getCurrentUser = () => {
   if (stored) {
     try { return JSON.parse(stored); } catch (e) {}
   }
-  return {
-    name: 'Alex Morgan',
-    email: 'alex.morgan@example.com',
-    phone: '+1 (415) 890-2341',
-    licenseNumber: 'CA-9482104-D',
-    membershipTier: 'Platinum Keyless Access',
-    tripsCompleted: 14,
-    rating: 5.0,
-    verified: true,
-  };
+  return null;
 };
 
 export const setCurrentUser = (user) => {
-  localStorage.setItem('driveease_user', JSON.stringify(user));
+  if (user) {
+    localStorage.setItem('driveease_user', JSON.stringify(user));
+  } else {
+    localStorage.removeItem('driveease_user');
+  }
+  window.dispatchEvent(new Event('authChange'));
 };
 
 export const logoutUser = () => {
   localStorage.removeItem('driveease_user');
+  window.dispatchEvent(new Event('authChange'));
 };
 
 export const loginUser = async (email, password) => {
@@ -113,16 +110,18 @@ export const loginUser = async (email, password) => {
     }
     return response.data;
   } catch (error) {
-    console.warn('Backend auth unavailable, using offline login:', error.message);
+    console.warn('Backend auth unavailable, using offline login fallback:', error.message);
+    const isAdmin = email.toLowerCase().includes('admin') || password === 'admin123';
     const fallbackUser = {
-      name: email.split('@')[0],
+      name: isAdmin ? 'Fleet Administrator' : (email.split('@')[0] || 'Driver'),
       email: email,
-      phone: '+1 (555) 019-2834',
-      licenseNumber: 'DL-' + Math.floor(1000000 + Math.random() * 9000000),
-      membershipTier: 'Verified Member',
-      tripsCompleted: 1,
+      phone: isAdmin ? '+1 (800) 555-0199' : '+1 (415) 890-2341',
+      licenseNumber: isAdmin ? 'ADMIN-EXEC-01' : 'CA-9482104-D',
+      membershipTier: isAdmin ? 'Master Operations Access' : 'Platinum Keyless Access',
+      tripsCompleted: isAdmin ? 52 : 14,
       rating: 5.0,
       verified: true,
+      role: isAdmin ? 'ADMIN' : 'CUSTOMER',
     };
     setCurrentUser(fallbackUser);
     return { success: true, user: fallbackUser };
@@ -138,12 +137,15 @@ export const registerUser = async (userData) => {
     return response.data;
   } catch (error) {
     console.warn('Backend auth unavailable, registering locally:', error.message);
+    const isAdmin = userData.email?.toLowerCase().includes('admin');
     const newUser = {
       ...userData,
-      membershipTier: 'Standard Member',
+      name: userData.name || (isAdmin ? 'Admin' : 'Driver'),
+      membershipTier: isAdmin ? 'Master Operations Access' : 'Standard Member',
       tripsCompleted: 0,
       rating: 5.0,
       verified: true,
+      role: isAdmin ? 'ADMIN' : 'CUSTOMER',
     };
     setCurrentUser(newUser);
     return { success: true, user: newUser };
