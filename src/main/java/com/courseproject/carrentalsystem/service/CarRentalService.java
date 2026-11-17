@@ -20,15 +20,19 @@ public class CarRentalService {
 
     @PostConstruct
     public void seedDefaultFleet() {
-        if (carDetailRepository.count() == 0) {
-            List<CarDetail> initialFleet = List.of(
-                new CarDetail("car_1", "Model 3 Performance", "Tesla", 89.0, 4.95, "Electric", 5, "315 mi", "3.1s", "Electric", "/assets/cars/electric.jpg"),
-                new CarDetail("car_2", "C-Class Sedan", "Mercedes-Benz", 115.0, 4.88, "Sedan", 5, "540 mi", "5.3s", "Gasoline", "/assets/cars/sedan.jpg"),
-                new CarDetail("car_3", "X5 xDrive40i", "BMW", 135.0, 4.92, "SUV", 7, "480 mi", "4.8s", "Hybrid", "/assets/cars/suv.jpg"),
-                new CarDetail("car_4", "911 Carrera Cabriolet", "Porsche", 240.0, 4.99, "Convertible", 4, "410 mi", "3.8s", "Gasoline", "/assets/cars/convertible.jpg"),
-                new CarDetail("car_5", "Golf GTI Clubsport", "Volkswagen", 65.0, 4.79, "Hatchback", 5, "450 mi", "5.6s", "Gasoline", "/assets/cars/hatchback.jpg")
-            );
-            carDetailRepository.saveAll(initialFleet);
+        try {
+            if (carDetailRepository.count() == 0) {
+                List<CarDetail> initialFleet = List.of(
+                    new CarDetail("car_1", "Model 3 Performance", "Tesla", 89.0, 4.95, "Electric", 5, "315 mi", "3.1s", "Electric", "/assets/cars/electric.jpg"),
+                    new CarDetail("car_2", "C-Class Sedan", "Mercedes-Benz", 115.0, 4.88, "Sedan", 5, "540 mi", "5.3s", "Gasoline", "/assets/cars/sedan.jpg"),
+                    new CarDetail("car_3", "X5 xDrive40i", "BMW", 135.0, 4.92, "SUV", 7, "480 mi", "4.8s", "Hybrid", "/assets/cars/suv.jpg"),
+                    new CarDetail("car_4", "911 Carrera Cabriolet", "Porsche", 240.0, 4.99, "Convertible", 4, "410 mi", "3.8s", "Gasoline", "/assets/cars/convertible.jpg"),
+                    new CarDetail("car_5", "Golf GTI Clubsport", "Volkswagen", 65.0, 4.79, "Hatchback", 5, "450 mi", "5.6s", "Gasoline", "/assets/cars/hatchback.jpg")
+                );
+                carDetailRepository.saveAll(initialFleet);
+            }
+        } catch (Exception e) {
+            System.err.println("Note: MongoDB is currently offline or connecting. Startup seeding will run once MongoDB is available: " + e.getMessage());
         }
     }
 
@@ -74,7 +78,6 @@ public class CarRentalService {
     public Optional<CarDetail> getCarById(String id) {
         Optional<CarDetail> car = carDetailRepository.findById(id);
         if (car.isPresent()) return car;
-        // Search by name if id doesn't match
         return carDetailRepository.findAll().stream()
                 .filter(c -> c.getName().equalsIgnoreCase(id))
                 .findFirst();

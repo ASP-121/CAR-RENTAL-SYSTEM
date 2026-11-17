@@ -19,21 +19,25 @@ public class UserService {
 
     @PostConstruct
     public void initDefaultUser() {
-        if (!userRepository.existsByEmailIgnoreCase("alex.morgan@example.com")) {
-            User demo = new User(
-                    "usr_demo_1",
-                    "Alex Morgan",
-                    "alex.morgan@example.com",
-                    "password123",
-                    "+1 (415) 890-2341",
-                    "CA-9482104-D",
-                    "Platinum Keyless Access",
-                    14,
-                    5.0,
-                    true,
-                    "CUSTOMER"
-            );
-            userRepository.save(demo);
+        try {
+            if (!userRepository.existsByEmailIgnoreCase("alex.morgan@example.com")) {
+                User demo = new User(
+                        "usr_demo_1",
+                        "Alex Morgan",
+                        "alex.morgan@example.com",
+                        "password123",
+                        "+1 (415) 890-2341",
+                        "CA-9482104-D",
+                        "Platinum Keyless Access",
+                        14,
+                        5.0,
+                        true,
+                        "CUSTOMER"
+                );
+                userRepository.save(demo);
+            }
+        } catch (Exception e) {
+            System.err.println("Note: MongoDB is currently offline or connecting. Startup user seeding will run once MongoDB is available: " + e.getMessage());
         }
     }
 
