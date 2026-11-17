@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getCurrentUser, getUserProfile, updateUserProfile } from '../services/api';
 
 export default function Profile() {
-  const [user, setUser] = useState({
-    name: 'Alex Morgan',
-    email: 'alex.morgan@example.com',
-    phone: '+1 (415) 890-2341',
-    licenseNumber: 'CA-9482104-D',
-    verified: true,
-    membershipTier: 'Platinum Keyless Access',
-    tripsCompleted: 14,
-  });
-
+  const [user, setUser] = useState(getCurrentUser());
+  const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
 
-  const handleSave = (e) => {
+  useEffect(() => {
+    const current = getCurrentUser();
+    if (current && current.email) {
+      getUserProfile(current.email).then(data => {
+        if (data) setUser(data);
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  const handleSave = async (e) => {
     e.preventDefault();
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
+    setSaving(true);
+    try {
+      const updated = await updateUserProfile(user);
+      if (updated) setUser(updated);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    } catch (err) {
+      console.error(err);
+      alert('Failed to save profile changes');
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -27,7 +43,7 @@ export default function Profile() {
         <div className="bg-gradient-to-r from-[#1c2541] to-[#282f49] p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-5">
             <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#006194] to-[#007bb9] flex items-center justify-center text-3xl font-extrabold text-white shadow-lg border-2 border-white/20">
-              AM
+              {user.name ? user.name.split(' ').map(n => n[0]).join('') : 'DR'}
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -37,17 +53,17 @@ export default function Profile() {
                   Verified Driver
                 </span>
               </div>
-              <p className="text-xs text-[#bdc5e9] mt-1">{user.membershipTier}</p>
+              <p className="text-xs text-[#bdc5e9] mt-1">{user.membershipTier || 'Platinum Keyless Access'}</p>
             </div>
           </div>
 
           <div className="flex gap-4 text-center">
             <div className="p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
-              <div className="text-xl font-bold text-white">{user.tripsCompleted}</div>
+              <div className="text-xl font-bold text-white">{user.tripsCompleted || 0}</div>
               <div className="text-[10px] text-[#bdc5e9] uppercase">Trips Taken</div>
             </div>
             <div className="p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
-              <div className="text-xl font-bold text-[#4edea3]">5.0 ★</div>
+              <div className="text-xl font-bold text-[#4edea3]">{user.rating || 5.0} ★</div>
               <div className="text-[10px] text-[#bdc5e9] uppercase">Driver Score</div>
             </div>
           </div>
@@ -55,16 +71,24 @@ export default function Profile() {
 
         {/* Verification & Details Form */}
         <form onSubmit={handleSave} className="p-8 space-y-6">
-          <h2 className="text-base font-bold text-[#131a33] pb-2 border-b border-[#ebedff]">
-            Driver Credentials & Identity Verification
-          </h2>
+          <div className="flex items-center justify-between pb-2 border-b border-[#ebedff]">
+            <h2 className="text-base font-bold text-[#131a33]">
+              Driver Credentials & Identity Verification
+            </h2>
+            {saved && (
+              <span className="text-xs font-semibold text-[#006947] flex items-center gap-1">
+                <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                Saved to MongoDB
+              </span>
+            )}
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Full Name</label>
               <input
                 type="text"
-                value={user.name}
+                value={user.name || ''}
                 onChange={(e) => setUser({ ...user, name: e.target.value })}
                 className="w-full h-11 px-3.5 rounded-lg bg-[#f3f3ff] border border-[#bfc7d2]/60 text-sm font-medium focus:ring-2 focus:ring-[#006194] focus:outline-none"
               />
@@ -74,9 +98,9 @@ export default function Profile() {
               <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Email Address</label>
               <input
                 type="email"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
-                className="w-full h-11 px-3.5 rounded-lg bg-[#f3f3ff] border border-[#bfc7d2]/60 text-sm font-medium focus:ring-2 focus:ring-[#006194] focus:outline-none"
+                disabled
+                value={user.email || ''}
+                className="w-full h-11 px-3.5 rounded-lg bg-[#ebedff] border border-[#bfc7d2]/60 text-sm font-medium text-[#707881] cursor-not-allowed focus:outline-none"
               />
             </div>
 
@@ -84,7 +108,7 @@ export default function Profile() {
               <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Phone Number</label>
               <input
                 type="text"
-                value={user.phone}
+                value={user.phone || ''}
                 onChange={(e) => setUser({ ...user, phone: e.target.value })}
                 className="w-full h-11 px-3.5 rounded-lg bg-[#f3f3ff] border border-[#bfc7d2]/60 text-sm font-medium focus:ring-2 focus:ring-[#006194] focus:outline-none"
               />
@@ -94,41 +118,32 @@ export default function Profile() {
               <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Driver's License #</label>
               <input
                 type="text"
-                value={user.licenseNumber}
+                value={user.licenseNumber || ''}
                 onChange={(e) => setUser({ ...user, licenseNumber: e.target.value })}
                 className="w-full h-11 px-3.5 rounded-lg bg-[#f3f3ff] border border-[#bfc7d2]/60 text-sm font-mono focus:ring-2 focus:ring-[#006194] focus:outline-none"
               />
             </div>
           </div>
 
-          {/* Keyless Bluetooth Smart Phone Setup */}
-          <div className="p-4 rounded-2xl bg-[#ebedff]/50 border border-[#ebedff] flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[#006194] text-[28px]">phone_android</span>
-              <div>
-                <div className="text-sm font-bold text-[#131a33]">Smartphone Keyless Pairing</div>
-                <div className="text-xs text-[#3f4850]">Device paired: iPhone 15 Pro (Ultra-Wideband Active)</div>
-              </div>
-            </div>
-            <span className="text-xs font-bold text-[#006947] bg-[#006947]/10 px-3 py-1 rounded-full border border-[#006947]/30">
-              CONNECTED
-            </span>
-          </div>
-
-          <div className="flex items-center justify-between pt-4 border-t border-[#ebedff]">
-            {saved && (
-              <span className="text-xs font-bold text-[#006947] flex items-center gap-1">
-                <span className="material-symbols-outlined text-[16px]">check</span>
-                Profile updated successfully!
-              </span>
-            )}
-            {!saved && <span></span>}
+          <div className="pt-4 flex items-center justify-between">
+            <Link to="/my-bookings" className="text-xs text-[#006194] hover:underline font-semibold flex items-center gap-1">
+              <span className="material-symbols-outlined text-[16px]">history</span>
+              View My Booking History
+            </Link>
 
             <button
               type="submit"
-              className="px-6 py-3 bg-[#006194] hover:bg-[#007bb9] text-white font-bold text-xs rounded-xl shadow transition-all"
+              disabled={saving}
+              className="px-6 py-3 bg-[#006194] hover:bg-[#007bb9] disabled:opacity-60 text-white font-bold text-xs rounded-xl shadow transition-all flex items-center gap-2"
             >
-              Save Profile Changes
+              {saving ? (
+                <span>Saving to Server...</span>
+              ) : (
+                <>
+                  <span className="material-symbols-outlined text-[18px]">save</span>
+                  <span>Update Driver Profile</span>
+                </>
+              )}
             </button>
           </div>
         </form>

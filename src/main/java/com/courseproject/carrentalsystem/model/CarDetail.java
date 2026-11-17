@@ -22,4 +22,8 @@ public class CarDetail {
     private double rating;
     private String type;
     private int seats;
+    private String range;
+    private String acceleration;
+    private String fuelType;
+    private String imageUrl;
 }

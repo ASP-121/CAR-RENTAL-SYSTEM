@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { getCars, addCar } from '../services/api';
+import { getCars, addCar, updateCar, deleteCar } from '../services/api';
 
 export default function AdminFleet() {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [editingCar, setEditingCar] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -14,6 +15,10 @@ export default function AdminFleet() {
     rating: 4.8,
     type: 'Sedan',
     seats: 5,
+    range: '450 mi',
+    acceleration: '4.5s',
+    fuelType: 'Gasoline',
+    imageUrl: '',
   });
 
   const loadCars = () => {
@@ -32,13 +37,23 @@ export default function AdminFleet() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await addCar({
-        ...formData,
-        price: parseFloat(formData.price),
-        rating: parseFloat(formData.rating),
-        seats: parseInt(formData.seats),
-      });
+      if (editingCar) {
+        await updateCar(editingCar.id || editingCar.name, {
+          ...formData,
+          price: parseFloat(formData.price),
+          rating: parseFloat(formData.rating),
+          seats: parseInt(formData.seats),
+        });
+      } else {
+        await addCar({
+          ...formData,
+          price: parseFloat(formData.price),
+          rating: parseFloat(formData.rating),
+          seats: parseInt(formData.seats),
+        });
+      }
       setShowAddModal(false);
+      setEditingCar(null);
       setFormData({
         name: '',
         company: '',
@@ -46,13 +61,46 @@ export default function AdminFleet() {
         rating: 4.8,
         type: 'Sedan',
         seats: 5,
+        range: '450 mi',
+        acceleration: '4.5s',
+        fuelType: 'Gasoline',
+        imageUrl: '',
       });
       loadCars();
     } catch (err) {
       console.error(err);
-      alert('Failed to add car to inventory');
+      alert('Failed to save vehicle details');
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const handleEditClick = (car) => {
+    setEditingCar(car);
+    setFormData({
+      name: car.name || '',
+      company: car.company || '',
+      price: car.price || 95,
+      rating: car.rating || 4.8,
+      type: car.type || 'Sedan',
+      seats: car.seats || 5,
+      range: car.range || '450 mi',
+      acceleration: car.acceleration || '4.5s',
+      fuelType: car.fuelType || 'Gasoline',
+      imageUrl: car.imageUrl || '',
+    });
+    setShowAddModal(true);
+  };
+
+  const handleDeleteClick = async (car) => {
+    if (!window.confirm(`Are you sure you want to remove ${car.name} from MongoDB fleet inventory?`)) {
+      return;
+    }
+    try {
+      await deleteCar(car.id || car.name);
+      loadCars();
+    } catch (err) {
+      alert("Failed to delete vehicle");
     }
   };
 
@@ -69,7 +117,22 @@ export default function AdminFleet() {
         </div>
 
         <button
-          onClick={() => setShowAddModal(true)}
+          onClick={() => {
+            setEditingCar(null);
+            setFormData({
+              name: '',
+              company: '',
+              price: 95,
+              rating: 4.8,
+              type: 'Sedan',
+              seats: 5,
+              range: '450 mi',
+              acceleration: '4.5s',
+              fuelType: 'Gasoline',
+              imageUrl: '',
+            });
+            setShowAddModal(true);
+          }}
           className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#006194] hover:bg-[#007bb9] text-white text-xs font-bold rounded-xl shadow transition-all"
         >
           <span className="material-symbols-outlined text-[18px]">add_circle</span>
@@ -82,7 +145,7 @@ export default function AdminFleet() {
         <div className="bg-white p-6 rounded-2xl border border-[#ebedff] shadow-sm">
           <span className="text-xs font-bold text-[#707881] uppercase tracking-wider block">Total Fleet Size</span>
           <div className="text-3xl font-extrabold text-[#131a33] mt-2">{cars.length} Vehicles</div>
-          <span className="text-xs text-[#006947] font-semibold mt-1 inline-block">100% Operational</span>
+          <span className="text-xs text-[#006947] font-semibold mt-1 inline-block">MongoDB Synced</span>
         </div>
 
         <div className="bg-white p-6 rounded-2xl border border-[#ebedff] shadow-sm">
@@ -118,10 +181,10 @@ export default function AdminFleet() {
                 <th className="py-3.5 px-6">Vehicle</th>
                 <th className="py-3.5 px-6">Make / Company</th>
                 <th className="py-3.5 px-6">Category</th>
-                <th className="py-3.5 px-6">Seats</th>
+                <th className="py-3.5 px-6">Specs</th>
                 <th className="py-3.5 px-6">Daily Rate</th>
                 <th className="py-3.5 px-6">Rating</th>
-                <th className="py-3.5 px-6">Telemetry</th>
+                <th className="py-3.5 px-6 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[#ebedff] font-medium text-[#131a33]">
@@ -151,14 +214,29 @@ export default function AdminFleet() {
                       {car.type}
                     </span>
                   </td>
-                  <td className="py-4 px-6">{car.seats} Seats</td>
+                  <td className="py-4 px-6">
+                    <div className="text-[11px] text-[#131a33] font-semibold">{car.seats} Seats • {car.fuelType || 'Gas'}</div>
+                    <div className="text-[10px] text-[#707881]">{car.range || '450 mi'} • {car.acceleration || '4.8s'}</div>
+                  </td>
                   <td className="py-4 px-6 font-extrabold text-sm text-[#006194]">${car.price}/day</td>
                   <td className="py-4 px-6 font-bold text-[#006947]">★ {car.rating || 4.9}</td>
-                  <td className="py-4 px-6">
-                    <span className="inline-flex items-center gap-1 text-[#006947] text-[11px] font-semibold">
-                      <span className="w-2 h-2 rounded-full bg-[#006947] animate-pulse"></span>
-                      ONLINE (98% BATT)
-                    </span>
+                  <td className="py-4 px-6 text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      <button
+                        onClick={() => handleEditClick(car)}
+                        className="px-2.5 py-1.5 bg-[#f3f3ff] hover:bg-[#ebedff] text-[#006194] font-bold rounded-lg transition-colors flex items-center gap-1"
+                      >
+                        <span className="material-symbols-outlined text-[15px]">edit</span>
+                        <span>Edit</span>
+                      </button>
+                      <button
+                        onClick={() => handleDeleteClick(car)}
+                        className="px-2.5 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 font-bold rounded-lg border border-red-200 transition-colors flex items-center gap-1"
+                      >
+                        <span className="material-symbols-outlined text-[15px]">delete</span>
+                        <span>Delete</span>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -167,13 +245,15 @@ export default function AdminFleet() {
         </div>
       </div>
 
-      {/* Add Car Modal */}
+      {/* Add / Edit Car Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-[#ebedff] space-y-6">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-[#ebedff] space-y-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-4 border-b border-[#ebedff]">
               <div>
-                <h3 className="text-xl font-bold text-[#131a33]">Add Vehicle to Fleet</h3>
+                <h3 className="text-xl font-bold text-[#131a33]">
+                  {editingCar ? 'Update Vehicle' : 'Add Vehicle to Fleet'}
+                </h3>
                 <p className="text-xs text-[#3f4850] mt-0.5">Persists directly to Spring Boot MongoDB collection</p>
               </div>
               <button
@@ -254,12 +334,12 @@ export default function AdminFleet() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Initial Rating (1-5)</label>
+                  <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Rating (★)</label>
                   <input
                     type="number"
                     min="1"
                     max="5"
-                    step="0.1"
+                    step="0.05"
                     required
                     value={formData.rating}
                     onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
@@ -268,20 +348,44 @@ export default function AdminFleet() {
                 </div>
               </div>
 
-              <div className="flex justify-end gap-3 pt-4 border-t border-[#ebedff]">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Range (mi)</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 350 mi"
+                    value={formData.range}
+                    onChange={(e) => setFormData({ ...formData, range: e.target.value })}
+                    className="w-full h-10 px-3 rounded-lg bg-[#f3f3ff] border border-[#bfc7d2]/60 text-xs font-medium focus:ring-2 focus:ring-[#006194] focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">0-60 MPH Acceleration</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 3.5s"
+                    value={formData.acceleration}
+                    onChange={(e) => setFormData({ ...formData, acceleration: e.target.value })}
+                    className="w-full h-10 px-3 rounded-lg bg-[#f3f3ff] border border-[#bfc7d2]/60 text-xs font-medium focus:ring-2 focus:ring-[#006194] focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="pt-4 flex items-center justify-end gap-3 border-t border-[#ebedff]">
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-4 py-2.5 rounded-xl border border-[#bfc7d2] text-xs font-bold text-[#3f4850] hover:bg-[#f3f3ff]"
+                  className="px-4 py-2 text-xs font-bold text-[#707881] hover:text-[#131a33]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-5 py-2.5 rounded-xl bg-[#006194] hover:bg-[#007bb9] text-white text-xs font-bold shadow"
+                  className="px-5 py-2.5 bg-[#006194] hover:bg-[#007bb9] disabled:opacity-60 text-white text-xs font-bold rounded-xl shadow"
                 >
-                  {submitting ? 'Saving to Database...' : 'Save & Publish'}
+                  {submitting ? 'Saving...' : editingCar ? 'Save Changes' : 'Save Vehicle'}
                 </button>
               </div>
             </form>

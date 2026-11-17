@@ -32,4 +32,5 @@ public class OrderDetail {
     private String carOwner;
     private String carUser;
     private boolean isBooked;
+    private String status; // "CONFIRMED", "ACTIVE", "COMPLETED", "CANCELLED"
 }

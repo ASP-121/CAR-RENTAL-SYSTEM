@@ -1,18 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getOrders, getCarImage } from '../services/api';
+import { getUserOrders, cancelOrder, getCarImage, getCurrentUser } from '../services/api';
 
 export default function MyBookings() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('all');
+  const [actionLoading, setActionLoading] = useState(null);
 
-  useEffect(() => {
-    getOrders().then(data => {
+  const currentUser = getCurrentUser();
+
+  const loadOrders = () => {
+    setLoading(true);
+    getUserOrders(currentUser.name || 'Alex Morgan').then(data => {
       setOrders(data);
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    loadOrders();
   }, []);
+
+  const handleCancelBooking = async (orderId) => {
+    if (!window.confirm("Are you sure you want to cancel this reservation?")) {
+      return;
+    }
+    setActionLoading(orderId);
+    try {
+      await cancelOrder(orderId);
+      loadOrders();
+    } catch (err) {
+      alert("Failed to cancel booking. Please try again.");
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
+  const filteredOrders = orders.filter(order => {
+    if (activeTab === 'active') return order.isBooked && order.status !== 'CANCELLED' && order.status !== 'COMPLETED';
+    if (activeTab === 'completed') return order.status === 'COMPLETED';
+    if (activeTab === 'cancelled') return order.status === 'CANCELLED';
+    return true;
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -22,7 +52,7 @@ export default function MyBookings() {
           <span className="text-xs font-mono font-bold text-[#006194] uppercase tracking-wider">Driver Portal</span>
           <h1 className="text-3xl font-extrabold text-[#131a33] mt-1">My Bookings Dashboard</h1>
           <p className="text-sm text-[#3f4850] mt-1">
-            Manage your active car rentals, access digital keys, and review past invoices.
+            Driver: <span className="font-bold text-[#131a33]">{currentUser.name}</span> ({currentUser.email}) • Spring Boot Synced
           </p>
         </div>
 
@@ -36,7 +66,7 @@ export default function MyBookings() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-2 mt-6">
+      <div className="flex flex-wrap items-center gap-2 mt-6">
         <button
           onClick={() => setActiveTab('all')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
@@ -67,6 +97,16 @@ export default function MyBookings() {
         >
           Completed
         </button>
+        <button
+          onClick={() => setActiveTab('cancelled')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+            activeTab === 'cancelled'
+              ? 'bg-[#006194] text-white shadow-sm'
+              : 'bg-white text-[#3f4850] hover:bg-[#ebedff] border border-[#ebedff]'
+          }`}
+        >
+          Cancelled
+        </button>
       </div>
 
       {/* Orders List */}
@@ -77,14 +117,14 @@ export default function MyBookings() {
               <div key={n} className="h-40 bg-white rounded-2xl animate-pulse border border-[#ebedff]"></div>
             ))}
           </div>
-        ) : orders.length === 0 ? (
+        ) : filteredOrders.length === 0 ? (
           <div className="bg-white rounded-3xl border border-[#ebedff] p-12 text-center space-y-4 shadow-sm">
             <div className="w-16 h-16 rounded-full bg-[#ebedff] flex items-center justify-center mx-auto text-[#006194]">
               <span className="material-symbols-outlined text-[32px]">car_rental</span>
             </div>
             <h3 className="text-xl font-bold text-[#131a33]">No Bookings Found</h3>
             <p className="text-sm text-[#3f4850] max-w-sm mx-auto">
-              You haven't reserved any vehicles yet. Browse our fleet and book a car with instant digital unlock!
+              No reservations under this tab. Browse our fleet and reserve your next vehicle with instant digital unlock!
             </p>
             <Link
               to="/fleet"
@@ -94,7 +134,7 @@ export default function MyBookings() {
             </Link>
           </div>
         ) : (
-          orders.map((order) => (
+          filteredOrders.map((order) => (
             <div
               key={order.orderId || Math.random()}
               className="bg-white rounded-2xl border border-[#ebedff] hover:border-[#006194]/40 hover:shadow-lg transition-all p-6 sm:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6"
@@ -115,8 +155,14 @@ export default function MyBookings() {
                     <span className="text-xs font-mono font-bold text-[#006194] uppercase tracking-wider">
                       {order.carCompany || 'Verified Partner'}
                     </span>
-                    <span className="px-2 py-0.5 rounded-full bg-[#006947]/10 text-[#006947] border border-[#006947]/30 text-[10px] font-bold">
-                      CONFIRMED
+                    <span className={`px-2.5 py-0.5 rounded-full border text-[10px] font-bold ${
+                      order.status === 'CANCELLED'
+                        ? 'bg-red-50 text-red-600 border-red-200'
+                        : order.status === 'COMPLETED'
+                        ? 'bg-blue-50 text-blue-700 border-blue-200'
+                        : 'bg-[#006947]/10 text-[#006947] border-[#006947]/30'
+                    }`}>
+                      {order.status || 'CONFIRMED'}
                     </span>
                   </div>
 
@@ -132,8 +178,8 @@ export default function MyBookings() {
                       {order.pickupLocation || 'Station 1'}
                     </span>
                     <span className="flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[16px] text-[#006194]">person</span>
-                      Driver: {order.carUser || 'Driver'}
+                      <span className="material-symbols-outlined text-[16px] text-[#006194]">schedule</span>
+                      {order.pickUpTime ? new Date(order.pickUpTime).toLocaleDateString() : 'Dates confirmed'}
                     </span>
                   </div>
                 </div>
@@ -146,14 +192,16 @@ export default function MyBookings() {
                   <span className="text-2xl font-black text-[#006194]">${order.carPrice}</span>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <Link
-                    to={`/confirmation/${order.orderId}`}
-                    className="px-4 py-2 bg-[#006194] hover:bg-[#007bb9] text-white text-xs font-bold rounded-lg shadow transition-all flex items-center gap-1"
-                  >
-                    <span className="material-symbols-outlined text-[16px]">key</span>
-                    <span>Digital Key</span>
-                  </Link>
+                <div className="flex flex-wrap items-center gap-2">
+                  {order.status !== 'CANCELLED' && (
+                    <Link
+                      to={`/confirmation/${order.orderId}`}
+                      className="px-4 py-2 bg-[#006194] hover:bg-[#007bb9] text-white text-xs font-bold rounded-lg shadow transition-all flex items-center gap-1"
+                    >
+                      <span className="material-symbols-outlined text-[16px]">key</span>
+                      <span>Digital Key</span>
+                    </Link>
+                  )}
 
                   <Link
                     to={`/history?car=${encodeURIComponent(order.carName)}`}
@@ -161,6 +209,17 @@ export default function MyBookings() {
                   >
                     History
                   </Link>
+
+                  {order.status !== 'CANCELLED' && (
+                    <button
+                      onClick={() => handleCancelBooking(order.orderId)}
+                      disabled={actionLoading === order.orderId}
+                      className="px-3 py-2 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-bold rounded-lg transition-colors flex items-center gap-1"
+                    >
+                      <span className="material-symbols-outlined text-[16px]">cancel</span>
+                      <span>{actionLoading === order.orderId ? 'Cancelling...' : 'Cancel'}</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

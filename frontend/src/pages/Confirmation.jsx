@@ -1,24 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
-import { getOrders } from '../services/api';
+import { getOrders, getOrderDetail, getTelemetry, toggleTelemetryLock, toggleTelemetryClimate } from '../services/api';
 
 export default function Confirmation() {
   const { orderId } = useParams();
   const location = useLocation();
 
   const [order, setOrder] = useState(location.state?.order || null);
-  const [locked, setLocked] = useState(false);
-  const [climateOn, setClimateOn] = useState(true);
-  const [digitalKeyActive, setDigitalKeyActive] = useState(true);
+  const [telemetry, setTelemetry] = useState({
+    locked: false,
+    climateOn: true,
+    temperature: 70,
+    batteryLevel: 94,
+    status: 'ONLINE',
+  });
+  const [togglingLock, setTogglingLock] = useState(false);
+  const [togglingClimate, setTogglingClimate] = useState(false);
 
   useEffect(() => {
-    if (!order) {
-      getOrders().then(orders => {
-        const found = orders.find(o => o.orderId === orderId);
-        if (found) setOrder(found);
+    const idToFind = orderId || order?.orderId;
+    if (idToFind) {
+      if (!order) {
+        getOrderDetail(idToFind).then(found => {
+          if (found) setOrder(found);
+        });
+      }
+      getTelemetry(idToFind).then(tel => {
+        if (tel) setTelemetry(tel);
       });
     }
   }, [orderId, order]);
+
+  const handleLockToggle = async () => {
+    const id = order?.orderId || orderId || 'ORD-982341';
+    setTogglingLock(true);
+    try {
+      const updated = await toggleTelemetryLock(id);
+      if (updated) setTelemetry(prev => ({ ...prev, locked: updated.locked }));
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setTogglingLock(false);
+    }
+  };
+
+  const handleClimateToggle = async () => {
+    const id = order?.orderId || orderId || 'ORD-982341';
+    setTogglingClimate(true);
+    try {
+      const updated = await toggleTelemetryClimate(id);
+      if (updated) setTelemetry(prev => ({ ...prev, climateOn: updated.climateOn }));
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setTogglingClimate(false);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -49,14 +86,14 @@ export default function Confirmation() {
             <div className="space-y-3 text-center md:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#006947]/20 border border-[#006947] text-[#4edea3] text-xs font-mono">
                 <span className="w-2 h-2 rounded-full bg-[#4edea3] animate-ping"></span>
-                SMART DIGITAL KEY ACTIVE
+                SMART DIGITAL KEY ACTIVE • SERVER SYNCED
               </div>
               <h2 className="text-2xl font-bold">{order?.carName || 'Tesla Model 3 Performance'}</h2>
               <p className="text-xs text-[#bdc5e9] max-w-sm">
-                Control keyless entry and precondition vehicle climate directly from your phone.
+                Live vehicle telemetry connected via Spring Boot REST controller.
               </p>
               <div className="text-xs font-mono text-[#bdc5e9]">
-                Status: <span className="text-[#4edea3] font-bold">{locked ? 'LOCKED' : 'UNLOCKED (Ready)'}</span> • Battery: 94%
+                Status: <span className="text-[#4edea3] font-bold">{telemetry.locked ? 'LOCKED' : 'UNLOCKED (Ready)'}</span> • Battery: {telemetry.batteryLevel || 94}%
               </div>
             </div>
 
@@ -64,33 +101,37 @@ export default function Confirmation() {
             <div className="flex items-center gap-4">
               {/* Lock/Unlock Toggle */}
               <button
-                onClick={() => setLocked(!locked)}
+                type="button"
+                disabled={togglingLock}
+                onClick={handleLockToggle}
                 className={`w-24 h-24 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition-all shadow-lg ${
-                  locked
+                  telemetry.locked
                     ? 'bg-[#ba1a1a] text-white hover:bg-[#ba1a1a]/90'
                     : 'bg-[#006947] text-white hover:bg-[#006947]/90'
                 }`}
               >
                 <span className="material-symbols-outlined text-[32px]">
-                  {locked ? 'lock' : 'lock_open'}
+                  {telemetry.locked ? 'lock' : 'lock_open'}
                 </span>
                 <span className="text-[11px] font-bold uppercase">
-                  {locked ? 'Locked' : 'Unlocked'}
+                  {telemetry.locked ? 'Locked' : 'Unlocked'}
                 </span>
               </button>
 
               {/* Climate Preconditioning */}
               <button
-                onClick={() => setClimateOn(!climateOn)}
+                type="button"
+                disabled={togglingClimate}
+                onClick={handleClimateToggle}
                 className={`w-24 h-24 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition-all shadow-lg ${
-                  climateOn
+                  telemetry.climateOn
                     ? 'bg-[#006194] text-white hover:bg-[#007bb9]'
                     : 'bg-white/10 text-white/60 hover:bg-white/20'
                 }`}
               >
                 <span className="material-symbols-outlined text-[32px]">ac_unit</span>
                 <span className="text-[11px] font-bold uppercase">
-                  {climateOn ? '70°F Auto' : 'Climate Off'}
+                  {telemetry.climateOn ? `${telemetry.temperature || 70}°F Auto` : 'Climate Off'}
                 </span>
               </button>
             </div>
@@ -98,68 +139,45 @@ export default function Confirmation() {
 
           {/* Reservation Breakdown */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div className="p-6 rounded-2xl bg-[#faf8ff] border border-[#ebedff] space-y-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#707881]">Trip Schedule</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-[#3f4850]">Pick-up Location:</span>
-                  <span className="font-bold text-[#131a33] text-right">{order?.pickupLocation || 'San Francisco SFO'}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-[#3f4850]">Pick-up Schedule:</span>
-                  <span className="font-bold text-[#131a33]">{order?.pickUpTime ? new Date(order.pickUpTime).toLocaleString() : 'Immediate'}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-[#3f4850]">Return Schedule:</span>
-                  <span className="font-bold text-[#131a33]">{order?.returnUpTime ? new Date(order.returnUpTime).toLocaleString() : '3 Days Later'}</span>
-                </div>
+            <div className="bg-[#f3f3ff] rounded-2xl p-6 space-y-3">
+              <span className="text-xs font-bold text-[#707881] uppercase tracking-wider block">Pickup Details</span>
+              <div className="font-bold text-sm text-[#131a33] flex items-center gap-2">
+                <span className="material-symbols-outlined text-[#006194] text-[20px]">location_on</span>
+                {order?.pickupLocation || 'San Francisco Int Airport (SFO)'}
+              </div>
+              <div className="text-xs text-[#3f4850] flex items-center gap-2">
+                <span className="material-symbols-outlined text-[#006194] text-[20px]">schedule</span>
+                {order?.pickUpTime ? new Date(order.pickUpTime).toLocaleString() : 'Pickup Confirmed'}
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#faf8ff] border border-[#ebedff] space-y-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#707881]">Billing Summary</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-[#3f4850]">Driver Name:</span>
-                  <span className="font-bold text-[#131a33]">{order?.carUser || 'Alex Morgan'}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-[#3f4850]">Vehicle Type:</span>
-                  <span className="font-bold text-[#131a33]">{order?.carType || 'Electric'}</span>
-                </div>
-                <div className="flex justify-between border-t border-[#ebedff] pt-2">
-                  <span className="font-bold text-[#131a33]">Total Paid:</span>
-                  <span className="font-black text-[#006194] text-lg">${order?.carPrice || 320}</span>
-                </div>
+            <div className="bg-[#f3f3ff] rounded-2xl p-6 space-y-3">
+              <span className="text-xs font-bold text-[#707881] uppercase tracking-wider block">Billing Summary</span>
+              <div className="font-bold text-2xl text-[#006194]">
+                ${order?.carPrice || 320}
+              </div>
+              <div className="text-xs text-[#006947] font-semibold flex items-center gap-1">
+                <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                Status: {order?.status || 'CONFIRMED'} in MongoDB
               </div>
             </div>
           </div>
 
-          {/* Quick Actions */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#ebedff]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#ebedff]">
             <Link
               to="/my-bookings"
-              className="px-6 py-3 bg-[#006194] hover:bg-[#007bb9] text-white font-bold text-xs rounded-xl shadow transition-all"
+              className="text-xs font-bold text-[#006194] hover:underline flex items-center gap-1"
             >
-              View in My Bookings
+              <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+              View in My Bookings Dashboard
             </Link>
 
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => window.print()}
-                className="px-4 py-3 bg-[#f3f3ff] hover:bg-[#ebedff] text-[#131a33] font-bold text-xs rounded-xl border border-[#ebedff] flex items-center gap-1.5 transition-colors"
-              >
-                <span className="material-symbols-outlined text-[18px]">print</span>
-                <span>Print Invoice</span>
-              </button>
-
-              <Link
-                to="/fleet"
-                className="px-4 py-3 bg-white hover:bg-[#faf8ff] text-[#131a33] font-bold text-xs rounded-xl border border-[#bfc7d2] transition-colors"
-              >
-                Back to Fleet
-              </Link>
-            </div>
+            <Link
+              to="/fleet"
+              className="px-6 py-3 bg-[#006194] hover:bg-[#007bb9] text-white text-xs font-bold rounded-xl shadow transition-all"
+            >
+              Explore More Cars
+            </Link>
           </div>
         </div>
       </div>
