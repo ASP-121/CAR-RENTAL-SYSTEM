@@ -8,12 +8,15 @@ export default function MyBookings() {
   const [activeTab, setActiveTab] = useState('all');
   const [actionLoading, setActionLoading] = useState(null);
 
-  const currentUser = getCurrentUser();
+  const currentUser = getCurrentUser() || {};
 
   const loadOrders = () => {
     setLoading(true);
-    getUserOrders(currentUser.name || 'Alex Morgan').then(data => {
-      setOrders(data);
+    getUserOrders().then(data => {
+      setOrders(data || []);
+      setLoading(false);
+    }).catch(() => {
+      setOrders([]);
       setLoading(false);
     });
   };
@@ -52,7 +55,7 @@ export default function MyBookings() {
           <span className="text-xs font-mono font-bold text-[#006194] uppercase tracking-wider">Driver Portal</span>
           <h1 className="text-3xl font-extrabold text-[#131a33] mt-1">My Bookings Dashboard</h1>
           <p className="text-sm text-[#3f4850] mt-1">
-            Driver: <span className="font-bold text-[#131a33]">{currentUser.name}</span> ({currentUser.email}) • Spring Boot Synced
+            Driver: <span className="font-bold text-[#131a33]">{currentUser.name || 'Driver'}</span> ({currentUser.email || ''}) • Spring Boot Synced
           </p>
         </div>
 
@@ -189,7 +192,7 @@ export default function MyBookings() {
               <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between w-full lg:w-auto gap-4 border-t lg:border-t-0 pt-4 lg:pt-0 border-[#ebedff]">
                 <div className="text-left lg:text-right">
                   <span className="text-xs text-[#707881] block">Total Invoiced</span>
-                  <span className="text-2xl font-black text-[#006194]">${order.carPrice}</span>
+                  <span className="text-2xl font-black text-[#006194]">₹{(order.carPrice || 0).toLocaleString('en-IN')}</span>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">

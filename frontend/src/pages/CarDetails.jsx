@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { getCars } from '../services/api';
+import { getCars, getCurrentUser } from '../services/api';
 
 export default function CarDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const currentUser = getCurrentUser();
+  const isAdmin = currentUser?.role === 'ADMIN';
 
   useEffect(() => {
     getCars().then(allCars => {
@@ -155,7 +158,7 @@ export default function CarDetails() {
             <div className="flex justify-between items-baseline pb-4 border-b border-[#ebedff]">
               <div>
                 <span className="text-xs text-[#707881] block uppercase font-bold">Rental Rate</span>
-                <span className="text-3xl font-extrabold text-[#006194]">${car.price}</span>
+                <span className="text-3xl font-extrabold text-[#006194]">₹{car.price?.toLocaleString('en-IN')}</span>
                 <span className="text-xs text-[#3f4850] font-normal"> / day</span>
               </div>
               <span className="px-2.5 py-1 rounded-full bg-[#cce5ff] text-[#001d31] font-mono text-xs font-bold">
@@ -167,20 +170,20 @@ export default function CarDetails() {
             <div className="space-y-3 text-xs">
               <div className="flex justify-between text-[#3f4850]">
                 <span>Base 3-day rental</span>
-                <span className="font-semibold text-[#131a33]">${car.price * 3}</span>
+                <span className="font-semibold text-[#131a33]">₹{(car.price * 3).toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between text-[#3f4850]">
                 <span>Standard damage waiver</span>
                 <span className="font-semibold text-[#006947]">INCLUDED</span>
               </div>
               <div className="flex justify-between text-[#3f4850]">
-                <span>Airport & location tax (8%)</span>
-                <span className="font-semibold text-[#131a33]">${((car.price * 3) * 0.08).toFixed(2)}</span>
+                <span>GST & Airport surcharge (18%)</span>
+                <span className="font-semibold text-[#131a33]">₹{Math.round((car.price * 3) * 0.18).toLocaleString('en-IN')}</span>
               </div>
               <div className="pt-3 border-t border-[#ebedff] flex justify-between text-sm font-bold text-[#131a33]">
                 <span>Estimated Total</span>
                 <span className="text-base text-[#006194]">
-                  ${((car.price * 3) * 1.08).toFixed(2)}
+                  ₹{Math.round((car.price * 3) * 1.18).toLocaleString('en-IN')}
                 </span>
               </div>
             </div>
@@ -193,12 +196,17 @@ export default function CarDetails() {
               <span>Proceed to Booking</span>
             </button>
 
-            <div className="text-center">
-              <Link to={`/history?car=${encodeURIComponent(car.name)}`} className="text-xs text-[#006194] hover:underline font-semibold flex items-center justify-center gap-1">
-                <span className="material-symbols-outlined text-[16px]">history</span>
-                View Rental History for {car.name}
-              </Link>
-            </div>
+            {isAdmin && (
+              <div className="text-center pt-2 border-t border-[#ebedff]">
+                <Link
+                  to={`/history?car=${encodeURIComponent(car.name)}`}
+                  className="text-xs text-[#006194] hover:underline font-semibold flex items-center justify-center gap-1"
+                >
+                  <span className="material-symbols-outlined text-[16px]">history</span>
+                  <span>View Rental History for {car.name} (Admin Only)</span>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

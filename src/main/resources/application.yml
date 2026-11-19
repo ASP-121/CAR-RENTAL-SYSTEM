@@ -10,3 +10,19 @@ spring:
       port: 27017
       database: CarRentalDB
 
+jwt:
+  secret: "IagSOnDKnW122ulh8DmWZeKH6QthO++MBQS5t9DKVz4="
+
+admin:
+  email: "akash2006@gmail.com"
+  password: "akzz4712"
+
+  application:
+    name: carrentalsystem
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: CarRentalDB
+

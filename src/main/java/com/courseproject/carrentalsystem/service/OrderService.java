@@ -5,9 +5,12 @@ import com.courseproject.carrentalsystem.model.TelemetryState;
 import com.courseproject.carrentalsystem.repository.OrderDetailRepository;
 import com.courseproject.carrentalsystem.repository.TelemetryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,12 +18,12 @@ import java.util.Optional;
 public class OrderService {
 
     @Autowired
-    OrderDetailRepository orderDetailRepository;
+    private OrderDetailRepository orderDetailRepository;
 
     @Autowired
-    TelemetryRepository telemetryRepository;
+    private TelemetryRepository telemetryRepository;
 
-    public List<OrderDetail> getHistory(String carName){
+    public List<OrderDetail> getHistory(String carName) {
         return orderDetailRepository.findByCarName(carName);
     }
 
@@ -35,8 +38,7 @@ public class OrderService {
                 continue;
             }
             if (b.getPickUpTime() != null && b.getReturnUpTime() != null) {
-                // Interval overlap condition:
-                // startA < endB && endA > startB
+                // Interval overlap: startA < endB && endA > startB
                 boolean overlaps = pickUpTime.isBefore(b.getReturnUpTime()) && returnUpTime.isAfter(b.getPickUpTime());
                 if (overlaps) {
                     return false;
@@ -46,7 +48,7 @@ public class OrderService {
         return true;
     }
 
-    public OrderDetail postOrderDetail(OrderDetail booking){
+    public OrderDetail postOrderDetail(OrderDetail booking) {
         if (booking.getOrderId() == null || booking.getOrderId().trim().isEmpty()) {
             booking.setOrderId("ORD-" + System.currentTimeMillis());
         }
@@ -71,19 +73,44 @@ public class OrderService {
         return saved;
     }
 
-    public Optional<OrderDetail> getOrderDetail(String orderId){
+    public Optional<OrderDetail> getOrderDetail(String orderId) {
         return orderDetailRepository.findById(orderId);
     }
 
-    public List<OrderDetail> getAllOrders(){
+    public List<OrderDetail> getAllOrders() {
         return orderDetailRepository.findAll();
     }
 
-    public List<OrderDetail> getOrdersByUser(String carUser) {
-        if (carUser == null || carUser.trim().isEmpty()) {
-            return orderDetailRepository.findAll();
+    public List<OrderDetail> getOrdersByUserEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            return Collections.emptyList();
         }
-        return orderDetailRepository.findByCarUserIgnoreCase(carUser.trim());
+        return orderDetailRepository.findByCarUserIgnoreCase(email.trim());
+    }
+
+    public List<OrderDetail> getOrdersByUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated() || "anonymousUser".equals(authentication.getPrincipal())) {
+            return Collections.emptyList();
+        }
+        String email = authentication.getName();
+        return getOrdersByUserEmail(email);
+    }
+
+    public List<OrderDetail> getOrdersForCarOwner() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated() || "anonymousUser".equals(authentication.getPrincipal())) {
+            return Collections.emptyList();
+        }
+        String ownerEmail = authentication.getName();
+        return getOrdersForCarOwner(ownerEmail);
+    }
+
+    public List<OrderDetail> getOrdersForCarOwner(String ownerEmail) {
+        if (ownerEmail == null || ownerEmail.trim().isEmpty()) {
+            return Collections.emptyList();
+        }
+        return orderDetailRepository.findByCarOwnerIgnoreCase(ownerEmail.trim());
     }
 
     public Optional<OrderDetail> cancelOrder(String orderId) {

@@ -58,7 +58,7 @@ export default function AdminDashboard() {
             <span className="material-symbols-outlined text-[#006194] text-[20px]">payments</span>
           </div>
           <div className="text-3xl font-black text-[#006194] mt-2">
-            ${analytics.grossRevenue.toLocaleString()}
+            ₹{analytics.grossRevenue?.toLocaleString('en-IN')}
           </div>
           <div className="text-xs text-[#006947] font-semibold mt-1">
             Across {analytics.totalBookings} total bookings
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="font-extrabold text-sm text-[#006194]">${o.carPrice}</div>
+                    <div className="font-extrabold text-sm text-[#006194]">₹{(o.carPrice || 0).toLocaleString('en-IN')}</div>
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                       o.status === 'CANCELLED' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
                     }`}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { getCars, bookCar, checkAvailability, getCurrentUser } from '../services/api';
+import { getCars, bookCar, checkAvailability, calculateDynamicPrice, getCurrentUser } from '../services/api';
 
 export default function BookCar() {
   const { id } = useParams();
@@ -11,13 +11,14 @@ export default function BookCar() {
   const [submitting, setSubmitting] = useState(false);
   const [availabilityMessage, setAvailabilityMessage] = useState(null);
   const [isAvailable, setIsAvailable] = useState(true);
+  const [dynamicPrice, setDynamicPrice] = useState(null);
 
   const currentUser = getCurrentUser();
 
   // Form State
   const [formData, setFormData] = useState({
-    carUser: currentUser.name || 'Alex Morgan',
-    pickupLocation: 'San Francisco Int Airport (SFO)',
+    carUser: currentUser ? currentUser.name : '',
+    pickupLocation: 'Mumbai Chhatrapati Shivaji Maharaj Airport (BOM)',
     pickUpDate: new Date().toISOString().split('T')[0],
     pickUpTime: '10:00',
     returnDate: new Date(Date.now() + 86400000 * 3).toISOString().split('T')[0],
@@ -33,14 +34,19 @@ export default function BookCar() {
     });
   }, [id]);
 
-  // Check availability when car or dates change
+  // Check availability and calculate dynamic pricing when car or dates change
   useEffect(() => {
     if (car && formData.pickUpDate && formData.returnDate) {
       const start = `${formData.pickUpDate}T${formData.pickUpTime}:00`;
       const end = `${formData.returnDate}T${formData.returnTime}:00`;
+      
       checkAvailability(car.name, start, end).then(res => {
         setIsAvailable(res.available);
         setAvailabilityMessage(res.message);
+      });
+
+      calculateDynamicPrice(car.name, start, end).then(dp => {
+        if (dp) setDynamicPrice(dp);
       });
     }
   }, [car, formData.pickUpDate, formData.pickUpTime, formData.returnDate, formData.returnTime]);
@@ -54,16 +60,22 @@ export default function BookCar() {
     return diffDays > 0 ? diffDays : 1;
   };
 
-  const days = calculateDays();
-  const dailyRate = car ? car.price : 90;
-  const baseTotal = dailyRate * days;
-  const insuranceCost = formData.insuranceType === 'premium' ? 18 * days : 0;
-  const tax = Math.round(baseTotal * 0.08);
+  const days = dynamicPrice ? dynamicPrice.rentalDays : calculateDays();
+  const effectiveDailyRate = dynamicPrice ? dynamicPrice.effectiveDailyRate : (car ? car.price : 4999);
+  const baseTotal = dynamicPrice ? dynamicPrice.baseSubtotal : (effectiveDailyRate * days);
+  const insuranceCost = formData.insuranceType === 'premium' ? 499 * days : 0;
+  const tax = dynamicPrice ? dynamicPrice.tax : Math.round(baseTotal * 0.18);
   const grandTotal = baseTotal + insuranceCost + tax;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!car) return;
+
+    if (!currentUser) {
+      alert("Please sign in or register an account to complete your vehicle reservation.");
+      navigate('/auth');
+      return;
+    }
 
     if (!isAvailable) {
       alert("This vehicle is already reserved for the selected schedule. Please select alternative dates.");
@@ -82,7 +94,7 @@ export default function BookCar() {
       carRating: car.rating || 4.9,
       carType: car.type || 'Sedan',
       seats: car.seats || 5,
-      carUser: formData.carUser,
+      carUser: currentUser.email || currentUser.name || 'Driver',
       carOwner: "DriveEase Smart Fleet",
       pickupLocation: formData.pickupLocation,
       pickUpTime: `${formData.pickUpDate}T${formData.pickUpTime}:00`,
@@ -148,10 +160,11 @@ export default function BookCar() {
                   onChange={(e) => setFormData({ ...formData, pickupLocation: e.target.value })}
                   className="w-full h-11 px-3 rounded-lg bg-[#f3f3ff] border border-[#bfc7d2]/60 text-xs font-semibold text-[#131a33] focus:ring-2 focus:ring-[#006194] focus:outline-none"
                 >
-                  <option value="San Francisco Int Airport (SFO)">San Francisco Int Airport (SFO)</option>
-                  <option value="Downtown Union Square Station">Downtown Union Square Station</option>
-                  <option value="San Jose Tech Campus Hub">San Jose Tech Campus Hub</option>
-                  <option value="Oakland Bay Gateway">Oakland Bay Gateway</option>
+                  <option value="Mumbai Chhatrapati Shivaji Maharaj Airport (BOM)">Mumbai Airport Hub (BOM)</option>
+                  <option value="Delhi Indira Gandhi International Airport (DEL)">Delhi IGI Airport (DEL)</option>
+                  <option value="Bengaluru Kempegowda International Airport (BLR)">Bengaluru Airport Hub (BLR)</option>
+                  <option value="Hyderabad Rajiv Gandhi International Airport (HYD)">Hyderabad Airport (HYD)</option>
+                  <option value="Pune Airport / Viman Nagar Terminal (PNQ)">Pune Airport Hub (PNQ)</option>
                 </select>
               </div>
             </div>
@@ -241,8 +254,8 @@ export default function BookCar() {
                     : 'border-[#ebedff] bg-white'
                 }`}
               >
-                <div className="font-bold text-xs text-[#131a33]">Comprehensive ($18/day)</div>
-                <div className="text-[11px] text-[#707881] mt-1">$0 deductible, roadside assistance</div>
+                <div className="font-bold text-xs text-[#131a33]">Comprehensive (₹499/day)</div>
+                <div className="text-[11px] text-[#707881] mt-1">₹0 deductible, 24/7 RSA assistance</div>
               </button>
               <button
                 type="button"
@@ -254,7 +267,7 @@ export default function BookCar() {
                 }`}
               >
                 <div className="font-bold text-xs text-[#131a33]">Standard (Included)</div>
-                <div className="text-[11px] text-[#707881] mt-1">State minimum liability coverage</div>
+                <div className="text-[11px] text-[#707881] mt-1">Basic statutory third-party liability</div>
               </button>
             </div>
           </div>
@@ -270,7 +283,7 @@ export default function BookCar() {
               <span>Car Not Available for Selected Dates</span>
             ) : (
               <>
-                <span>Confirm Reservation (${grandTotal})</span>
+                <span>Confirm Reservation (₹{grandTotal.toLocaleString('en-IN')})</span>
                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
               </>
             )}
@@ -296,10 +309,29 @@ export default function BookCar() {
               </div>
             </div>
 
+            {/* Dynamic Pricing Surge/Discount Indicator */}
+            {dynamicPrice && dynamicPrice.surgeType !== 'STANDARD' && (
+              <div className={`p-3 rounded-xl text-xs font-bold border flex items-start gap-2.5 ${
+                dynamicPrice.multiplier > 1.0
+                  ? 'bg-amber-50 border-amber-200 text-amber-900'
+                  : 'bg-emerald-50 border-emerald-200 text-emerald-900'
+              }`}>
+                <span className="material-symbols-outlined text-[18px] shrink-0 mt-0.5">
+                  {dynamicPrice.multiplier > 1.0 ? 'bolt' : 'savings'}
+                </span>
+                <div className="space-y-0.5">
+                  <div className="leading-tight font-extrabold">{dynamicPrice.surgeMessage}</div>
+                  <div className="text-[10px] font-mono opacity-80">
+                    Base: ₹{dynamicPrice.baseDailyRate?.toLocaleString('en-IN')}/day • Demand Multiplier: {dynamicPrice.multiplier}x
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="space-y-3 text-xs">
               <div className="flex justify-between text-[#707881]">
-                <span>Daily Rate</span>
-                <span className="font-semibold text-[#131a33]">${dailyRate} / day</span>
+                <span>Effective Daily Rate</span>
+                <span className="font-semibold text-[#131a33]">₹{effectiveDailyRate.toLocaleString('en-IN')} / day</span>
               </div>
               <div className="flex justify-between text-[#707881]">
                 <span>Rental Period</span>
@@ -307,20 +339,20 @@ export default function BookCar() {
               </div>
               <div className="flex justify-between text-[#707881]">
                 <span>Base Subtotal</span>
-                <span className="font-semibold text-[#131a33]">${baseTotal}</span>
+                <span className="font-semibold text-[#131a33]">₹{baseTotal.toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between text-[#707881]">
                 <span>Protection Plan</span>
-                <span className="font-semibold text-[#131a33]">${insuranceCost}</span>
+                <span className="font-semibold text-[#131a33]">₹{insuranceCost.toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between text-[#707881]">
-                <span>State & Local Taxes (8%)</span>
-                <span className="font-semibold text-[#131a33]">${tax}</span>
+                <span>GST (18%)</span>
+                <span className="font-semibold text-[#131a33]">₹{tax.toLocaleString('en-IN')}</span>
               </div>
 
               <div className="pt-3 border-t border-[#ebedff] flex justify-between text-sm font-extrabold text-[#131a33]">
                 <span>Estimated Total</span>
-                <span className="text-xl text-[#006194]">${grandTotal}</span>
+                <span className="text-xl text-[#006194]">₹{grandTotal.toLocaleString('en-IN')}</span>
               </div>
             </div>
 

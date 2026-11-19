@@ -1,5 +1,6 @@
 package com.courseproject.carrentalsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,10 @@ public class User {
     private String id;
     private String name;
     private String email;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
     private String phone;
     private String licenseNumber;
     private String membershipTier;

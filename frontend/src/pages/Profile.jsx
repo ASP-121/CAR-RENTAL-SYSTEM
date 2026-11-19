@@ -3,21 +3,18 @@ import { Link } from 'react-router-dom';
 import { getCurrentUser, getUserProfile, updateUserProfile } from '../services/api';
 
 export default function Profile() {
-  const [user, setUser] = useState(getCurrentUser());
+  const [user, setUser] = useState(getCurrentUser() || {});
   const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    const current = getCurrentUser();
-    if (current && current.email) {
-      getUserProfile(current.email).then(data => {
-        if (data) setUser(data);
-        setLoading(false);
-      });
-    } else {
+    getUserProfile().then(data => {
+      if (data) setUser(data);
       setLoading(false);
-    }
+    }).catch(() => {
+      setLoading(false);
+    });
   }, []);
 
   const handleSave = async (e) => {

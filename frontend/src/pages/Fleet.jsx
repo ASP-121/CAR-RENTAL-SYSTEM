@@ -11,7 +11,7 @@ export default function Fleet() {
   const [searchTerm, setSearchTerm] = useState(searchParams.get('search') || '');
   const [selectedType, setSelectedType] = useState(searchParams.get('type') || 'All');
   const [selectedSeats, setSelectedSeats] = useState('All');
-  const [maxPrice, setMaxPrice] = useState(300);
+  const [maxPrice, setMaxPrice] = useState(25000);
   const [sortBy, setSortBy] = useState('recommended');
 
   const loadFleet = () => {
@@ -19,7 +19,7 @@ export default function Fleet() {
     const params = {
       type: selectedType !== 'All' ? selectedType : undefined,
       seats: selectedSeats !== 'All' ? parseInt(selectedSeats) : undefined,
-      maxPrice: maxPrice < 300 ? maxPrice : undefined,
+      maxPrice: maxPrice < 25000 ? maxPrice : undefined,
       search: searchTerm.trim() ? searchTerm.trim() : undefined,
       sortBy: sortBy !== 'recommended' ? sortBy : undefined,
     };
@@ -153,13 +153,13 @@ export default function Fleet() {
             <div>
               <div className="flex justify-between items-center mb-2">
                 <label className="text-xs font-bold text-[#707881] uppercase">Max Daily Rate</label>
-                <span className="text-xs font-mono font-bold text-[#006194]">${maxPrice}/day</span>
+                <span className="text-xs font-mono font-bold text-[#006194]">₹{maxPrice.toLocaleString('en-IN')}/day</span>
               </div>
               <input
                 type="range"
-                min="50"
-                max="300"
-                step="10"
+                min="1000"
+                max="25000"
+                step="500"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(parseInt(e.target.value))}
                 className="w-full h-1.5 bg-[#bfc7d2]/50 rounded-lg appearance-none cursor-pointer accent-[#006194]"
@@ -187,7 +187,7 @@ export default function Fleet() {
                 onClick={() => {
                   setSelectedType('All');
                   setSelectedSeats('All');
-                  setMaxPrice(300);
+                  setMaxPrice(25000);
                   setSearchTerm('');
                 }}
                 className="px-4 py-2 bg-[#006194] text-white text-xs font-bold rounded-lg shadow"
@@ -256,14 +256,14 @@ export default function Fleet() {
                     <div>
                       <span className="text-[10px] text-[#707881] block">Daily Rate</span>
                       <div className="text-xl font-extrabold text-[#006194]">
-                        ${car.price}
+                        ₹{car.price?.toLocaleString('en-IN')}
                         <span className="text-xs text-[#707881] font-normal"> / day</span>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <Link
-                        to={`/car/${encodeURIComponent(car.id || car.name)}`}
+                        to={`/cars/${encodeURIComponent(car.id || car.name)}`}
                         className="px-3 py-2 bg-[#f3f3ff] hover:bg-[#ebedff] text-[#131a33] text-xs font-bold rounded-lg transition-colors"
                       >
                         Details

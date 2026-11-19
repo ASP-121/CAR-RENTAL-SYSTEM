@@ -6,108 +6,165 @@ import com.courseproject.carrentalsystem.model.User;
 import com.courseproject.carrentalsystem.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.courseproject.carrentalsystem.security.JwtUtil;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class UserService {
 
+    public static final String ROOT_ADMIN_EMAIL = "akash2006@gmail.com";
+    public static final String ROOT_ADMIN_DEFAULT_PASSWORD = "akzz4712";
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
     @Autowired
     private UserRepository userRepository;
 
-    @PostConstruct
-    public void initDefaultUsers() {
-        try {
-            // Seed Customer Demo
-            if (!userRepository.existsByEmailIgnoreCase("alex.morgan@example.com")) {
-                User customer = new User(
-                        "usr_demo_1",
-                        "Alex Morgan",
-                        "alex.morgan@example.com",
-                        "password123",
-                        "+1 (415) 890-2341",
-                        "CA-9482104-D",
-                        "Platinum Keyless Access",
-                        14,
-                        5.0,
-                        true,
-                        "CUSTOMER"
-                );
-                userRepository.save(customer);
-            }
+    @Value("${admin.email:akash2006@gmail.com}")
+    private String adminEmail;
 
-            // Seed Admin Demo
-            if (!userRepository.existsByEmailIgnoreCase("admin@driveease.com")) {
-                User admin = new User(
-                        "usr_admin_1",
-                        "Fleet Administrator",
-                        "admin@driveease.com",
-                        "admin123",
-                        "+1 (800) 555-0199",
-                        "ADMIN-EXEC-01",
-                        "Master Operations Access",
-                        52,
+    @Value("${admin.password:akzz4712}")
+    private String adminPlainPassword;
+
+    /**
+     * Ensure the dedicated root administrator account (akash2006@gmail.com / akzz4712) exists with ADMIN role.
+     * Furthermore, revoke ADMIN privileges from any other account so ONLY akash2006@gmail.com holds admin rights.
+     */
+    @PostConstruct
+    public void initRootAdmin() {
+        try {
+            String targetEmail = (adminEmail != null && !adminEmail.trim().isEmpty())
+                    ? adminEmail.trim().toLowerCase()
+                    : ROOT_ADMIN_EMAIL;
+            String targetPassword = (adminPlainPassword != null && !adminPlainPassword.trim().isEmpty())
+                    ? adminPlainPassword.trim()
+                    : ROOT_ADMIN_DEFAULT_PASSWORD;
+
+            Optional<User> adminOpt = userRepository.findByEmailIgnoreCase(targetEmail);
+            if (adminOpt.isPresent()) {
+                User admin = adminOpt.get();
+                admin.setName("Akash (Fleet Administrator)");
+                admin.setPassword(passwordEncoder.encode(targetPassword));
+                admin.setRole("ADMIN");
+                admin.setMembershipTier("Executive Fleet Administrator");
+                userRepository.save(admin);
+            } else {
+                User rootAdmin = new User(
+                        "usr_admin_akash",
+                        "Akash (Fleet Administrator)",
+                        targetEmail,
+                        passwordEncoder.encode(targetPassword),
+                        "+91 98765 43210",
+                        "DL-ADMIN-AKASH",
+                        "Executive Fleet Administrator",
+                        0,
                         5.0,
                         true,
                         "ADMIN"
                 );
-                userRepository.save(admin);
+                userRepository.save(rootAdmin);
+            }
+
+            // Demote any other user that might have been granted ADMIN role
+            List<User> allUsers = userRepository.findAll();
+            for (User u : allUsers) {
+                if (!u.getEmail().equalsIgnoreCase(targetEmail) && "ADMIN".equalsIgnoreCase(u.getRole())) {
+                    u.setRole("CUSTOMER");
+                    userRepository.save(u);
+                }
             }
         } catch (Exception e) {
-            System.err.println("Note: MongoDB is currently offline or connecting. Startup user seeding will run once MongoDB is available: " + e.getMessage());
+            System.err.println("Note: MongoDB is currently connecting. Skipping startup user check: " + e.getMessage());
         }
     }
 
+    /** Register a new user. Public registrations CANNOT use the admin email and are strictly CUSTOMER accounts. */
     public AuthResponse register(AuthRequest request) {
         if (request.getEmail() == null || request.getEmail().trim().isEmpty()) {
-            return new AuthResponse(false, "Email is required", null, null);
+            return new AuthResponse(false, "Email address is required", null, null);
         }
-        if (userRepository.existsByEmailIgnoreCase(request.getEmail().trim())) {
-            return new AuthResponse(false, "User with this email already exists", null, null);
+        if (request.getPassword() == null || request.getPassword().trim().isEmpty()) {
+            return new AuthResponse(false, "Password is required", null, null);
         }
-
         String email = request.getEmail().trim().toLowerCase();
-        String role = email.contains("admin") ? "ADMIN" : "CUSTOMER";
 
+        // Prevent unauthorized re-registration of the administrator email
+        if (email.equalsIgnoreCase(ROOT_ADMIN_EMAIL) || email.equalsIgnoreCase(adminEmail)) {
+            return new AuthResponse(false, "This email is reserved for system administration. Please sign in instead.", null, null);
+        }
+
+        if (userRepository.existsByEmailIgnoreCase(email)) {
+            return new AuthResponse(false, "An account with this email already exists", null, null);
+        }
+
+        // STRICT ENFORCEMENT: Every public registration receives CUSTOMER role
+        String assignedRole = "CUSTOMER";
         User user = new User(
                 "usr_" + UUID.randomUUID().toString().substring(0, 8),
-                request.getName() != null && !request.getName().isEmpty() ? request.getName() : (role.equals("ADMIN") ? "Admin" : "Driver"),
+                request.getName() != null && !request.getName().trim().isEmpty() ? request.getName().trim() : "Driver Member",
                 email,
-                request.getPassword() != null ? request.getPassword() : "password",
-                request.getPhone() != null ? request.getPhone() : "+1 (555) 000-0000",
-                request.getLicenseNumber() != null ? request.getLicenseNumber() : "DL-PENDING",
-                role.equals("ADMIN") ? "Master Operations Access" : "Standard Member",
+                passwordEncoder.encode(request.getPassword()),
+                request.getPhone() != null ? request.getPhone().trim() : "",
+                request.getLicenseNumber() != null ? request.getLicenseNumber().trim() : "",
+                "Standard Driver Member",
                 0,
                 5.0,
                 true,
-                role
+                assignedRole
         );
-        userRepository.save(user);
-        return new AuthResponse(true, "Registration successful", user, "jwt_token_" + user.getId());
+        User savedUser = userRepository.save(user);
+        return new AuthResponse(true, "Registration successful", savedUser, jwtUtil.generateToken(savedUser));
     }
 
+    /** Authenticate a user and return a JWT on success. Strict role enforcement: ONLY akash2006@gmail.com can be ADMIN. */
     public AuthResponse login(AuthRequest request) {
         if (request.getEmail() == null || request.getPassword() == null) {
             return new AuthResponse(false, "Email and password are required", null, null);
         }
-        Optional<User> optionalUser = userRepository.findByEmailIgnoreCase(request.getEmail().trim());
+        String email = request.getEmail().trim().toLowerCase();
+        Optional<User> optionalUser = userRepository.findByEmailIgnoreCase(email);
         if (optionalUser.isEmpty()) {
-            return new AuthResponse(false, "User not found with this email", null, null);
+            return new AuthResponse(false, "No account found with this email. Please register.", null, null);
         }
         User user = optionalUser.get();
-        if (!user.getPassword().equals(request.getPassword())) {
-            return new AuthResponse(false, "Invalid password", null, null);
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            return new AuthResponse(false, "Invalid password. Please check your credentials.", null, null);
         }
-        return new AuthResponse(true, "Login successful", user, "jwt_token_" + user.getId());
+
+        // STRICT GUARANTEE: Only akash2006@gmail.com can possess ADMIN privileges
+        boolean isRootAdmin = email.equalsIgnoreCase(ROOT_ADMIN_EMAIL) || email.equalsIgnoreCase(adminEmail);
+        if (isRootAdmin) {
+            if (!"ADMIN".equalsIgnoreCase(user.getRole())) {
+                user.setRole("ADMIN");
+                user = userRepository.save(user);
+            }
+        } else {
+            if ("ADMIN".equalsIgnoreCase(user.getRole())) {
+                user.setRole("CUSTOMER");
+                user = userRepository.save(user);
+            }
+        }
+
+        return new AuthResponse(true, "Login successful", user, jwtUtil.generateToken(user));
     }
 
+    /** Retrieve profile of the authenticated user. */
     public Optional<User> getProfile(String email) {
         if (email == null) return Optional.empty();
         return userRepository.findByEmailIgnoreCase(email.trim());
     }
 
+    /** Update profile fields for the authenticated user. Role and password cannot be changed here. */
     public User updateProfile(User updatedUser) {
         Optional<User> existing = userRepository.findByEmailIgnoreCase(updatedUser.getEmail());
         if (existing.isPresent()) {

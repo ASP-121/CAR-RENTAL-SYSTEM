@@ -32,26 +32,28 @@ export default function Confirmation() {
   }, [orderId, order]);
 
   const handleLockToggle = async () => {
-    const id = order?.orderId || orderId || 'ORD-982341';
+    const id = order?.orderId || orderId;
+    if (!id) return;
     setTogglingLock(true);
     try {
       const updated = await toggleTelemetryLock(id);
       if (updated) setTelemetry(prev => ({ ...prev, locked: updated.locked }));
     } catch (err) {
-      console.error(err);
+      console.error('Failed to toggle lock:', err);
     } finally {
       setTogglingLock(false);
     }
   };
 
   const handleClimateToggle = async () => {
-    const id = order?.orderId || orderId || 'ORD-982341';
+    const id = order?.orderId || orderId;
+    if (!id) return;
     setTogglingClimate(true);
     try {
       const updated = await toggleTelemetryClimate(id);
       if (updated) setTelemetry(prev => ({ ...prev, climateOn: updated.climateOn }));
     } catch (err) {
-      console.error(err);
+      console.error('Failed to toggle climate:', err);
     } finally {
       setTogglingClimate(false);
     }
@@ -154,7 +156,7 @@ export default function Confirmation() {
             <div className="bg-[#f3f3ff] rounded-2xl p-6 space-y-3">
               <span className="text-xs font-bold text-[#707881] uppercase tracking-wider block">Billing Summary</span>
               <div className="font-bold text-2xl text-[#006194]">
-                ${order?.carPrice || 320}
+                ₹{(order?.carPrice || 4999).toLocaleString('en-IN')}
               </div>
               <div className="text-xs text-[#006947] font-semibold flex items-center gap-1">
                 <span className="material-symbols-outlined text-[16px]">check_circle</span>

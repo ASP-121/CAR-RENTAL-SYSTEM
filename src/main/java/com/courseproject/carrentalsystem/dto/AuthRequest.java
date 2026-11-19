@@ -15,4 +15,5 @@ public class AuthRequest {
     private String name;
     private String phone;
     private String licenseNumber;
+    private String role; // "CUSTOMER" or "ADMIN"
 }

@@ -130,7 +130,7 @@ export default function Home() {
                     <div className="text-xl font-bold text-[#131a33]">Tesla Model 3 Performance</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-extrabold text-[#006194]">$89<span className="text-xs font-normal text-[#3f4850]">/day</span></div>
+                    <div className="text-2xl font-extrabold text-[#006194]">₹4,999<span className="text-xs font-normal text-[#3f4850]">/day</span></div>
                     <div className="text-[11px] text-[#006947] font-semibold">Available Now</div>
                   </div>
                 </div>
@@ -272,7 +272,7 @@ export default function Home() {
                     <div>
                       <span className="text-xs text-[#707881] block">Daily Rate</span>
                       <span className="text-2xl font-black text-[#006194]">
-                        ${car.price}
+                        ₹{car.price?.toLocaleString('en-IN')}
                         <span className="text-xs font-normal text-[#3f4850]"> /day</span>
                       </span>
                     </div>

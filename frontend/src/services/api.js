@@ -7,20 +7,48 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 5000,
+  timeout: 10000,
 });
 
-// Fallback initial cars if backend has no data yet
+// Request interceptor to attach JWT token to all outgoing API calls
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('driveease_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// Response interceptor to handle 401 Unauthorized globally
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem('driveease_token');
+      localStorage.removeItem('driveease_user');
+      window.dispatchEvent(new Event('authChange'));
+      if (window.location.pathname !== '/auth' && window.location.pathname !== '/') {
+        window.location.href = '/auth';
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
+// Default car catalog fallback for display when catalog is empty
 export const DEFAULT_CARS = [
   {
     id: "car_1",
     name: "Model 3 Performance",
     company: "Tesla",
-    price: 89,
+    price: 4999,
     rating: 4.95,
     type: "Electric",
     seats: 5,
-    range: "315 mi",
+    range: "490 km",
     acceleration: "3.1s",
     fuelType: "Electric",
     image: "/assets/cars/electric.jpg",
@@ -29,11 +57,11 @@ export const DEFAULT_CARS = [
     id: "car_2",
     name: "C-Class Sedan",
     company: "Mercedes-Benz",
-    price: 115,
+    price: 6499,
     rating: 4.88,
     type: "Sedan",
     seats: 5,
-    range: "540 mi",
+    range: "850 km",
     acceleration: "5.3s",
     fuelType: "Gasoline",
     image: "/assets/cars/sedan.jpg",
@@ -42,11 +70,11 @@ export const DEFAULT_CARS = [
     id: "car_3",
     name: "X5 xDrive40i",
     company: "BMW",
-    price: 135,
+    price: 8499,
     rating: 4.92,
     type: "SUV",
     seats: 7,
-    range: "480 mi",
+    range: "750 km",
     acceleration: "4.8s",
     fuelType: "Hybrid",
     image: "/assets/cars/suv.jpg",
@@ -55,11 +83,11 @@ export const DEFAULT_CARS = [
     id: "car_4",
     name: "911 Carrera Cabriolet",
     company: "Porsche",
-    price: 240,
+    price: 18999,
     rating: 4.99,
     type: "Convertible",
     seats: 4,
-    range: "410 mi",
+    range: "650 km",
     acceleration: "3.8s",
     fuelType: "Gasoline",
     image: "/assets/cars/convertible.jpg",
@@ -68,11 +96,11 @@ export const DEFAULT_CARS = [
     id: "car_5",
     name: "Golf GTI Clubsport",
     company: "Volkswagen",
-    price: 65,
+    price: 3499,
     rating: 4.79,
     type: "Hatchback",
     seats: 5,
-    range: "450 mi",
+    range: "700 km",
     acceleration: "5.6s",
     fuelType: "Gasoline",
     image: "/assets/cars/hatchback.jpg",
@@ -80,10 +108,26 @@ export const DEFAULT_CARS = [
 ];
 
 // --- AUTHENTICATION & USER HELPERS ---
+export const getToken = () => {
+  return localStorage.getItem('driveease_token');
+};
+
+export const setToken = (token) => {
+  if (token) {
+    localStorage.setItem('driveease_token', token);
+  } else {
+    localStorage.removeItem('driveease_token');
+  }
+};
+
 export const getCurrentUser = () => {
   const stored = localStorage.getItem('driveease_user');
   if (stored) {
-    try { return JSON.parse(stored); } catch (e) {}
+    try {
+      return JSON.parse(stored);
+    } catch (e) {
+      return null;
+    }
   }
   return null;
 };
@@ -98,6 +142,7 @@ export const setCurrentUser = (user) => {
 };
 
 export const logoutUser = () => {
+  localStorage.removeItem('driveease_token');
   localStorage.removeItem('driveease_user');
   window.dispatchEvent(new Event('authChange'));
 };
@@ -105,56 +150,45 @@ export const logoutUser = () => {
 export const loginUser = async (email, password) => {
   try {
     const response = await api.post('/auth/login', { email, password });
-    if (response.data && response.data.user) {
-      setCurrentUser(response.data.user);
+    if (response.data && response.data.success) {
+      if (response.data.token) {
+        setToken(response.data.token);
+      }
+      if (response.data.user) {
+        setCurrentUser(response.data.user);
+      }
     }
     return response.data;
   } catch (error) {
-    console.warn('Backend auth unavailable, using offline login fallback:', error.message);
-    const isAdmin = email.toLowerCase().includes('admin') || password === 'admin123';
-    const fallbackUser = {
-      name: isAdmin ? 'Fleet Administrator' : (email.split('@')[0] || 'Driver'),
-      email: email,
-      phone: isAdmin ? '+1 (800) 555-0199' : '+1 (415) 890-2341',
-      licenseNumber: isAdmin ? 'ADMIN-EXEC-01' : 'CA-9482104-D',
-      membershipTier: isAdmin ? 'Master Operations Access' : 'Platinum Keyless Access',
-      tripsCompleted: isAdmin ? 52 : 14,
-      rating: 5.0,
-      verified: true,
-      role: isAdmin ? 'ADMIN' : 'CUSTOMER',
-    };
-    setCurrentUser(fallbackUser);
-    return { success: true, user: fallbackUser };
+    const msg = error.response?.data?.message || error.message || 'Unable to connect to authentication server.';
+    return { success: false, message: msg };
   }
 };
 
 export const registerUser = async (userData) => {
   try {
     const response = await api.post('/auth/register', userData);
-    if (response.data && response.data.user) {
-      setCurrentUser(response.data.user);
+    if (response.data && response.data.success) {
+      if (response.data.token) {
+        setToken(response.data.token);
+      }
+      if (response.data.user) {
+        setCurrentUser(response.data.user);
+      }
     }
     return response.data;
   } catch (error) {
-    console.warn('Backend auth unavailable, registering locally:', error.message);
-    const isAdmin = userData.email?.toLowerCase().includes('admin');
-    const newUser = {
-      ...userData,
-      name: userData.name || (isAdmin ? 'Admin' : 'Driver'),
-      membershipTier: isAdmin ? 'Master Operations Access' : 'Standard Member',
-      tripsCompleted: 0,
-      rating: 5.0,
-      verified: true,
-      role: isAdmin ? 'ADMIN' : 'CUSTOMER',
-    };
-    setCurrentUser(newUser);
-    return { success: true, user: newUser };
+    const msg = error.response?.data?.message || error.message || 'Registration failed. Please try again.';
+    return { success: false, message: msg };
   }
 };
 
-export const getUserProfile = async (email) => {
+export const getUserProfile = async () => {
   try {
-    const response = await api.get('/auth/profile', { params: { email } });
+    const response = await api.get('/auth/profile');
+    if (response.data) {
+      setCurrentUser(response.data);
+    }
     return response.data;
   } catch (error) {
     return getCurrentUser();
@@ -162,14 +196,11 @@ export const getUserProfile = async (email) => {
 };
 
 export const updateUserProfile = async (userData) => {
-  try {
-    const response = await api.put('/auth/profile', userData);
+  const response = await api.put('/auth/profile', userData);
+  if (response.data) {
     setCurrentUser(response.data);
-    return response.data;
-  } catch (error) {
-    setCurrentUser(userData);
-    return userData;
   }
+  return response.data;
 };
 
 // --- CAR / FLEET OPERATIONS ---
@@ -184,11 +215,7 @@ export const getCars = async (filters = {}) => {
     }
     return DEFAULT_CARS;
   } catch (error) {
-    console.warn('Backend unavailable, using default car catalog:', error.message);
-    const stored = localStorage.getItem('driveease_cars');
-    if (stored) {
-      try { return JSON.parse(stored); } catch(e) {}
-    }
+    console.warn('Backend unavailable or catalog empty:', error.message);
     return DEFAULT_CARS;
   }
 };
@@ -207,197 +234,158 @@ export const getCarById = async (id) => {
   }
 };
 
+export const getMyCars = async () => {
+  const response = await api.get('/cars/my-cars');
+  return response.data || [];
+};
+
 export const addCar = async (carData) => {
-  try {
-    const response = await api.post('/cars/add', carData);
-    return response.data;
-  } catch (error) {
-    console.warn('Backend unavailable, storing in localStorage:', error.message);
-    const current = await getCars();
-    const newCar = {
-      ...carData,
-      id: "car_" + Date.now(),
-      image: carData.imageUrl || getCarImage(carData.type),
-    };
-    const updated = [newCar, ...current];
-    localStorage.setItem('driveease_cars', JSON.stringify(updated));
-    return newCar;
-  }
+  const response = await api.post('/cars/add', carData);
+  return response.data;
 };
 
 export const updateCar = async (id, carData) => {
-  try {
-    const response = await api.put(`/cars/${id}`, carData);
-    return response.data;
-  } catch (error) {
-    console.warn('Backend unavailable, updating locally:', error.message);
-    const current = await getCars();
-    const updated = current.map(c => (c.id === id ? { ...c, ...carData } : c));
-    localStorage.setItem('driveease_cars', JSON.stringify(updated));
-    return carData;
-  }
+  const response = await api.put(`/cars/${id}`, carData);
+  return response.data;
 };
 
 export const deleteCar = async (id) => {
-  try {
-    const response = await api.delete(`/cars/${id}`);
-    return response.data;
-  } catch (error) {
-    console.warn('Backend unavailable, deleting locally:', error.message);
-    const current = await getCars();
-    const updated = current.filter(c => c.id !== id);
-    localStorage.setItem('driveease_cars', JSON.stringify(updated));
-    return true;
-  }
+  const response = await api.delete(`/cars/${id}`);
+  return response.data;
 };
 
 // --- BOOKING OPERATIONS ---
 export const checkAvailability = async (carName, pickUpTime, returnUpTime) => {
+  const response = await api.get('/booking/check-availability', {
+    params: { carName, pickUpTime, returnUpTime }
+  });
+  return response.data;
+};
+
+// --- DYNAMIC PRICING ENGINE ---
+export const calculateDynamicPrice = async (carName, pickUpTime, returnUpTime) => {
   try {
-    const response = await api.get('/booking/check-availability', {
+    const response = await api.get('/booking/calculate-price', {
       params: { carName, pickUpTime, returnUpTime }
     });
     return response.data;
   } catch (error) {
-    console.warn('Availability check failed, defaulting to available:', error.message);
-    return { available: true, message: "Available" };
+    console.warn('Dynamic pricing fallback:', error.message);
+    return null;
   }
 };
 
 export const bookCar = async (bookingData) => {
-  try {
-    const response = await api.post('/booking/car', bookingData);
-    return response.data;
-  } catch (error) {
-    if (error.response && error.response.status === 409) {
-      throw new Error(error.response.data?.message || 'Car is already booked for the selected schedule.');
-    }
-    console.warn('Backend booking unavailable, storing in localStorage:', error.message);
-    const currentOrders = JSON.parse(localStorage.getItem('driveease_orders') || '[]');
-    const newOrder = {
-      ...bookingData,
-      orderId: bookingData.orderId || "ORD-" + Math.random().toString(36).substr(2, 9).toUpperCase(),
-      isBooked: true,
-      status: "CONFIRMED",
-    };
-    localStorage.setItem('driveease_orders', JSON.stringify([newOrder, ...currentOrders]));
-    return newOrder;
-  }
+  const response = await api.post('/booking/car', bookingData);
+  return response.data;
 };
 
 export const getOrders = async () => {
-  try {
-    const response = await api.get('/booking/orders');
-    if (response.data && response.data.length > 0) {
-      return response.data;
-    }
-    return JSON.parse(localStorage.getItem('driveease_orders') || '[]');
-  } catch (error) {
-    console.warn('Backend orders unavailable, loading from localStorage:', error.message);
-    return JSON.parse(localStorage.getItem('driveease_orders') || '[]');
-  }
+  const response = await api.get('/booking/orders');
+  return response.data || [];
 };
 
-export const getUserOrders = async (carUser) => {
-  try {
-    const response = await api.get(`/booking/user/${encodeURIComponent(carUser)}`);
-    return response.data;
-  } catch (error) {
-    const all = await getOrders();
-    return all.filter(o => o.carUser?.toLowerCase() === carUser?.toLowerCase());
-  }
+export const getUserOrders = async () => {
+  const response = await api.get('/booking/user');
+  return response.data || [];
+};
+
+export const getOwnerOrders = async () => {
+  const response = await api.get('/booking/owner-orders');
+  return response.data || [];
 };
 
 export const getOrderDetail = async (orderId) => {
-  try {
-    const response = await api.get(`/booking/order/${orderId}`);
-    return response.data;
-  } catch (error) {
-    const all = await getOrders();
-    return all.find(o => o.orderId === orderId);
-  }
+  const response = await api.get(`/booking/order/${orderId}`);
+  return response.data;
 };
 
 export const cancelOrder = async (orderId) => {
-  try {
-    const response = await api.put(`/booking/order/${orderId}/cancel`);
-    return response.data;
-  } catch (error) {
-    console.warn('Backend cancel unavailable, updating locally:', error.message);
-    const orders = JSON.parse(localStorage.getItem('driveease_orders') || '[]');
-    const updated = orders.map(o => o.orderId === orderId ? { ...o, isBooked: false, status: 'CANCELLED' } : o);
-    localStorage.setItem('driveease_orders', JSON.stringify(updated));
-    return true;
-  }
+  const response = await api.put(`/booking/order/${orderId}/cancel`);
+  return response.data;
 };
 
 export const updateOrderStatus = async (orderId, status) => {
-  try {
-    const response = await api.put(`/booking/order/${orderId}/status`, null, { params: { status } });
-    return response.data;
-  } catch (error) {
-    return true;
-  }
+  const response = await api.put(`/booking/order/${orderId}/status`, null, { params: { status } });
+  return response.data;
 };
 
 export const getCarHistory = async (carName) => {
-  try {
-    const response = await api.get(`/booking/history/${encodeURIComponent(carName)}`);
-    return response.data;
-  } catch (error) {
-    console.warn('Backend history unavailable, calculating from localStorage:', error.message);
-    const allOrders = JSON.parse(localStorage.getItem('driveease_orders') || '[]');
-    return allOrders.filter(o => o.carName?.toLowerCase() === carName?.toLowerCase());
-  }
+  const response = await api.get(`/booking/history/${encodeURIComponent(carName)}`);
+  return response.data;
 };
 
 // --- TELEMETRY & DIGITAL KEY ---
 export const getTelemetry = async (orderId) => {
-  try {
-    const response = await api.get(`/telemetry/${orderId}`);
-    return response.data;
-  } catch (error) {
-    return { orderId, locked: false, climateOn: true, temperature: 70, batteryLevel: 94, status: 'ONLINE' };
-  }
+  const response = await api.get(`/telemetry/${orderId}`);
+  return response.data;
 };
 
 export const toggleTelemetryLock = async (orderId) => {
-  try {
-    const response = await api.post(`/telemetry/${orderId}/lock`);
-    return response.data;
-  } catch (error) {
-    return { orderId, locked: true };
-  }
+  const response = await api.post(`/telemetry/${orderId}/lock`);
+  return response.data;
 };
 
 export const toggleTelemetryClimate = async (orderId) => {
-  try {
-    const response = await api.post(`/telemetry/${orderId}/climate`);
-    return response.data;
-  } catch (error) {
-    return { orderId, climateOn: false };
-  }
+  const response = await api.post(`/telemetry/${orderId}/climate`);
+  return response.data;
+};
+
+export const setTelemetryTemperature = async (orderId, temp) => {
+  const response = await api.post(`/telemetry/${orderId}/temperature`, null, { params: { temp } });
+  return response.data;
 };
 
 // --- ADMIN ANALYTICS ---
 export const getAdminAnalytics = async () => {
-  try {
-    const response = await api.get('/admin/analytics');
-    return response.data;
-  } catch (error) {
-    const cars = await getCars();
-    const orders = await getOrders();
-    const grossRevenue = orders.reduce((sum, o) => sum + (parseFloat(o.carPrice) || 0), 0);
-    return {
-      grossRevenue,
-      totalBookings: orders.length,
-      activeTrips: orders.filter(o => o.status !== 'CANCELLED').length,
-      totalCars: cars.length,
-      utilizationRate: 84.2,
-      averageRating: 4.92,
-      recentOrders: orders.slice(0, 5),
-    };
-  }
+  const response = await api.get('/admin/analytics');
+  return response.data;
+};
+
+// --- BUY & SELL MARKETPLACE OPERATIONS ---
+export const getSaleListings = async (filters = {}) => {
+  const response = await api.get('/marketplace/cars', { params: filters });
+  return response.data || [];
+};
+
+export const getSaleListingById = async (id) => {
+  const response = await api.get(`/marketplace/cars/${id}`);
+  return response.data;
+};
+
+export const createSaleListing = async (carData) => {
+  const response = await api.post('/marketplace/cars/sell', carData);
+  return response.data;
+};
+
+export const updateSaleListing = async (id, carData) => {
+  const response = await api.put(`/marketplace/cars/${id}`, carData);
+  return response.data;
+};
+
+export const deleteSaleListing = async (id) => {
+  const response = await api.delete(`/marketplace/cars/${id}`);
+  return response.data;
+};
+
+export const getMySaleListings = async () => {
+  const response = await api.get('/marketplace/my-listings');
+  return response.data || [];
+};
+
+export const submitPurchaseInquiry = async (inquiryData) => {
+  const response = await api.post('/marketplace/inquiries', inquiryData);
+  return response.data;
+};
+
+export const getMyPurchaseInquiries = async () => {
+  const response = await api.get('/marketplace/my-inquiries');
+  return response.data || [];
+};
+
+export const updateInquiryStatus = async (id, status) => {
+  const response = await api.put(`/marketplace/inquiries/${id}/status`, null, { params: { status } });
+  return response.data;
 };
 
 export const getCarImage = (type) => {

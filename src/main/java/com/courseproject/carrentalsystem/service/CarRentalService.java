@@ -6,8 +6,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -16,18 +15,18 @@ import java.util.stream.Collectors;
 public class CarRentalService {
 
     @Autowired
-    CarDetailRepository carDetailRepository;
+    private CarDetailRepository carDetailRepository;
 
     @PostConstruct
     public void seedDefaultFleet() {
         try {
             if (carDetailRepository.count() == 0) {
                 List<CarDetail> initialFleet = List.of(
-                    new CarDetail("car_1", "Model 3 Performance", "Tesla", 89.0, 4.95, "Electric", 5, "315 mi", "3.1s", "Electric", "/assets/cars/electric.jpg"),
-                    new CarDetail("car_2", "C-Class Sedan", "Mercedes-Benz", 115.0, 4.88, "Sedan", 5, "540 mi", "5.3s", "Gasoline", "/assets/cars/sedan.jpg"),
-                    new CarDetail("car_3", "X5 xDrive40i", "BMW", 135.0, 4.92, "SUV", 7, "480 mi", "4.8s", "Hybrid", "/assets/cars/suv.jpg"),
-                    new CarDetail("car_4", "911 Carrera Cabriolet", "Porsche", 240.0, 4.99, "Convertible", 4, "410 mi", "3.8s", "Gasoline", "/assets/cars/convertible.jpg"),
-                    new CarDetail("car_5", "Golf GTI Clubsport", "Volkswagen", 65.0, 4.79, "Hatchback", 5, "450 mi", "5.6s", "Gasoline", "/assets/cars/hatchback.jpg")
+                    new CarDetail("car_1", "Model 3 Performance", "Tesla", 4999.0, 4.95, "Electric", 5, "490 km", "3.1s", "Electric", "/assets/cars/electric.jpg"),
+                    new CarDetail("car_2", "C-Class Sedan", "Mercedes-Benz", 6499.0, 4.88, "Sedan", 5, "850 km", "5.3s", "Gasoline", "/assets/cars/sedan.jpg"),
+                    new CarDetail("car_3", "X5 xDrive40i", "BMW", 8499.0, 4.92, "SUV", 7, "750 km", "4.8s", "Hybrid", "/assets/cars/suv.jpg"),
+                    new CarDetail("car_4", "911 Carrera Cabriolet", "Porsche", 18999.0, 4.99, "Convertible", 4, "650 km", "3.8s", "Gasoline", "/assets/cars/convertible.jpg"),
+                    new CarDetail("car_5", "Golf GTI Clubsport", "Volkswagen", 3499.0, 4.79, "Hatchback", 5, "700 km", "5.6s", "Gasoline", "/assets/cars/hatchback.jpg")
                 );
                 carDetailRepository.saveAll(initialFleet);
             }
@@ -40,13 +39,29 @@ public class CarRentalService {
         return carDetailRepository.findAll();
     }
 
+    public List<CarDetail> getMyCars(String ownerEmail) {
+        if (ownerEmail == null || ownerEmail.trim().isEmpty()) {
+            return Collections.emptyList();
+        }
+        return carDetailRepository.findByOwnerEmailIgnoreCase(ownerEmail.trim());
+    }
+
+    public Optional<CarDetail> getCarByName(String name) {
+        if (name == null) return Optional.empty();
+        Optional<CarDetail> byName = carDetailRepository.findByNameIgnoreCase(name.trim());
+        if (byName.isPresent()) return byName;
+        return carDetailRepository.findAll().stream()
+                .filter(c -> c.getName() != null && c.getName().equalsIgnoreCase(name.trim()))
+                .findFirst();
+    }
+
     public List<CarDetail> getFilteredCars(String type, Integer seats, Double maxPrice, String search, String sortBy) {
         List<CarDetail> cars = carDetailRepository.findAll();
 
         return cars.stream()
             .filter(c -> {
                 if (type != null && !type.equalsIgnoreCase("All") && !type.trim().isEmpty()) {
-                    if (!c.getType().equalsIgnoreCase(type.trim())) return false;
+                    if (!c.getType().equalsIgnoreCase(type)) return false;
                 }
                 if (seats != null && seats > 0) {
                     if (c.getSeats() != seats) return false;
@@ -55,10 +70,11 @@ public class CarRentalService {
                     if (c.getPrice() > maxPrice) return false;
                 }
                 if (search != null && !search.trim().isEmpty()) {
-                    String query = search.trim().toLowerCase();
-                    boolean matchName = c.getName() != null && c.getName().toLowerCase().contains(query);
-                    boolean matchCompany = c.getCompany() != null && c.getCompany().toLowerCase().contains(query);
-                    if (!matchName && !matchCompany) return false;
+                    String query = search.toLowerCase();
+                    boolean match = c.getName().toLowerCase().contains(query)
+                            || c.getCompany().toLowerCase().contains(query)
+                            || c.getType().toLowerCase().contains(query);
+                    if (!match) return false;
                 }
                 return true;
             })
@@ -87,6 +103,9 @@ public class CarRentalService {
         if (carDetail.getId() == null || carDetail.getId().trim().isEmpty()) {
             carDetail.setId("car_" + System.currentTimeMillis());
         }
+        if (carDetail.getRating() <= 0) {
+            carDetail.setRating(5.0);
+        }
         return carDetailRepository.save(carDetail);
     }
 
@@ -104,6 +123,7 @@ public class CarRentalService {
             if (updatedCar.getAcceleration() != null) car.setAcceleration(updatedCar.getAcceleration());
             if (updatedCar.getFuelType() != null) car.setFuelType(updatedCar.getFuelType());
             if (updatedCar.getImageUrl() != null) car.setImageUrl(updatedCar.getImageUrl());
+            if (updatedCar.getOwnerEmail() != null) car.setOwnerEmail(updatedCar.getOwnerEmail());
             return Optional.of(carDetailRepository.save(car));
         }
         return Optional.empty();

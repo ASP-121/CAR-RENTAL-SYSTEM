@@ -11,11 +11,11 @@ export default function AdminFleet() {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
-    price: 95,
+    price: 4999,
     rating: 4.8,
     type: 'Sedan',
     seats: 5,
-    range: '450 mi',
+    range: '500 km',
     acceleration: '4.5s',
     fuelType: 'Gasoline',
     imageUrl: '',
@@ -218,7 +218,7 @@ export default function AdminFleet() {
                     <div className="text-[11px] text-[#131a33] font-semibold">{car.seats} Seats • {car.fuelType || 'Gas'}</div>
                     <div className="text-[10px] text-[#707881]">{car.range || '450 mi'} • {car.acceleration || '4.8s'}</div>
                   </td>
-                  <td className="py-4 px-6 font-extrabold text-sm text-[#006194]">${car.price}/day</td>
+                  <td className="py-4 px-6 font-extrabold text-sm text-[#006194]">₹{car.price?.toLocaleString('en-IN')}/day</td>
                   <td className="py-4 px-6 font-bold text-[#006947]">★ {car.rating || 4.9}</td>
                   <td className="py-4 px-6 text-right">
                     <div className="flex items-center justify-end gap-2">
@@ -321,11 +321,11 @@ export default function AdminFleet() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Price / Day ($)</label>
+                  <label className="block text-xs font-bold text-[#707881] mb-1 uppercase">Price / Day (₹)</label>
                   <input
                     type="number"
-                    min="20"
-                    step="5"
+                    min="500"
+                    step="100"
                     required
                     value={formData.price}
                     onChange={(e) => setFormData({ ...formData, price: e.target.value })}
